@@ -1,0 +1,30 @@
+{
+  "name": "squadservermanageroauth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Napster653/SquadServerManagerOauth.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Napster653/SquadServerManagerOauth/issues"
+  },
+  "homepage": "https://github.com/Napster653/SquadServerManagerOauth#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-ensure-login": "^0.1.1",
+    "cookie-parser": "^1.4.4",
+    "ejs": "^2.6.1",
+    "express": "^4.17.1",
+    "express-session": "^1.16.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "sqlite3": "^4.0.8"
+  }
+}
