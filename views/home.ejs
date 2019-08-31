@@ -5,25 +5,66 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<%- include partials/common.ejs %>
 	<title>Squad Server Manager</title>
 </head>
 
-<body>
-	<h1>Squad Server Manager</h1>
-
-	<ul>
-		<% if (!user) { %>
-		<li><a href="/login">Login</a></li>
-		<% } else { %>
-		<li><a href="/logout">Logout</a></li>
-		<% } %>
-		<li><a href="/">Home</a></li>
-	</ul>
+<body class="bg-dark text-white">
+	<%- include partials/navbar.ejs %>
 
 	<% if (user) { %>
-	<p>Hello, <%= user.username %>. View your <a href="/profile">profile</a>.</p>
+	<div class="container-fluid content-row">
+		<div class="row mt-3">
+			<% if (gameservers) { %>
+			<% for (var i = 0; i < gameservers.length; i++) { %>
+			<div class="col-4 mb-3">
+				<div class="card bg-dark border-info h-100">
+					<a class="text-decoration-none text-white" href="/gameservers/<%=i%>">
+						<div class="card-header border-info bg-info" style="overflow: hidden; white-space:nowrap; text-overflow: ellipsis"><%=gameservers[i].serverName%></div>
+						<div class="card-body">
+							<h6 class="card-title"><%=gameservers[i].serverName%></h6>
+							<p class="card-text"><%=gameservers[i].installationRoute%></p>
+						</div>
+					</a>
+					<div class="card-footer border-info p-2 text-center">
+						<a class="btn btn-info" href="/gameservers/<%=i%>/start"><i class="material-icons align-middle">play_arrow</i></a>
+						<a class="btn btn-info" href="/gameservers/<%=i%>/stop"><i class="material-icons align-middle">stop</i></a>
+						<a class="btn btn-info" href="/gameservers/<%=i%>/restart"><i class="material-icons align-middle">replay</i></a>
+					</div>
+				</div>
+			</div>
+			<% } %>
+			<% } %>
+			<div class="col-4 mb-3">
+				<div id="new-server-card" class="card bg-dark border-info h-100 text-center">
+					<a class="text-decoration-none text-white h-100 w-100" href="/gameservers/add">
+						<div class="card-body " style="line-height: 100%">
+							<br>
+							<h1 class="m-0">+</h1>
+							<br><br><br>
+							<p class="m-0 p-0">Add a new server</p>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$('#new-server-card').hover(
+			() =>
+			{
+				$('#new-server-card').removeClass('bg-dark').addClass('bg-info');
+			},
+			() =>
+			{
+				$('#new-server-card').removeClass('bg-info').addClass('bg-dark');
+			}
+		);
+	</script>
+	<% } else { %>
+	<!-- !user -->
+	<%- include partials/login.ejs %>
 	<% } %>
-
 </body>
 
 </html>

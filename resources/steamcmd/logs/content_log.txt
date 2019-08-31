@@ -1,0 +1,341 @@
+
+
+[2019-08-26 15:44:33] Loaded 0 apps from install folder "C:\GitHub\SquadServerManagerV2\resources\steamcmd\steamapps\appmanifest_*.acf".
+[2019-08-26 15:44:40] Loaded 2 apps from install folder "e:\abcdef\steamapps\appmanifest_*.acf".
+[2019-08-26 15:44:40] Start validating appID 403240
+[2019-08-26 15:44:40] AppID 403240 scheduler update : Priority First, legacy=no, restore="", timeSinceLastPlayed=1566827080, appDisableSecondsRemaining=0
+[2019-08-26 15:44:40] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-26 15:44:40] AppID 403240 state changed : Fully Installed,Update Queued,Update Running,
+[2019-08-26 15:44:40] AppID 403240 update changed : Running,
+[2019-08-26 15:44:40] AppID 403240 update changed : Running,Reconfiguring,
+[2019-08-26 15:44:41] Download system icon for AppID 403240 to C:\GitHub\SquadServerManagerV2\resources\steamcmd\steam\games/5cb6171b179fd2dc6a4a2dc49ef1760d0d839282.ico
+[2019-08-26 15:44:41] Got 30 download sources and 0 caching proxies via ContentServerDirectoryService::BYieldingGetServersForSteamPipe (40/3)
+[2019-08-26 15:44:41] Created download interface of type 'SteamCache' (7) to host cache4-mad1.steamcontent.com (cache4-mad1.steamcontent.com)
+[2019-08-26 15:44:41] Created download interface of type 'SteamCache' (7) to host cache1-mad1.steamcontent.com (cache1-mad1.steamcontent.com)
+[2019-08-26 15:44:41] Created download interface of type 'SteamCache' (7) to host cache1-mad1.steamcontent.com (cache1-mad1.steamcontent.com)
+[2019-08-26 15:44:41] Enabling ipv6 dual-stack
+[2019-08-26 15:44:41] HTTP (SteamCache,79) - cache1-mad1.steamcontent.com (155.133.246.12:80 / 155.133.246.12:80, host: cache1-mad1.steamcontent.com): CDepotHTTPDownloadInterface::BYldTestConnection - Server response 'OK' (200)
+[2019-08-26 15:44:41] HTTP (SteamCache,79) - cache1-mad1.steamcontent.com (155.133.246.12:80 / 155.133.246.12:80, host: cache1-mad1.steamcontent.com): CDepotHTTPDownloadInterface::BYldTestConnection - Server response 'OK' (200)
+[2019-08-26 15:44:41] Created ipv4-only http client
+[2019-08-26 15:44:41] HTTP (SteamCache,136) - cache4-mad1.steamcontent.com (0.0.0.0:0 / 0.0.0.0:0, host: cache4-mad1.steamcontent.com): AuthenticateDepotID (1004) - Success!
+[2019-08-26 15:44:41] HTTP (SteamCache,136) - cache4-mad1.steamcontent.com (155.133.246.11:80 / 155.133.246.11:80, host: cache4-mad1.steamcontent.com): cache4-mad1.steamcontent.com/depot/1004/manifest/2144826912121883656/5 - received 200 (OK) HTTP response
+[2019-08-26 15:44:42] HTTP (SteamCache,79) - cache1-mad1.steamcontent.com (155.133.246.12:80 / 155.133.246.12:80, host: cache1-mad1.steamcontent.com): AuthenticateDepotID (403241) - Success!
+[2019-08-26 15:44:42] HTTP (SteamCache,79) - cache1-mad1.steamcontent.com (155.133.246.12:80 / 155.133.246.12:80, host: cache1-mad1.steamcontent.com): cache1-mad1.steamcontent.com/depot/403241/manifest/4720622641063367744/5 - received 200 (OK) HTTP response
+[2019-08-26 15:44:42] HTTP (SteamCache,79) - cache1-mad1.steamcontent.com (155.133.246.12:80 / 155.133.246.12:80, host: cache1-mad1.steamcontent.com): AuthenticateDepotID (1123920) - Success!
+[2019-08-26 15:44:42] HTTP (SteamCache,79) - cache1-mad1.steamcontent.com (155.133.246.12:80 / 155.133.246.12:80, host: cache1-mad1.steamcontent.com): cache1-mad1.steamcontent.com/depot/1123920/manifest/5574333248123268789/5 - received 200 (OK) HTTP response
+[2019-08-26 15:44:42] AppID 403240 update changed : Running,
+[2019-08-26 15:44:42] AppID 403240 update changed : Running,Validating,
+[2019-08-26 15:44:42] Validating files (all active,full) ...
+[2019-08-26 15:45:37] File validation finished: 83 files (15244070986 bytes) total, 0 files (0 bytes) mismatched (54932 msec).
+[2019-08-26 15:45:37] AppID 403240 update changed : Running,
+[2019-08-26 15:45:37] AppID 403240 update changed : None
+[2019-08-26 15:45:37] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-26 15:45:37] AppID 403240 state changed : Fully Installed,
+[2019-08-26 15:45:37] AppID 403240 scheduler finished : removed from schedule
+[2019-08-26 15:45:37] HTTP (SteamCache,79) - cache1-mad1.steamcontent.com (155.133.246.12:80 / 155.133.246.12:80, host: cache1-mad1.steamcontent.com): Closing connection
+[2019-08-26 15:45:37] HTTP (SteamCache,79) - cache1-mad1.steamcontent.com (155.133.246.12:80 / 155.133.246.12:80, host: cache1-mad1.steamcontent.com): Closing connection
+[2019-08-26 15:45:37] HTTP (SteamCache,136) - cache4-mad1.steamcontent.com (155.133.246.11:80 / 155.133.246.11:80, host: cache4-mad1.steamcontent.com): Closing connection
+
+
+[2019-08-26 16:16:09] Loaded 0 apps from install folder "C:\GitHub\SquadServerManagerV2\resources\steamcmd\steamapps\appmanifest_*.acf".
+[2019-08-26 16:16:10] Loaded 2 apps from install folder "e:\abcdef\steamapps\appmanifest_*.acf".
+[2019-08-26 16:16:13] Start validating appID 403240
+[2019-08-26 16:16:13] AppID 403240 scheduler update : Priority First, legacy=no, restore="", timeSinceLastPlayed=1566828973, appDisableSecondsRemaining=0
+[2019-08-26 16:16:13] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-26 16:16:13] AppID 403240 state changed : Fully Installed,Update Queued,Update Running,
+[2019-08-26 16:16:13] AppID 403240 update changed : Running,
+[2019-08-26 16:16:13] AppID 403240 update changed : Running,Reconfiguring,
+[2019-08-26 16:16:13] AppID 403240 update changed : Running,
+[2019-08-26 16:16:13] AppID 403240 update changed : Running,Validating,
+[2019-08-26 16:16:13] Validating files (all active,full) ...
+[2019-08-26 16:17:06] File validation finished: 83 files (15244070986 bytes) total, 0 files (0 bytes) mismatched (53253 msec).
+[2019-08-26 16:17:06] AppID 403240 update changed : Running,
+[2019-08-26 16:17:06] AppID 403240 update changed : None
+[2019-08-26 16:17:06] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-26 16:17:06] AppID 403240 state changed : Fully Installed,
+[2019-08-26 16:17:06] AppID 403240 scheduler finished : removed from schedule
+
+
+[2019-08-26 16:17:37] Loaded 0 apps from install folder "C:\GitHub\SquadServerManagerV2\resources\steamcmd\steamapps\appmanifest_*.acf".
+[2019-08-26 16:17:39] Loaded 2 apps from install folder "e:\abcdef\steamapps\appmanifest_*.acf".
+[2019-08-26 16:17:40] Start validating appID 403240
+[2019-08-26 16:17:40] AppID 403240 scheduler update : Priority First, legacy=no, restore="", timeSinceLastPlayed=1566829060, appDisableSecondsRemaining=0
+[2019-08-26 16:17:40] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-26 16:17:40] AppID 403240 state changed : Fully Installed,Update Queued,Update Running,
+[2019-08-26 16:17:40] AppID 403240 update changed : Running,
+[2019-08-26 16:17:40] AppID 403240 update changed : Running,Reconfiguring,
+[2019-08-26 16:17:40] AppID 403240 update changed : Running,
+[2019-08-26 16:17:40] AppID 403240 update changed : Running,Validating,
+[2019-08-26 16:17:40] Validating files (all active,full) ...
+[2019-08-26 16:18:34] File validation finished: 83 files (15244070986 bytes) total, 0 files (0 bytes) mismatched (53729 msec).
+[2019-08-26 16:18:34] AppID 403240 update changed : Running,
+[2019-08-26 16:18:34] AppID 403240 update changed : None
+[2019-08-26 16:18:34] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-26 16:18:34] AppID 403240 state changed : Fully Installed,
+[2019-08-26 16:18:34] AppID 403240 scheduler finished : removed from schedule
+
+
+[2019-08-26 16:19:12] Loaded 0 apps from install folder "C:\GitHub\SquadServerManagerV2\resources\steamcmd\steamapps\appmanifest_*.acf".
+[2019-08-26 16:19:13] Loaded 2 apps from install folder "e:\abcdef\steamapps\appmanifest_*.acf".
+[2019-08-26 16:19:14] Start validating appID 403240
+[2019-08-26 16:19:14] AppID 403240 scheduler update : Priority First, legacy=no, restore="", timeSinceLastPlayed=1566829154, appDisableSecondsRemaining=0
+[2019-08-26 16:19:14] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-26 16:19:14] AppID 403240 state changed : Fully Installed,Update Queued,Update Running,
+[2019-08-26 16:19:14] AppID 403240 update changed : Running,
+[2019-08-26 16:19:14] AppID 403240 update changed : Running,Reconfiguring,
+[2019-08-26 16:19:14] AppID 403240 update changed : Running,
+[2019-08-26 16:19:14] AppID 403240 update changed : Running,Validating,
+[2019-08-26 16:19:14] Validating files (all active,full) ...
+[2019-08-26 16:20:08] File validation finished: 83 files (15244070986 bytes) total, 0 files (0 bytes) mismatched (54068 msec).
+[2019-08-26 16:20:08] AppID 403240 update changed : Running,
+[2019-08-26 16:20:08] AppID 403240 update changed : None
+[2019-08-26 16:20:08] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-26 16:20:08] AppID 403240 state changed : Fully Installed,
+[2019-08-26 16:20:08] AppID 403240 scheduler finished : removed from schedule
+
+
+[2019-08-26 16:32:41] Loaded 0 apps from install folder "C:\GitHub\SquadServerManagerV2\resources\steamcmd\steamapps\appmanifest_*.acf".
+[2019-08-26 16:32:48] Loaded 2 apps from install folder "e:\abcdef\steamapps\appmanifest_*.acf".
+[2019-08-26 16:32:49] Start validating appID 403240
+[2019-08-26 16:32:49] AppID 403240 scheduler update : Priority First, legacy=no, restore="", timeSinceLastPlayed=1566829969, appDisableSecondsRemaining=0
+[2019-08-26 16:32:49] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-26 16:32:49] AppID 403240 state changed : Fully Installed,Update Queued,Update Running,
+[2019-08-26 16:32:49] AppID 403240 update changed : Running,
+[2019-08-26 16:32:49] AppID 403240 update changed : Running,Reconfiguring,
+[2019-08-26 16:32:49] AppID 403240 update changed : Running,
+[2019-08-26 16:32:49] AppID 403240 update changed : Running,Validating,
+[2019-08-26 16:32:49] Validating files (all active,full) ...
+[2019-08-26 16:33:43] File validation finished: 83 files (15244070986 bytes) total, 0 files (0 bytes) mismatched (53672 msec).
+[2019-08-26 16:33:43] AppID 403240 update changed : Running,
+[2019-08-26 16:33:43] AppID 403240 update changed : None
+[2019-08-26 16:33:43] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-26 16:33:43] AppID 403240 state changed : Fully Installed,
+[2019-08-26 16:33:43] AppID 403240 scheduler finished : removed from schedule
+
+
+[2019-08-26 16:51:36] Loaded 0 apps from install folder "C:\GitHub\SquadServerManagerV2\resources\steamcmd\steamapps\appmanifest_*.acf".
+[2019-08-26 16:51:38] Loaded 2 apps from install folder "e:\abcdef\steamapps\appmanifest_*.acf".
+[2019-08-26 16:51:39] Start validating appID 403240
+[2019-08-26 16:51:39] AppID 403240 scheduler update : Priority First, legacy=no, restore="", timeSinceLastPlayed=1566831099, appDisableSecondsRemaining=0
+[2019-08-26 16:51:39] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-26 16:51:39] AppID 403240 state changed : Fully Installed,Update Queued,Update Running,
+[2019-08-26 16:51:39] AppID 403240 update changed : Running,
+[2019-08-26 16:51:39] AppID 403240 update changed : Running,Reconfiguring,
+[2019-08-26 16:51:39] AppID 403240 update changed : Running,
+[2019-08-26 16:51:39] AppID 403240 update changed : Running,Validating,
+[2019-08-26 16:51:39] Validating files (all active,full) ...
+[2019-08-26 16:52:33] File validation finished: 83 files (15244070986 bytes) total, 0 files (0 bytes) mismatched (54390 msec).
+[2019-08-26 16:52:33] AppID 403240 update changed : Running,
+[2019-08-26 16:52:33] AppID 403240 update changed : None
+[2019-08-26 16:52:33] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-26 16:52:33] AppID 403240 state changed : Fully Installed,
+[2019-08-26 16:52:33] AppID 403240 scheduler finished : removed from schedule
+
+
+[2019-08-26 16:54:02] Loaded 0 apps from install folder "C:\GitHub\SquadServerManagerV2\resources\steamcmd\steamapps\appmanifest_*.acf".
+[2019-08-26 16:54:04] Loaded 2 apps from install folder "e:\abcdef\steamapps\appmanifest_*.acf".
+[2019-08-26 16:54:05] Start validating appID 403240
+[2019-08-26 16:54:05] AppID 403240 scheduler update : Priority First, legacy=no, restore="", timeSinceLastPlayed=1566831245, appDisableSecondsRemaining=0
+[2019-08-26 16:54:05] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-26 16:54:06] AppID 403240 state changed : Fully Installed,Update Queued,Update Running,
+[2019-08-26 16:54:06] AppID 403240 update changed : Running,
+[2019-08-26 16:54:06] AppID 403240 update changed : Running,Reconfiguring,
+[2019-08-26 16:54:06] AppID 403240 update changed : Running,
+[2019-08-26 16:54:06] AppID 403240 update changed : Running,Validating,
+[2019-08-26 16:54:06] Validating files (all active,full) ...
+[2019-08-26 16:54:59] File validation finished: 83 files (15244070986 bytes) total, 0 files (0 bytes) mismatched (53216 msec).
+[2019-08-26 16:54:59] AppID 403240 update changed : Running,
+[2019-08-26 16:54:59] AppID 403240 update changed : None
+[2019-08-26 16:54:59] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-26 16:54:59] AppID 403240 state changed : Fully Installed,
+[2019-08-26 16:54:59] AppID 403240 scheduler finished : removed from schedule
+
+
+[2019-08-27 12:24:16] Loaded 0 apps from install folder "C:\GitHub\SquadServerManagerV2\resources\steamcmd\steamapps\appmanifest_*.acf".
+[2019-08-27 12:24:23] Loaded 2 apps from install folder "e:\abcdef\steamapps\appmanifest_*.acf".
+[2019-08-27 12:24:24] Start validating appID 403240
+[2019-08-27 12:24:24] AppID 403240 scheduler update : Priority First, legacy=no, restore="", timeSinceLastPlayed=1566901464, appDisableSecondsRemaining=0
+[2019-08-27 12:24:24] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-27 12:24:24] AppID 403240 state changed : Fully Installed,Update Queued,Update Running,
+[2019-08-27 12:24:24] AppID 403240 update changed : Running,
+[2019-08-27 12:24:24] AppID 403240 update changed : Running,Reconfiguring,
+[2019-08-27 12:24:24] AppID 403240 update changed : Running,
+[2019-08-27 12:24:24] AppID 403240 update changed : Running,Validating,
+[2019-08-27 12:24:24] Validating files (all active,full) ...
+[2019-08-27 12:25:22] File validation finished: 83 files (15244070986 bytes) total, 0 files (0 bytes) mismatched (57948 msec).
+[2019-08-27 12:25:22] AppID 403240 update changed : Running,
+[2019-08-27 12:25:22] AppID 403240 update changed : None
+[2019-08-27 12:25:22] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-27 12:25:22] AppID 403240 state changed : Fully Installed,
+[2019-08-27 12:25:22] AppID 403240 scheduler finished : removed from schedule
+
+
+[2019-08-27 12:57:19] Loaded 0 apps from install folder "C:\GitHub\SquadServerManagerV2\resources\steamcmd\steamapps\appmanifest_*.acf".
+[2019-08-27 12:57:20] Loaded 2 apps from install folder "e:\abcdef\steamapps\appmanifest_*.acf".
+[2019-08-27 12:57:21] Start validating appID 403240
+[2019-08-27 12:57:21] AppID 403240 scheduler update : Priority First, legacy=no, restore="", timeSinceLastPlayed=1566903441, appDisableSecondsRemaining=0
+[2019-08-27 12:57:21] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-27 12:57:21] AppID 403240 state changed : Fully Installed,Update Queued,Update Running,
+[2019-08-27 12:57:21] AppID 403240 update changed : Running,
+[2019-08-27 12:57:21] AppID 403240 update changed : Running,Reconfiguring,
+[2019-08-27 12:57:21] AppID 403240 update changed : Running,
+[2019-08-27 12:57:21] AppID 403240 update changed : Running,Validating,
+[2019-08-27 12:57:21] Validating files (all active,full) ...
+[2019-08-27 12:58:16] File validation finished: 83 files (15244070986 bytes) total, 0 files (0 bytes) mismatched (54888 msec).
+[2019-08-27 12:58:16] AppID 403240 update changed : Running,
+[2019-08-27 12:58:16] AppID 403240 update changed : None
+[2019-08-27 12:58:16] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-27 12:58:16] AppID 403240 state changed : Fully Installed,
+[2019-08-27 12:58:16] AppID 403240 scheduler finished : removed from schedule
+
+
+[2019-08-27 13:02:11] Loaded 0 apps from install folder "C:\GitHub\SquadServerManagerV2\resources\steamcmd\steamapps\appmanifest_*.acf".
+[2019-08-27 13:02:12] Loaded 2 apps from install folder "e:\abcdef\steamapps\appmanifest_*.acf".
+[2019-08-27 13:02:13] Start validating appID 403240
+[2019-08-27 13:02:13] AppID 403240 scheduler update : Priority First, legacy=no, restore="", timeSinceLastPlayed=1566903733, appDisableSecondsRemaining=0
+[2019-08-27 13:02:13] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-27 13:02:13] AppID 403240 state changed : Fully Installed,Update Queued,Update Running,
+[2019-08-27 13:02:13] AppID 403240 update changed : Running,
+[2019-08-27 13:02:13] AppID 403240 update changed : Running,Reconfiguring,
+[2019-08-27 13:02:13] AppID 403240 update changed : Running,
+[2019-08-27 13:02:13] AppID 403240 update changed : Running,Validating,
+[2019-08-27 13:02:13] Validating files (all active,full) ...
+[2019-08-27 13:03:15] File validation finished: 83 files (15244070986 bytes) total, 0 files (0 bytes) mismatched (61392 msec).
+[2019-08-27 13:03:15] AppID 403240 update changed : Running,
+[2019-08-27 13:03:15] AppID 403240 update changed : None
+[2019-08-27 13:03:15] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-27 13:03:15] AppID 403240 state changed : Fully Installed,
+[2019-08-27 13:03:15] AppID 403240 scheduler finished : removed from schedule
+
+
+[2019-08-27 14:41:40] Loaded 0 apps from install folder "C:\GitHub\SquadServerManagerV2\resources\steamcmd\steamapps\appmanifest_*.acf".
+[2019-08-27 14:41:41] Loaded 2 apps from install folder "e:\abcdef\steamapps\appmanifest_*.acf".
+[2019-08-27 14:41:42] Start validating appID 403240
+[2019-08-27 14:41:42] AppID 403240 scheduler update : Priority First, legacy=no, restore="", timeSinceLastPlayed=1566909702, appDisableSecondsRemaining=0
+[2019-08-27 14:41:42] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-27 14:41:43] AppID 403240 state changed : Fully Installed,Update Queued,Update Running,
+[2019-08-27 14:41:43] AppID 403240 update changed : Running,
+[2019-08-27 14:41:43] AppID 403240 update changed : Running,Reconfiguring,
+[2019-08-27 14:41:43] AppID 403240 update changed : Running,
+[2019-08-27 14:41:43] AppID 403240 update changed : Running,Validating,
+[2019-08-27 14:41:43] Validating files (all active,full) ...
+[2019-08-27 14:42:37] File validation finished: 83 files (15244070986 bytes) total, 0 files (0 bytes) mismatched (53964 msec).
+[2019-08-27 14:42:37] AppID 403240 update changed : Running,
+[2019-08-27 14:42:37] AppID 403240 update changed : None
+[2019-08-27 14:42:37] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-27 14:42:37] AppID 403240 state changed : Fully Installed,
+[2019-08-27 14:42:37] AppID 403240 scheduler finished : removed from schedule
+
+
+[2019-08-27 14:44:01] Loaded 0 apps from install folder "C:\GitHub\SquadServerManagerV2\resources\steamcmd\steamapps\appmanifest_*.acf".
+[2019-08-27 14:44:02] Loaded 2 apps from install folder "e:\abcdef\steamapps\appmanifest_*.acf".
+[2019-08-27 14:44:05] Start validating appID 403240
+[2019-08-27 14:44:05] AppID 403240 scheduler update : Priority First, legacy=no, restore="", timeSinceLastPlayed=1566909845, appDisableSecondsRemaining=0
+[2019-08-27 14:44:05] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-27 14:44:05] AppID 403240 state changed : Fully Installed,Update Queued,Update Running,
+[2019-08-27 14:44:05] AppID 403240 update changed : Running,
+[2019-08-27 14:44:05] AppID 403240 update changed : Running,Reconfiguring,
+[2019-08-27 14:44:05] AppID 403240 update changed : Running,
+[2019-08-27 14:44:05] AppID 403240 update changed : Running,Validating,
+[2019-08-27 14:44:05] Validating files (all active,full) ...
+[2019-08-27 14:44:57] File validation finished: 83 files (15244070986 bytes) total, 0 files (0 bytes) mismatched (52279 msec).
+[2019-08-27 14:44:57] AppID 403240 update changed : Running,
+[2019-08-27 14:44:57] AppID 403240 update changed : None
+[2019-08-27 14:44:57] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-27 14:44:57] AppID 403240 state changed : Fully Installed,
+[2019-08-27 14:44:57] AppID 403240 scheduler finished : removed from schedule
+
+
+[2019-08-27 14:51:43] Loaded 0 apps from install folder "C:\GitHub\SquadServerManagerV2\resources\steamcmd\steamapps\appmanifest_*.acf".
+[2019-08-27 14:51:44] Loaded 2 apps from install folder "e:\abcdef\steamapps\appmanifest_*.acf".
+[2019-08-27 14:51:46] Start validating appID 403240
+[2019-08-27 14:51:46] AppID 403240 scheduler update : Priority First, legacy=no, restore="", timeSinceLastPlayed=1566910306, appDisableSecondsRemaining=0
+[2019-08-27 14:51:46] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-27 14:51:46] AppID 403240 state changed : Fully Installed,Update Queued,Update Running,
+[2019-08-27 14:51:46] AppID 403240 update changed : Running,
+[2019-08-27 14:51:46] AppID 403240 update changed : Running,Reconfiguring,
+[2019-08-27 14:51:46] AppID 403240 update changed : Running,
+[2019-08-27 14:51:46] AppID 403240 update changed : Running,Validating,
+[2019-08-27 14:51:46] Validating files (all active,full) ...
+[2019-08-27 14:52:38] File validation finished: 83 files (15244070986 bytes) total, 0 files (0 bytes) mismatched (52149 msec).
+[2019-08-27 14:52:38] AppID 403240 update changed : Running,
+[2019-08-27 14:52:38] AppID 403240 update changed : None
+[2019-08-27 14:52:38] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-27 14:52:38] AppID 403240 state changed : Fully Installed,
+[2019-08-27 14:52:38] AppID 403240 scheduler finished : removed from schedule
+
+
+[2019-08-27 15:05:27] Loaded 0 apps from install folder "C:\GitHub\SquadServerManagerV2\resources\steamcmd\steamapps\appmanifest_*.acf".
+[2019-08-27 15:05:28] Loaded 2 apps from install folder "e:\abcdef\steamapps\appmanifest_*.acf".
+[2019-08-27 15:05:29] Start validating appID 403240
+[2019-08-27 15:05:29] AppID 403240 scheduler update : Priority First, legacy=no, restore="", timeSinceLastPlayed=1566911129, appDisableSecondsRemaining=0
+[2019-08-27 15:05:29] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-27 15:05:29] AppID 403240 state changed : Fully Installed,Update Queued,Update Running,
+[2019-08-27 15:05:29] AppID 403240 update changed : Running,
+[2019-08-27 15:05:29] AppID 403240 update changed : Running,Reconfiguring,
+[2019-08-27 15:05:29] AppID 403240 update changed : Running,
+[2019-08-27 15:05:29] AppID 403240 update changed : Running,Validating,
+[2019-08-27 15:05:29] Validating files (all active,full) ...
+[2019-08-27 15:06:23] File validation finished: 83 files (15244070986 bytes) total, 0 files (0 bytes) mismatched (53130 msec).
+[2019-08-27 15:06:23] AppID 403240 update changed : Running,
+[2019-08-27 15:06:23] AppID 403240 update changed : None
+[2019-08-27 15:06:23] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-27 15:06:23] AppID 403240 state changed : Fully Installed,
+[2019-08-27 15:06:23] AppID 403240 scheduler finished : removed from schedule
+
+
+[2019-08-28 15:27:07] Loaded 0 apps from install folder "C:\GitHub\SquadServerManagerV2\resources\steamcmd\steamapps\appmanifest_*.acf".
+[2019-08-28 15:27:13] Loaded 2 apps from install folder "e:\abcdef\steamapps\appmanifest_*.acf".
+[2019-08-28 15:27:15] Start validating appID 403240
+[2019-08-28 15:27:15] AppID 403240 scheduler update : Priority First, legacy=no, restore="", timeSinceLastPlayed=1566998835, appDisableSecondsRemaining=0
+[2019-08-28 15:27:15] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-28 15:27:15] AppID 403240 state changed : Fully Installed,Update Queued,Update Running,
+[2019-08-28 15:27:15] AppID 403240 update changed : Running,
+[2019-08-28 15:27:15] AppID 403240 update changed : Running,Reconfiguring,
+[2019-08-28 15:27:15] AppID 403240 update changed : Running,
+[2019-08-28 15:27:15] AppID 403240 update changed : Running,Validating,
+[2019-08-28 15:27:15] Validating files (all active,full) ...
+[2019-08-28 15:28:09] File validation finished: 83 files (15244070986 bytes) total, 0 files (0 bytes) mismatched (54188 msec).
+[2019-08-28 15:28:09] AppID 403240 update changed : Running,
+[2019-08-28 15:28:09] AppID 403240 update changed : None
+[2019-08-28 15:28:09] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-28 15:28:09] AppID 403240 state changed : Fully Installed,
+[2019-08-28 15:28:09] AppID 403240 scheduler finished : removed from schedule
+
+
+[2019-08-28 15:28:30] Loaded 0 apps from install folder "C:\GitHub\SquadServerManagerV2\resources\steamcmd\steamapps\appmanifest_*.acf".
+[2019-08-28 15:28:31] Loaded 2 apps from install folder "e:\abcdef\steamapps\appmanifest_*.acf".
+[2019-08-28 15:28:32] Start validating appID 403240
+[2019-08-28 15:28:32] AppID 403240 scheduler update : Priority First, legacy=no, restore="", timeSinceLastPlayed=1566998912, appDisableSecondsRemaining=0
+[2019-08-28 15:28:32] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-28 15:28:32] AppID 403240 state changed : Fully Installed,Update Queued,Update Running,
+[2019-08-28 15:28:32] AppID 403240 update changed : Running,
+[2019-08-28 15:28:32] AppID 403240 update changed : Running,Reconfiguring,
+[2019-08-28 15:28:32] AppID 403240 update changed : Running,
+[2019-08-28 15:28:32] AppID 403240 update changed : Running,Validating,
+[2019-08-28 15:28:32] Validating files (all active,full) ...
+[2019-08-28 15:29:27] File validation finished: 83 files (15244070986 bytes) total, 0 files (0 bytes) mismatched (54438 msec).
+[2019-08-28 15:29:27] AppID 403240 update changed : Running,
+[2019-08-28 15:29:27] AppID 403240 update changed : None
+[2019-08-28 15:29:27] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-28 15:29:27] AppID 403240 state changed : Fully Installed,
+[2019-08-28 15:29:27] AppID 403240 scheduler finished : removed from schedule
+
+
+[2019-08-28 15:29:57] Loaded 0 apps from install folder "C:\GitHub\SquadServerManagerV2\resources\steamcmd\steamapps\appmanifest_*.acf".
+[2019-08-28 15:29:59] Loaded 2 apps from install folder "e:\abcdef\steamapps\appmanifest_*.acf".
+[2019-08-28 15:30:00] Start validating appID 403240
+[2019-08-28 15:30:00] AppID 403240 scheduler update : Priority First, legacy=no, restore="", timeSinceLastPlayed=1566999000, appDisableSecondsRemaining=0
+[2019-08-28 15:30:00] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-28 15:30:00] AppID 403240 state changed : Fully Installed,Update Queued,Update Running,
+[2019-08-28 15:30:00] AppID 403240 update changed : Running,
+[2019-08-28 15:30:00] AppID 403240 update changed : Running,Reconfiguring,
+[2019-08-28 15:30:00] AppID 403240 update changed : Running,
+[2019-08-28 15:30:00] AppID 403240 update changed : Running,Validating,
+[2019-08-28 15:30:00] Validating files (all active,full) ...
+[2019-08-28 15:30:52] File validation finished: 83 files (15244070986 bytes) total, 0 files (0 bytes) mismatched (51978 msec).
+[2019-08-28 15:30:52] AppID 403240 update changed : Running,
+[2019-08-28 15:30:52] AppID 403240 update changed : None
+[2019-08-28 15:30:52] AppID 403240 state changed : Fully Installed,Update Queued,
+[2019-08-28 15:30:52] AppID 403240 state changed : Fully Installed,
+[2019-08-28 15:30:52] AppID 403240 scheduler finished : removed from schedule

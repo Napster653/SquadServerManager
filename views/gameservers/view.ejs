@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<%- include ../partials/common.ejs %>
+	<title>Squad Server Manager</title>
+</head>
+
+<body class="bg-dark text-white">
+	<%- include ../partials/navbar.ejs %>
+
+	<% if (user) { %>
+	<div class="mx-5 mt-3">
+		<h2><%=gameserver.serverName%>
+			<span id="service-status-badge" class="badge badge-secondary">...</span>
+		</h2>
+		<h5><%=gameserver.installationRoute%></h5>
+		<div class="row mt-3">
+			<div class="col-12 col-md-6 row">
+				<p class="col-6 text-right font-weight-bold m-0 pb-1">Port: </p>
+				<p class="col-6 m-0 p-0"><%= gameserver.port %></p>
+				<p class="col-6 text-right font-weight-bold m-0 pb-1">Query port: </p>
+				<p class="col-6 m-0 p-0"><%= gameserver.queryPort %></p>
+				<p class="col-6 text-right font-weight-bold m-0 pb-1">Fixed max players: </p>
+				<p class="col-6 m-0 p-0"><%= gameserver.fixedMaxPlayers %></p>
+				<p class="col-6 text-right font-weight-bold m-0 pb-1">Fixed max tickrate: </p>
+				<% if (gameserver.fixedMaxTickRate != "0") { %>
+				<p class="col-6 m-0 p-0"><%= gameserver.fixedMaxTickRate %></p>
+				<% } else { %>
+				<p class="col-6 m-0 p-0"><span class="material-icons">close</span></p>
+				<!-- <p class="col-6 m-0 p-0">Disabled</p> -->
+				<% } %>
+			</div>
+			<div class="col-12 col-md-6 row">
+				<p class="col-6 text-right font-weight-bold m-0">Prefer preprocessor: </p>
+				<% if (gameserver.preferPreprocessor != "") { %>
+				<p class="col-6 m-0 p-0"><%= gameserver.preferPreprocessor %></p>
+				<% } else { %>
+				<p class="col-6 m-0 p-0"><span class="material-icons">close</span></p>
+				<% } %>
+				<p class="col-6 text-right font-weight-bold m-0">Log: </p>
+				<% if (gameserver.log) { %>
+				<p class="col-6 m-0 p-0"><span class="material-icons">check</span></p>
+				<% } else { %>
+				<p class="col-6 m-0 p-0"><span class="material-icons">close</span></p>
+				<% } %>
+				<p class="col-6 text-right font-weight-bold m-0">Full crash dump: </p>
+				<% if (gameserver.fullCrashDump) { %>
+				<p class="col-6 m-0 p-0"><span class="material-icons">check</span></p>
+				<% } else { %>
+				<p class="col-6 m-0 p-0"><span class="material-icons">close</span></p>
+				<% } %>
+			</div>
+		</div>
+	</div>
+	<div class="row mx-5 mt-3">
+		<div class="col-12 text-center align-self-center row">
+			<button id="button-start" class="btn btn-light col-2 col-xl-1 mx-auto d-flex" disabled>
+				<div id="button-start-icon" class="w-25 p-0">
+					<span class="material-icons align-top">play_arrow</span>
+				</div>
+				<div id="button-start-label" class="w-75">
+					Start
+				</div>
+			</button>
+			<button id="button-stop" class="btn btn-light col-2 col-xl-1 mx-auto d-flex" disabled>
+				<div id="button-stop-icon" class="w-25 p-0">
+					<span class="material-icons align-top">stop</span>
+				</div>
+				<div id="button-stop-label" class="w-75">
+					Stop
+				</div>
+			</button>
+			<button id="button-restart" class="btn btn-light col-2 col-xl-1 mx-auto d-flex" disabled>
+				<div id="button-restart-icon" class="w-25 p-0">
+					<span class="material-icons align-top">replay</span>
+				</div>
+				<div id="button-restart-label" class="w-75">
+					Restart
+				</div>
+			</button>
+			<a id="button-config" class="btn btn-light col-2 col-xl-1 mx-auto d-flex disabled" href="/gameservers/<%=gameserver.id%>/config">
+				<div class="w-25 p-0">
+					<span class="material-icons align-top">tune</span>
+				</div>
+				<div class="w-75">
+					Settings
+				</div>
+			</a>
+			<script>
+				(function status_check()
+				{
+					$.ajax({
+						url: '/gameservers/<%=gameserver.id%>/getStatus',
+						type: 'GET',
+						success: function (data)
+						{
+							handleServiceStatus(data.service_status);
+						},
+						complete: function ()
+						{
+							setTimeout(status_check, 100);
+						}
+					});
+				})();
+				function handleServiceStatus(service_status)
+				{
+					switch (service_status)
+					{
+						case 'SERVICE_START_PENDING':
+							$("#button-start").prop("disabled", true);
+							if (!$("#service-status-badge").hasClass("badge-warning"))
+								$("#button-start-icon").html("<span class=\"spinner-border spinner-border-sm position-absolute\" style=\"top: 30%\"></span>");
+							$("#button-start-label").html("Starting...");
+							$("#button-stop").prop("disabled", true);
+							$("#button-stop-icon").html("<span class=\"material-icons align-top\">stop</span>");
+							$("#button-stop-label").html("Stop");
+							$("#button-restart").prop("disabled", true);
+							$("#button-restart-icon").html("<span class=\"material-icons align-top\">replay</span>");
+							$("#button-restart-label").html("Restart");
+							$("#button-config").addClass("disabled");
+							$("#service-status-badge").removeClass().addClass("badge badge-warning").html("Starting...");
+							break;
+						case 'SERVICE_STOP_PENDING':
+							$("#button-start").prop("disabled", true);
+							$("#button-start-icon").html("<span class=\"material-icons align-top\">play_arrow</span>");
+							$("#button-start-label").html("Start");
+							$("#button-stop").prop("disabled", true);
+							if (!$("#service-status-badge").hasClass("badge-warning"))
+								$("#button-stop-icon").html("<span class=\"spinner-border spinner-border-sm position-absolute\" style=\"top: 30%\"></span>");
+							$("#button-stop-label").html("Stopping...");
+							$("#button-restart").prop("disabled", true);
+							$("#button-restart-icon").html("<span class=\"material-icons align-top\">replay</span>");
+							$("#button-restart-label").html("Restart");
+							$("#button-config").addClass("disabled");
+							$("#service-status-badge").removeClass().addClass("badge badge-warning").html("Stopping...");
+							break;
+						case 'SERVICE_RUNNING':
+							$("#button-start").prop("disabled", true);
+							$("#button-start-icon").html("<span class=\"material-icons align-top\">play_arrow</span>");
+							$("#button-start-label").html("Start");
+							$("#button-stop").prop("disabled", false);
+							$("#button-stop-icon").html("<span class=\"material-icons align-top\">stop</span>");
+							$("#button-stop-label").html("Stop");
+							$("#button-restart").prop("disabled", false);
+							$("#button-restart-icon").html("<span class=\"material-icons align-top\">replay</span>");
+							$("#button-restart-label").html("Restart");
+							$("#button-config").addClass("disabled");
+							$("#service-status-badge").removeClass().addClass("badge badge-success").html("Running");
+							break;
+						case 'SERVICE_STOPPED':
+							$("#button-start").prop("disabled", false);
+							$("#button-start-icon").html("<span class=\"material-icons align-top\">play_arrow</span>");
+							$("#button-start-label").html("Start");
+							$("#button-stop").prop("disabled", true);
+							$("#button-stop-icon").html("<span class=\"material-icons align-top\">stop</span>");
+							$("#button-stop-label").html("Stop");
+							$("#button-restart").prop("disabled", true);
+							$("#button-restart-icon").html("<span class=\"material-icons align-top\">replay</span>");
+							$("#button-restart-label").html("Restart");
+							$("#button-config").removeClass("disabled");
+							$("#service-status-badge").removeClass().addClass("badge badge-danger").html("Stopped");
+							break;
+						default:
+							$("#service-status-badge").removeClass().addClass("badge badge-primary").html("ERROR");
+							break;
+					}
+				}
+				$(document).ready(function ()
+				{
+					$("#button-start").click(function ()
+					{
+						console.log("START");
+						$.ajax({
+							url: "/gameservers/<%=gameserver.id%>/start",
+							type: 'GET',
+							success: function (data)
+							{
+								console.log('START ACK');
+							},
+							error: function (req, status, error)
+							{
+								console.log(status + error);
+							}
+						});
+					});
+					$("#button-stop").click(function ()
+					{
+						console.log("STOP");
+						$.ajax({
+							url: "/gameservers/<%=gameserver.id%>/stop",
+							type: 'GET',
+							success: function ()
+							{
+								console.log('STOP ACK');
+							},
+							error: function (req, status, error)
+							{
+								console.log(status + error);
+							}
+						});
+					});
+					$("#button-restart").click(function ()
+					{
+						console.log("RESTART");
+						$.ajax({
+							url: "/gameservers/<%=gameserver.id%>/restart",
+							type: 'GET',
+							success: function (data)
+							{
+								console.log('RESTART ACK');
+							},
+							error: function (req, status, error)
+							{
+								console.log(status + error);
+							}
+						});
+					});
+				});
+			</script>
+		</div>
+	</div>
+
+	<div class="row mx-5 mt-3 pt-2 border-top border-info">
+		<div class="col-12 mb-4">
+			<h1>Server configuration:</h1>
+			<a class="btn btn-info" href="#">Server.cfg</a>
+			<a class="btn btn-info" href="#">ServerMessages.cfg</a>
+			<a class="btn btn-info" href="#">MapRotation.cfg</a>
+			<a class="btn btn-info" href="#">MOTD.cfg</a>
+			<a class="btn btn-info" href="#">License.cfg</a>
+			<a class="btn btn-info" href="#">Rcon.cfg</a>
+		</div>
+		<div class="col-12 mb-4">
+			<h1>Server Admins</h1>
+			<a class="btn btn-info" href="#">Admins.cfg</a>
+			<a class="btn btn-info" href="#">RemoteAdminListHosts.cfg</a>
+		</div>
+		<div class="col-12 mb-4">
+			<h1>Server Bans</h1>
+			<a class="btn btn-info" href="#">Bans.cfg</a>
+			<a class="btn btn-info" href="#">RemoteBanListHosts.cfg</a>
+		</div>
+		<div class="col-12 mb-4">
+			<h1>Danger Zone</h1>
+			<a class="btn btn-danger" href="#">Uninstall Server</a>
+		</div>
+	</div>
+
+	<% } else { %>
+	<!-- !user -->
+	<%- include ../partials/login.ejs %>
+	<% } %>
+</body>
+
+</html>

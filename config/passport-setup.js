@@ -1,26 +1,37 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const bcrypt = require('bcrypt');
 
-passport.use(new LocalStrategy(function (username, password, cb)
+var sql_select_all = 'SELECT * FROM users WHERE username = ?';
+
+passport.use(new LocalStrategy({ passReqToCallback: true }, function (req, username, password, callback)
 {
-	db.get('SELECT * FROM users WHERE username = ?', [username], (err, row) =>
+	db.get(sql_select_all, [username], (err, row) =>
 	{
-		if (err || typeof row == 'undefined') { return cb(err); }
-		console.log(row.username + ' ' + row.password + ' ' + row.accountType);
-		if (row.password != password) { return cb(null, false); }
-		return cb(null, row);
+		if (err) { return callback(err); }
+		if (typeof row == 'undefined')
+		{
+			return callback(null, false, { 'message': 'Wrong username or password' });
+		}
+		bcrypt.compare(password, row.password, (err, res) =>
+		{
+			if (err) { throw err };
+			if (!res) { return callback(null, false, { 'message': 'Wrong username or password' }); }
+			else { return callback(null, row); }
+		});
 	});
 }));
 
-passport.serializeUser(function (user, cb)
+passport.serializeUser(function (user, callback)
 {
-	cb(null, user.username);
+	callback(null, user.username);
 });
 
-passport.deserializeUser(function (username, cb)
+passport.deserializeUser(function (username, callback)
 {
-	db.get('SELECT * FROM users WHERE username = ?', [username], (err, row) =>
+	db.get(sql_select_all, [username], (err, row) =>
 	{
-		return cb(null, row);
+		if (err) throw err;
+		return callback(null, row);
 	});
 });

@@ -17,14 +17,20 @@
   },
   "homepage": "https://github.com/Napster653/SquadServerManagerOauth#readme",
   "dependencies": {
+    "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
+    "config": "^3.2.2",
     "connect-ensure-login": "^0.1.1",
+    "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.4",
     "ejs": "^2.6.1",
     "express": "^4.17.1",
     "express-session": "^1.16.1",
+    "node-pty": "^0.8.1",
+    "nssm": "^0.1.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "sqlite3": "^4.0.8"
+    "sqlite3": "^4.0.8",
+    "steamcmd": "^3.0.0"
   }
 }

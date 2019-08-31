@@ -1,0 +1,15 @@
+[
+	{
+		"id": 0,
+		"serverName": "My First Server",
+		"installationRoute": "E:\\abcdef",
+		"port": "7770",
+		"queryPort": "8880",
+		"fixedMaxPlayers": "80",
+		"fixedMaxTickRate": "35",
+		"random": "",
+		"preferPreprocessor": "",
+		"log": "true",
+		"fullCrashDump": "true"
+	}
+]

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<%- include ../partials/common.ejs %>
+	<title>Squad Server Manager</title>
+</head>
+
+<body class="bg-dark text-white">
+	<%- include ../partials/navbar.ejs %>
+
+	<% if (user) { %>
+
+	<div class="w-75 mx-auto mt-5">
+		<h2>Add an existing server or create a new one</h2>
+	</div>
+
+	<form class="col-6 mx-auto mt-5 needs-validation" action="/gameservers/add" method="POST">
+		<div class="form-group">
+			<label for="serverNameInput">Server name (This is not the in-game name)</label>
+			<input class="form-control" id="serverNameInput" type="text" name="serverName" placeholder="My Squad Server" required>
+			<br>
+			<label for="installationRouteInput">Server route</label>
+			<input class="form-control" id="installationRouteInput" type="text" name="installationRoute" placeholder="C:\MySquadServer" required>
+			<br>
+			<button class="btn btn-primary w-100" type="submit" value="Submit">Submit</button>
+		</div>
+	</form>
+
+	<% } else { %>
+	<!-- !user -->
+	<%- include ../partials/login.ejs %>
+	<% } %>
+</body>
+
+</html>

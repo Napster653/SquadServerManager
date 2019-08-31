@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<%- include ../partials/common.ejs %>
+	<title>Squad Server Manager</title>
+</head>
+
+<body class="bg-dark text-white">
+	<%- include ../partials/navbar.ejs %>
+
+	<% if (user) { %>
+
+	<div class="w-75 mx-auto mt-5">
+		<h2 class="text-center">Your server is being installed</h2>
+		<p class="text-center mb-1">Please be patient, this will take a while</p>
+		<p class="text-center mt-1 mb-3">If a server exists already, it will be validated and updated if necessary</p>
+		<hr class="bg-white">
+
+		<h4 id="validating-label" class="text-center mb-2">Validating...</h4>
+		<div id="validating-div" class="progress w-75 mx-auto mb-3">
+			<div id="validating-bar" class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+		</div>
+
+		<h4 id="preallocating-label" class="text-center mb-2">Preallocating...</h4>
+		<div id="preallocating-div" class="progress w-75 mx-auto mb-3">
+			<div id="preallocating-bar" class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+		</div>
+
+		<h4 id="downloading-label" class="text-center mb-2">Downloading...</h4>
+		<div id="downloading-div" class="progress w-75 mx-auto mb-3">
+			<div id="downloading-bar" class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+		</div>
+
+		<div id="finished-msg" class="m-0 mt-3 p-0 row d-none">
+			<h1 class="text-center mt-4 col-12">Your server is ready</h1>
+			<a class="btn btn-info col-3 ml-auto" href="/">Homepage</a>
+			<span class="col-1"></span>
+			<a class="btn btn-info col-3 mr-auto" href="#">Server configuration</a>
+		</div>
+	</div>
+
+	<script>
+		var finished = false;
+
+		(function worker()
+		{
+			$.ajax({
+				url: '/gameservers/progress',
+				success: function (data)
+				{
+					if (data.install_status == 'Validating...')
+					{
+						$('#validating-bar').width(data.progress_validating + "%").html(data.progress_validating + "%");
+					}
+					else if (data.install_status == 'Preallocating...')
+					{
+						$('#validating-bar').width("100%").html("100%");
+						$('#preallocating-bar').width(data.progress_preallocating + "%").html(data.progress_preallocating + "%");
+					}
+					else if (data.install_status == 'Downloading...')
+					{
+						$('#validating-bar').width("100%").html("100%");
+						$('#preallocating-bar').width("100%").html("100%");
+						$('#downloading-bar').width(data.progress_downloading + "%").html(data.progress_downloading + "%");
+					}
+					else if (data.install_status == 'Finished')
+					{
+						$('#preallocating-bar').width("100%").html("100%");
+						$('#validating-bar').width("100%").html("100%");
+						$('#downloading-bar').width("100%").html("100%");
+						$('#finished-msg').removeClass('d-none');
+						finished = true;
+					}
+				},
+				complete: function ()
+				{
+					if (!finished)
+						setTimeout(worker, 500);
+				}
+			});
+		})();
+	</script>
+
+	<% } else { %>
+	<!-- !user -->
+	<%- include ../partials/login.ejs %>
+	<% } %>
+</body>
+
+</html>

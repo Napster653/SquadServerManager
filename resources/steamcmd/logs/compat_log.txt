@@ -1,0 +1,51 @@
+
+
+[2019-08-26 15:44:33] No local tool list detected at C:\GitHub\SquadServerManagerV2\resources\steamcmd/compatibilitytools.vdf.
+
+
+[2019-08-26 16:16:09] No local tool list detected at C:\GitHub\SquadServerManagerV2\resources\steamcmd/compatibilitytools.vdf.
+
+
+[2019-08-26 16:17:37] No local tool list detected at C:\GitHub\SquadServerManagerV2\resources\steamcmd/compatibilitytools.vdf.
+
+
+[2019-08-26 16:19:12] No local tool list detected at C:\GitHub\SquadServerManagerV2\resources\steamcmd/compatibilitytools.vdf.
+
+
+[2019-08-26 16:32:42] No local tool list detected at C:\GitHub\SquadServerManagerV2\resources\steamcmd/compatibilitytools.vdf.
+
+
+[2019-08-26 16:51:36] No local tool list detected at C:\GitHub\SquadServerManagerV2\resources\steamcmd/compatibilitytools.vdf.
+
+
+[2019-08-26 16:54:03] No local tool list detected at C:\GitHub\SquadServerManagerV2\resources\steamcmd/compatibilitytools.vdf.
+
+
+[2019-08-27 12:24:16] No local tool list detected at C:\GitHub\SquadServerManagerV2\resources\steamcmd/compatibilitytools.vdf.
+
+
+[2019-08-27 12:57:19] No local tool list detected at C:\GitHub\SquadServerManagerV2\resources\steamcmd/compatibilitytools.vdf.
+
+
+[2019-08-27 13:02:11] No local tool list detected at C:\GitHub\SquadServerManagerV2\resources\steamcmd/compatibilitytools.vdf.
+
+
+[2019-08-27 14:41:40] No local tool list detected at C:\GitHub\SquadServerManagerV2\resources\steamcmd/compatibilitytools.vdf.
+
+
+[2019-08-27 14:44:01] No local tool list detected at C:\GitHub\SquadServerManagerV2\resources\steamcmd/compatibilitytools.vdf.
+
+
+[2019-08-27 14:51:43] No local tool list detected at C:\GitHub\SquadServerManagerV2\resources\steamcmd/compatibilitytools.vdf.
+
+
+[2019-08-27 15:05:27] No local tool list detected at C:\GitHub\SquadServerManagerV2\resources\steamcmd/compatibilitytools.vdf.
+
+
+[2019-08-28 15:27:07] No local tool list detected at C:\GitHub\SquadServerManagerV2\resources\steamcmd/compatibilitytools.vdf.
+
+
+[2019-08-28 15:28:30] No local tool list detected at C:\GitHub\SquadServerManagerV2\resources\steamcmd/compatibilitytools.vdf.
+
+
+[2019-08-28 15:29:57] No local tool list detected at C:\GitHub\SquadServerManagerV2\resources\steamcmd/compatibilitytools.vdf.

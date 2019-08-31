@@ -1,30 +1,22 @@
 const express = require('express');
-const passport = require('passport');
-const sqlite3 = require('sqlite3');
+const flash = require('connect-flash');
 const fs = require('fs');
+const passport = require('passport');
+const steamcmd = require('steamcmd');
+
+const databaseSetup = require('./config/database-setup');
 const passportSetup = require('./config/passport-setup');
+const child_process = require('child_process');
 
-if (!fs.existsSync('./db')) { fs.mkdirSync('./db'); }
+// const Nssm = require('nssm');
+// var svc = Nssm('SquadServerManager_0', { nssmExe: 'resources/nssm/nssm.exe' });
+// svc.restart(function (err, stdout)
+// {
+// 	if (err) console.log(err);
+// 	else console.log(stdout);
+// });
 
-db = new sqlite3.Database('./db/users.db', (err) =>
-{
-	if (err) throw err;
-	console.log('Database created');
-});
-
-db.exec('CREATE TABLE IF NOT EXISTS users (username TEXT NOT NULL PRIMARY KEY, password TEXT NOT NULL, accountType TEXT NOT NULL)', (err) =>
-{
-	if (err) throw err;
-	console.log('Table created');
-});
-
-db.run('INSERT OR REPLACE INTO users VALUES (?, ?, ?)', ['myUser', 'myPass', 'Administrator'], (err) =>
-{
-	if (err) throw err;
-	console.log('Row inserted');
-});
-
-// db.close();
+steamcmd.download({ binDir: 'resources/steamcmd' });
 
 var app = express();
 
@@ -33,36 +25,36 @@ app.set('view engine', 'ejs');
 app.use(require('cookie-parser')());
 app.use(require('body-parser').urlencoded({ extended: true }));
 app.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
-
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
-app.get('/', function (req, res)
+app.use(function (req, res, next)
 {
-	res.render('home', { user: req.user });
+	res.locals.user = req.user;
+	res.locals.gameservers = JSON.parse(fs.readFileSync('config/gameservers.json'));
+	res.locals.message = req.flash('error');
+
+	console.log('\nA request was received: ' + req.method + req.url +
+		'\n\tUser: ' + res.locals.user +
+		'\n\tGameservers: ' + res.locals.gameservers +
+		'\n\tres.locals.message: ' + res.locals.message);
+
+	next();
 });
 
-app.get('/login', function (req, res)
+app.use(require('./routes/index.js'));
+app.use(require('./routes/account.js'));
+app.use(require('./routes/gameservers.js'));
+
+app.get('/favicon.ico', (req, res) =>
 {
-	res.render('login', { user: req.user });
+	res.sendFile(__dirname + "/favicon.ico");
 });
 
-app.post('/login', passport.authenticate('local', { failureRedirect: '/login' }),
-	function (req, res)
-	{
-		res.redirect('/');
-	});
 
-app.get('/logout', function (req, res)
+var server = app.listen(6530, () =>
 {
-	req.logout();
-	res.redirect('/');
+	var port = server.address().port;
+	console.log("Server running on port " + port);
 });
-
-app.get('/profile', require('connect-ensure-login').ensureLoggedIn(),
-	function (req, res)
-	{
-		res.render('profile', { user: req.user });
-	});
-
-app.listen(6530);

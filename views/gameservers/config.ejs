@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<%- include ../partials/common.ejs %>
+	<title>Squad Server Manager</title>
+</head>
+
+<body class="bg-dark text-white">
+	<%- include ../partials/navbar.ejs %>
+
+	<% if (user) { %>
+
+	<h3 class="mx-5 my-3">You are editing server instance <%= gameserver.id %></h3>
+	<h5 class="mx-5 mb-3">Installed at <%= gameserver.installationRoute %></h5>
+	<div class="row">
+		<form id="configForm" action="/gameservers/<%= gameserver.id %>/config" method="POST" class="col-10 col-md-6 mx-auto needs-validaton" novalidate>
+			<div class="form-group">
+				<label for="serverNameInput">Server name *</label>
+				<input type="text" class="form-control" id="serverNameInput" name="serverName" value="<%= gameserver.serverName %>" required>
+			</div>
+			<div class="col-12 row p-0 m-0">
+				<div class="form-group col-6 pl-0">
+					<label for="portInput">Port *</label>
+					<input type="number" class="form-control" id="portInput" name="port" value="<%= gameserver.port %>" required>
+				</div>
+				<div class="form-group col-6 pr-0">
+					<label for="queryPortInput">Query port *</label>
+					<input type="number" class="form-control" id="queryPortInput" name="queryPort" value="<%= gameserver.queryPort %>" required>
+				</div>
+			</div>
+			<div class="col-12 row p-0 m-0">
+				<div class="form-group col-6 pl-0">
+					<label for="fixedMaxPlayersInput">Fixed max players *</label>
+					<input type="number" class="form-control" id="fixedMaxPlayersInput" name="fixedMaxPlayers" value="<%= gameserver.fixedMaxPlayers %>" required>
+				</div>
+				<div class="form-group col-6 pr-0">
+					<label for="fixedMaxTickRateInput">Fixed max tickrate</label>
+					<input type="number" class="form-control" id="fixedMaxTickRateInput" name="fixedMaxTickRate" value="<%= gameserver.fixedMaxTickRate == 0 ? "" : gameserver.fixedMaxTickRate %>">
+				</div>
+			</div>
+			<div class="col-12 row p-0 m-0">
+				<div class="form-group col-6 pl-0">
+					<label for="randomInput">Random</label>
+					<select class="custom-select" id="randomInput" name="random">
+						<option value="" <%= gameserver.random == "" ? "selected" : "" %>></option>
+						<option value="ALWAYS" <%= gameserver.random == "ALWAYS" ? "selected" : "" %>>Always</option>
+						<option value="FIRST" <%= gameserver.random == "FIRST" ? "selected" : "" %>>First</option>
+						<option value="NONE" <%= gameserver.random == "NONE" ? "selected" : "" %>>None</option>
+					</select>
+				</div>
+				<div class="form-group col-6 pr-0">
+					<label for="preferPreprocessorInput">Prefer preprocessor</label>
+					<input type="text" class="form-control" id="preferPreprocessorInput" name="preferPreprocessor" value="<%= gameserver.preferPreprocessor == "" ? "" : gameserver.preferPreprocessor %>">
+				</div>
+			</div>
+			<div class="form-check col-12 my-1">
+				<input type="checkbox" class="form-check-input" id="logInput" name="log" <%= gameserver.log ? "checked" : "" %>>
+				<label for="logInput" class="form-check-label">Log</label>
+			</div>
+			<div class="form-check col-12 my-1">
+				<input type="checkbox" class="form-check-input" id="fullCrashDumpInput" name="fullCrashDump" <%= gameserver.fullCrashDump ? "checked" : "" %>>
+				<label for="fullCrashDumpInput" class="form-check-label">Full crash dump</label>
+			</div>
+			<button type="submit" class="btn btn-primary mx-auto col-12 mt-1">Submit</button>
+		</form>
+		<script>
+			(function ()
+			{
+				window.addEventListener('load', function ()
+				{
+					var myForm = document.getElementById('configForm');
+					myForm.addEventListener('submit', function (event)
+					{
+						console.log(myForm.checkValidity());
+						if (myForm.checkValidity() === false)
+						{
+							event.preventDefault();
+							event.stopPropagation();
+						}
+						myForm.classList.add('was-validated');
+					}, false);
+				}, false);
+			})();
+		</script>
+	</div>
+
+	<% } else { %>
+	<!-- !user -->
+	<%- include ../partials/login.ejs %>
+	<% } %>
+</body>
+
+</html>

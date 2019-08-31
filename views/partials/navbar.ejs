@@ -1,0 +1,11 @@
+<nav class="navbar navbar-expand border-bottom border-info">
+	<a class="navbar-brand text-white" href="/">Squad Server Manager</a>
+	<ul class="nav navbar-nav ml-auto">
+		<% if (!locals.user) { %>
+		<li class="nav-item"><a class="nav-link text-white" href="/login">Login</a></li>
+		<% } else { %>
+		<span class="navbar-text text-muted mr-0 pr-0">Logged in as <a class="nav-link text-info d-inline ml-0 pl-0" href="/profile"><%= user.username %></a></span>
+		<li class="nav-item"><a class="nav-link text-white" href="/logout">Logout</a></li>
+		<% } %>
+	</ul>
+</nav>
