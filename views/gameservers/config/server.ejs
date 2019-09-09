@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<%- include ../../partials/common.ejs %>
+	<title>Squad Server Manager</title>
+</head>
+
+<body class="bg-dark text-white">
+	<%- include ../../partials/navbar.ejs %>
+
+	<% if (user) { %>
+	<% if (gameserverconfig_server) { %>
+	<form action="/gameservers/<%= gameserver.Id %>/config/server" method="POST">
+		<table class="table table-dark">
+			<thead>
+				<tr>
+					<th scope="col" data-toggle="tooltip" data-placement="right" title="Use this setting or just ignore it">Toggle</th>
+					<th scope="col" data-toggle="tooltip" data-placement="right" title="Reset to default values">Default</th>
+					<th scope="col">Key</th>
+					<th scope="col">Value</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['ServerName'].ignored ? "" : "active" %>">
+								<input type="radio" value="on" name="ServerNameToggle" <%= gameserverconfig_server['ServerName'].ignored ? "" : "checked" %>> On
+							</label>
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['ServerName'].ignored ? "active" : "" %>">
+								<input type="radio" value="off" name="ServerNameToggle" <%= gameserverconfig_server['ServerName'].ignored ? "checked" : "" %>> Off
+							</label>
+						</div>
+					</td>
+					<td><button class="btn btn-sm btn-info">Default</button></td>
+					<td data-toggle="tooltip" data-placement="right" title="In-game server name">ServerName</td>
+					<td class="w-100"><input class="form-control form-control-sm" type="text" name="ServerName" value="<%= gameserverconfig_server['ServerName'].value %>"></td>
+				</tr>
+				<tr>
+					<td>
+						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['MaxPlayers'].ignored ? "" : "active" %>">
+								<input type="radio" value="on" name="MaxPlayersToggle" <%= gameserverconfig_server['MaxPlayers'].ignored ? "" : "checked" %>> On
+							</label>
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['MaxPlayers'].ignored ? "active" : "" %>">
+								<input type="radio" value="off" name="MaxPlayersToggle" <%= gameserverconfig_server['MaxPlayers'].ignored ? "checked" : "" %>> Off
+							</label>
+						</div>
+					</td>
+					<td><button class="btn btn-sm btn-info">Default</button></td>
+					<td data-toggle="tooltip" data-placement="right" title="Maximum number of players in the server">MaxPlayers</td>
+					<td class="w-100"><input class="form-control form-control-sm" type="text" name="MaxPlayers" value="<%= gameserverconfig_server['MaxPlayers'].value %>"></td>
+				</tr>
+				<tr>
+					<td>
+						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['NumReservedSlots'].ignored ? "" : "active" %>">
+								<input type="radio" value="on" name="NumReservedSlotsToggle" <%= gameserverconfig_server['NumReservedSlots'].ignored ? "" : "checked" %>> On
+							</label>
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['NumReservedSlots'].ignored ? "active" : "" %>">
+								<input type="radio" value="off" name="NumReservedSlotsToggle" <%= gameserverconfig_server['NumReservedSlots'].ignored ? "checked" : "" %>> Off
+							</label>
+						</div>
+					</td>
+					<td><button class="btn btn-sm btn-info">Default</button></td>
+					<td data-toggle="tooltip" data-placement="right" title="The number of reserved slots in the server">NumReservedSlots</td>
+					<td class="w-100"><input class="form-control form-control-sm" type="text" name="NumReservedSlots" value="<%= gameserverconfig_server['NumReservedSlots'].value %>"></td>
+				</tr>
+				<tr>
+					<td>
+						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['IsLANMatch'].ignored ? "" : "active" %>">
+								<input type="radio" value="on" name="IsLANMatchToggle" <%= gameserverconfig_server['IsLANMatch'].ignored ? "" : "checked" %>> On
+							</label>
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['IsLANMatch'].ignored ? "active" : "" %>">
+								<input type="radio" value="off" name="IsLANMatchToggle" <%= gameserverconfig_server['IsLANMatch'].ignored ? "checked" : "" %>> Off
+							</label>
+						</div>
+					</td>
+					<td><button class="btn btn-sm btn-info">Default</button></td>
+					<td data-toggle="tooltip" data-placement="right" title="Is the server for LAN usage? 'true' or 'false' only">IsLANMatch</td>
+					<td class="w-100"><input class="form-control form-control-sm" type="text" name="IsLANMatch" value="<%= gameserverconfig_server['IsLANMatch'].value %>"></td>
+				</tr>
+				<tr>
+					<td>
+						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['ShouldAdvertise'].ignored ? "" : "active" %>">
+								<input type="radio" value="on" name="ShouldAdvertiseToggle" <%= gameserverconfig_server['ShouldAdvertise'].ignored ? "" : "checked" %>> On
+							</label>
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['ShouldAdvertise'].ignored ? "active" : "" %>">
+								<input type="radio" value="off" name="ShouldAdvertiseToggle" <%= gameserverconfig_server['ShouldAdvertise'].ignored ? "checked" : "" %>> Off
+							</label>
+						</div>
+					</td>
+					<td><button class="btn btn-sm btn-info">Default</button></td>
+					<td data-toggle="tooltip" data-placement="right" title="Should the server be shown in the server browser? 'true' or 'false' only">ShouldAdvertise</td>
+					<td class="w-100"><input class="form-control form-control-sm" type="text" name="ShouldAdvertise" value="<%= gameserverconfig_server['ShouldAdvertise'].value %>"></td>
+				</tr>
+				<tr>
+					<td>
+						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['NumPlayersDiffForTeamChanges'].ignored ? "" : "active" %>">
+								<input type="radio" value="on" name="NumPlayersDiffForTeamChangesToggle" <%= gameserverconfig_server['NumPlayersDiffForTeamChanges'].ignored ? "" : "checked" %>> On
+							</label>
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['NumPlayersDiffForTeamChanges'].ignored ? "active" : "" %>">
+								<input type="radio" value="off" name="NumPlayersDiffForTeamChangesToggle" <%= gameserverconfig_server['NumPlayersDiffForTeamChanges'].ignored ? "checked" : "" %>> Off
+							</label>
+						</div>
+					</td>
+					<td><button class="btn btn-sm btn-info">Default</button></td>
+					<td data-toggle="tooltip" data-placement="right" title="The difference in players must be less than # to allow team changes">NumPlayersDiffForTeamChanges</td>
+					<td class="w-100"><input class="form-control form-control-sm" type="text" name="NumPlayersDiffForTeamChanges" value="<%= gameserverconfig_server['NumPlayersDiffForTeamChanges'].value %>"></td>
+				</tr>
+				<tr>
+					<td>
+						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['AllowTeamChanges'].ignored ? "" : "active" %>">
+								<input type="radio" value="on" name="AllowTeamChangesToggle" <%= gameserverconfig_server['AllowTeamChanges'].ignored ? "" : "checked" %>> On
+							</label>
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['AllowTeamChanges'].ignored ? "active" : "" %>">
+								<input type="radio" value="off" name="AllowTeamChangesToggle" <%= gameserverconfig_server['AllowTeamChanges'].ignored ? "checked" : "" %>> Off
+							</label>
+						</div>
+					</td>
+					<td><button class="btn btn-sm btn-info">Default</button></td>
+					<td data-toggle="tooltip" data-placement="right" title="Whether players can change team on their own. 'true' or 'false' only">AllowTeamChanges</td>
+					<td class="w-100"><input class="form-control form-control-sm" type="text" name="AllowTeamChanges" value="<%= gameserverconfig_server['AllowTeamChanges'].value %>"></td>
+				</tr>
+				<tr>
+					<td>
+						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['PreventTeamChangeIfUnbalanced'].ignored ? "" : "active" %>">
+								<input type="radio" value="on" name="PreventTeamChangeIfUnbalancedToggle" <%= gameserverconfig_server['PreventTeamChangeIfUnbalanced'].ignored ? "" : "checked" %>> On
+							</label>
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['PreventTeamChangeIfUnbalanced'].ignored ? "active" : "" %>">
+								<input type="radio" value="off" name="PreventTeamChangeIfUnbalancedToggle" <%= gameserverconfig_server['PreventTeamChangeIfUnbalanced'].ignored ? "checked" : "" %>> Off
+							</label>
+						</div>
+					</td>
+					<td><button class="btn btn-sm btn-info">Default</button></td>
+					<td data-toggle="tooltip" data-placement="right" title="Prevent players from changing team if the teams are unbalanced">PreventTeamChangeIfUnbalanced</td>
+					<td class="w-100"><input class="form-control form-control-sm" type="text" name="PreventTeamChangeIfUnbalanced" value="<%= gameserverconfig_server['PreventTeamChangeIfUnbalanced'].value %>"></td>
+				</tr>
+				<tr>
+					<td>
+						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['EnforceTeamBalance'].ignored ? "" : "active" %>">
+								<input type="radio" value="on" name="EnforceTeamBalanceToggle" <%= gameserverconfig_server['EnforceTeamBalance'].ignored ? "" : "checked" %>> On
+							</label>
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['EnforceTeamBalance'].ignored ? "active" : "" %>">
+								<input type="radio" value="off" name="EnforceTeamBalanceToggle" <%= gameserverconfig_server['EnforceTeamBalance'].ignored ? "checked" : "" %>> Off
+							</label>
+						</div>
+					</td>
+					<td><button class="btn btn-sm btn-info">Default</button></td>
+					<td data-toggle="tooltip" data-placement="right" title="Enforce team balance">EnforceTeamBalance</td>
+					<td class="w-100"><input class="form-control form-control-sm" type="text" name="EnforceTeamBalance" value="<%= gameserverconfig_server['EnforceTeamBalance'].value %>"></td>
+				</tr>
+				<tr>
+					<td>
+						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['RejoinSquadDelayAfterKick'].ignored ? "" : "active" %>">
+								<input type="radio" value="on" name="RejoinSquadDelayAfterKickToggle" <%= gameserverconfig_server['RejoinSquadDelayAfterKick'].ignored ? "" : "checked" %>> On
+							</label>
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['RejoinSquadDelayAfterKick'].ignored ? "active" : "" %>">
+								<input type="radio" value="off" name="RejoinSquadDelayAfterKickToggle" <%= gameserverconfig_server['RejoinSquadDelayAfterKick'].ignored ? "checked" : "" %>> Off
+							</label>
+						</div>
+					</td>
+					<td><button class="btn btn-sm btn-info">Default</button></td>
+					<td data-toggle="tooltip" data-placement="right" title="Players kicked from a squad must wait # seconds to join again">RejoinSquadDelayAfterKick</td>
+					<td class="w-100"><input class="form-control form-control-sm" type="text" name="RejoinSquadDelayAfterKick" value="<%= gameserverconfig_server['RejoinSquadDelayAfterKick'].value %>"></td>
+				</tr>
+				<tr>
+					<td>
+						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['RecordDemos'].ignored ? "" : "active" %>">
+								<input type="radio" value="on" name="RecordDemosToggle" <%= gameserverconfig_server['RecordDemos'].ignored ? "" : "checked" %>> On
+							</label>
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['RecordDemos'].ignored ? "active" : "" %>">
+								<input type="radio" value="off" name="RecordDemosToggle" <%= gameserverconfig_server['RecordDemos'].ignored ? "checked" : "" %>> Off
+							</label>
+						</div>
+					</td>
+					<td><button class="btn btn-sm btn-info">Default</button></td>
+					<td data-toggle="tooltip" data-placement="right" title="Record demos">RecordDemos</td>
+					<td class="w-100"><input class="form-control form-control-sm" type="text" name="RecordDemos" value="<%= gameserverconfig_server['RecordDemos'].value %>"></td>
+				</tr>
+				<tr>
+					<td>
+						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['ServerMessageInterval'].ignored ? "" : "active" %>">
+								<input type="radio" value="on" name="ServerMessageIntervalToggle" <%= gameserverconfig_server['ServerMessageInterval'].ignored ? "" : "checked" %>> On
+							</label>
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['ServerMessageInterval'].ignored ? "active" : "" %>">
+								<input type="radio" value="off" name="ServerMessageIntervalToggle" <%= gameserverconfig_server['ServerMessageInterval'].ignored ? "checked" : "" %>> Off
+							</label>
+						</div>
+					</td>
+					<td><button class="btn btn-sm btn-info">Default</button></td>
+					<td data-toggle="tooltip" data-placement="right" title="Interval at which server messages in ServerMessages.cfg will be sent">ServerMessageInterval</td>
+					<td class="w-100"><input class="form-control form-control-sm" type="text" name="ServerMessageInterval" value="<%= gameserverconfig_server['ServerMessageInterval'].value %>"></td>
+				</tr>
+				<tr>
+					<td>
+						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['ForceNonSeamlessTravelIntervalSeconds'].ignored ? "" : "active" %>">
+								<input type="radio" value="on" name="ForceNonSeamlessTravelIntervalSecondsToggle" <%= gameserverconfig_server['ForceNonSeamlessTravelIntervalSeconds'].ignored ? "" : "checked" %>> On
+							</label>
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['ForceNonSeamlessTravelIntervalSeconds'].ignored ? "active" : "" %>">
+								<input type="radio" value="off" name="ForceNonSeamlessTravelIntervalSecondsToggle" <%= gameserverconfig_server['ForceNonSeamlessTravelIntervalSeconds'].ignored ? "checked" : "" %>> Off
+							</label>
+						</div>
+					</td>
+					<td><button class="btn btn-sm btn-info">Default</button></td>
+					<td data-toggle="tooltip" data-placement="right" title="Forces the server to do non-seamless travel (disconnect when changing maps) every # seconds">ForceNonSeamlessTravelIntervalSeconds</td>
+					<td class="w-100"><input class="form-control form-control-sm" type="text" name="ForceNonSeamlessTravelIntervalSeconds" value="<%= gameserverconfig_server['ForceNonSeamlessTravelIntervalSeconds'].value %>"></td>
+				</tr>
+				<tr>
+					<td>
+						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['TKAutoKickEnabled'].ignored ? "" : "active" %>">
+								<input type="radio" value="on" name="TKAutoKickEnabledToggle" <%= gameserverconfig_server['TKAutoKickEnabled'].ignored ? "" : "checked" %>> On
+							</label>
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['TKAutoKickEnabled'].ignored ? "active" : "" %>">
+								<input type="radio" value="off" name="TKAutoKickEnabledToggle" <%= gameserverconfig_server['TKAutoKickEnabled'].ignored ? "checked" : "" %>> Off
+							</label>
+						</div>
+					</td>
+					<td><button class="btn btn-sm btn-info">Default</button></td>
+					<td data-toggle="tooltip" data-placement="right" title="Automatically kick players after multiple teamkills">TKAutoKickEnabled <span class="badge badge-warning">License</span></td>
+					<td class="w-100"><input class="form-control form-control-sm" type="text" name="TKAutoKickEnabled" value="<%= gameserverconfig_server['TKAutoKickEnabled'].value %>"></td>
+				</tr>
+				<tr>
+					<td>
+						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['VehicleKitRequirementDisabled'].ignored ? "" : "active" %>">
+								<input type="radio" value="on" name="VehicleKitRequirementDisabledToggle" <%= gameserverconfig_server['VehicleKitRequirementDisabled'].ignored ? "" : "checked" %>> On
+							</label>
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['VehicleKitRequirementDisabled'].ignored ? "active" : "" %>">
+								<input type="radio" value="off" name="VehicleKitRequirementDisabledToggle" <%= gameserverconfig_server['VehicleKitRequirementDisabled'].ignored ? "checked" : "" %>> Off
+							</label>
+						</div>
+					</td>
+					<td><button class="btn btn-sm btn-info">Default</button></td>
+					<td data-toggle="tooltip" data-placement="right" title="true = you can use heavy vehicles without crewman kit">VehicleKitRequirementDisabled <span class="badge badge-warning">License</span></td>
+					<td class="w-100"><input class="form-control form-control-sm" type="text" name="VehicleKitRequirementDisabled" value="<%= gameserverconfig_server['VehicleKitRequirementDisabled'].value %>"></td>
+				</tr>
+				<tr>
+					<td>
+						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['AllowCommunityAdminAccess'].ignored ? "" : "active" %>">
+								<input type="radio" value="on" name="AllowCommunityAdminAccessToggle" <%= gameserverconfig_server['AllowCommunityAdminAccess'].ignored ? "" : "checked" %>> On
+							</label>
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['AllowCommunityAdminAccess'].ignored ? "active" : "" %>">
+								<input type="radio" value="off" name="AllowCommunityAdminAccessToggle" <%= gameserverconfig_server['AllowCommunityAdminAccess'].ignored ? "checked" : "" %>> Off
+							</label>
+						</div>
+					</td>
+					<td><button class="btn btn-sm btn-info">Default</button></td>
+					<td data-toggle="tooltip" data-placement="right" title="Only Offworld Industries developers are admins">AllowCommunityAdminAccess <span class="badge badge-warning">License</span></td>
+					<td class="w-100"><input class="form-control form-control-sm" type="text" name="AllowCommunityAdminAccess" value="<%= gameserverconfig_server['AllowCommunityAdminAccess'].value %>"></td>
+				</tr>
+				<tr>
+					<td>
+						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['AllowDevProfiling'].ignored ? "" : "active" %>">
+								<input type="radio" value="on" name="AllowDevProfilingToggle" <%= gameserverconfig_server['AllowDevProfiling'].ignored ? "" : "checked" %>> On
+							</label>
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['AllowDevProfiling'].ignored ? "active" : "" %>">
+								<input type="radio" value="off" name="AllowDevProfilingToggle" <%= gameserverconfig_server['AllowDevProfiling'].ignored ? "checked" : "" %>> Off
+							</label>
+						</div>
+					</td>
+					<td><button class="btn btn-sm btn-info">Default</button></td>
+					<td data-toggle="tooltip" data-placement="right" title="Allow devs to run performance profiles on the server">AllowDevProfiling <span class="badge badge-warning">License</span></td>
+					<td class="w-100"><input class="form-control form-control-sm" type="text" name="AllowDevProfiling" value="<%= gameserverconfig_server['AllowDevProfiling'].value %>"></td>
+				</tr>
+				<tr>
+					<td>
+						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['AllowQA'].ignored ? "" : "active" %>">
+								<input type="radio" value="on" name="AllowQAToggle" <%= gameserverconfig_server['AllowQA'].ignored ? "" : "checked" %>> On
+							</label>
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['AllowQA'].ignored ? "active" : "" %>">
+								<input type="radio" value="off" name="AllowQAToggle" <%= gameserverconfig_server['AllowQA'].ignored ? "checked" : "" %>> Off
+							</label>
+						</div>
+					</td>
+					<td><button class="btn btn-sm btn-info">Default</button></td>
+					<td data-toggle="tooltip" data-placement="right" title="Includes all staff of Offworld Industries">AllowQA</td>
+					<td class="w-100"><input class="form-control form-control-sm" type="text" name="AllowQA" value="<%= gameserverconfig_server['AllowQA'].value %>"></td>
+				</tr>
+				<tr>
+					<td>
+						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['VehicleClaimingDisabled'].ignored ? "" : "active" %>">
+								<input type="radio" value="on" name="VehicleClaimingDisabledToggle" <%= gameserverconfig_server['VehicleClaimingDisabled'].ignored ? "" : "checked" %>> On
+							</label>
+							<label class="btn btn-sm btn-info <%= gameserverconfig_server['VehicleClaimingDisabled'].ignored ? "active" : "" %>">
+								<input type="radio" value="off" name="VehicleClaimingDisabledToggle" <%= gameserverconfig_server['VehicleClaimingDisabled'].ignored ? "checked" : "" %>> Off
+							</label>
+						</div>
+					</td>
+					<td><button class="btn btn-sm btn-info">Default</button></td>
+					<td data-toggle="tooltip" data-placement="right" title="true = players can use vehicles without claiming them">VehicleClaimingDisabled</td>
+					<td class="w-100"><input class="form-control form-control-sm" type="text" name="VehicleClaimingDisabled" value="<%= gameserverconfig_server['VehicleClaimingDisabled'].value %>"></td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<span class="badge badge-warning">License</span> Means the setting must be set to default in licensed servers
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<input type="hidden" name="InstallationRoute" value="<%= gameserver.InstallationRoute %>">
+						<button type="submit" class="btn btn-primary w-100">Submit</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+	<script>
+		$(function ()
+		{
+			$('[data-toggle="tooltip"]').tooltip()
+		});
+	</script>
+	<% } %>
+	<% } else { %>
+	<!-- !user -->
+	<%- include ../../partials/login.ejs %>
+	<% } %>
+</body>
+
+</html>

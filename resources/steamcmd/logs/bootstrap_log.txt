@@ -251,3 +251,335 @@
 [2019-08-28 15:29:57] Performing checksum verification of executable files
 [2019-08-28 15:29:57] Verification complete
 [2019-08-28 15:30:52] Shutdown
+
+
+[2019-09-02 11:23:03] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-02 11:23:03] Checking for update on startup
+[2019-09-02 11:23:03] Checking for available updates...
+[2019-09-02 11:23:03] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-02 11:23:03] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-02 11:23:03] Nothing to do
+[2019-09-02 11:23:03] Verifying installation...
+[2019-09-02 11:23:03] Performing checksum verification of executable files
+[2019-09-02 11:23:04] Verification complete
+[2019-09-02 11:29:31] Shutdown
+
+
+[2019-09-04 11:28:10] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-04 11:28:10] Checking for update on startup
+[2019-09-04 11:28:10] Checking for available updates...
+[2019-09-04 11:28:10] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-04 11:28:11] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-04 11:28:11] Nothing to do
+[2019-09-04 11:28:11] Verifying installation...
+[2019-09-04 11:28:11] Performing checksum verification of executable files
+[2019-09-04 11:28:11] Verification complete
+[2019-09-04 11:29:15] Shutdown
+
+
+[2019-09-04 17:12:51] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-04 17:12:51] Checking for update on startup
+[2019-09-04 17:12:51] Checking for available updates...
+[2019-09-04 17:12:51] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-04 17:12:51] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-04 17:12:51] Nothing to do
+[2019-09-04 17:12:51] Verifying installation...
+[2019-09-04 17:12:51] Performing checksum verification of executable files
+[2019-09-04 17:12:52] Verification complete
+
+
+[2019-09-04 18:57:01] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-04 18:57:01] Checking for update on startup
+[2019-09-04 18:57:01] Checking for available updates...
+[2019-09-04 18:57:01] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-04 18:57:01] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-04 18:57:01] Nothing to do
+[2019-09-04 18:57:01] Verifying installation...
+[2019-09-04 18:57:01] Performing checksum verification of executable files
+[2019-09-04 18:57:02] Verification complete
+[2019-09-04 18:58:06] Shutdown
+
+
+[2019-09-04 19:08:52] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-04 19:08:52] Checking for update on startup
+[2019-09-04 19:08:52] Checking for available updates...
+[2019-09-04 19:08:52] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-04 19:08:52] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-04 19:08:52] Nothing to do
+[2019-09-04 19:08:52] Verifying installation...
+[2019-09-04 19:08:52] Performing checksum verification of executable files
+[2019-09-04 19:08:52] Verification complete
+[2019-09-04 19:10:03] Shutdown
+
+
+[2019-09-04 19:22:33] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-04 19:22:34] Checking for update on startup
+[2019-09-04 19:22:34] Checking for available updates...
+[2019-09-04 19:22:34] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-04 19:22:34] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-04 19:22:34] Nothing to do
+[2019-09-04 19:22:34] Verifying installation...
+[2019-09-04 19:22:34] Performing checksum verification of executable files
+[2019-09-04 19:22:34] Verification complete
+
+
+[2019-09-05 19:01:40] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-05 19:01:40] Checking for update on startup
+[2019-09-05 19:01:40] Checking for available updates...
+[2019-09-05 19:01:40] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-05 19:01:40] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-05 19:01:40] Nothing to do
+[2019-09-05 19:01:40] Verifying installation...
+[2019-09-05 19:01:40] Performing checksum verification of executable files
+[2019-09-05 19:01:40] Verification complete
+
+
+[2019-09-06 15:17:25] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-06 15:17:25] Checking for update on startup
+[2019-09-06 15:17:25] Checking for available updates...
+[2019-09-06 15:17:25] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-06 15:17:26] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-06 15:17:26] Nothing to do
+[2019-09-06 15:17:26] Verifying installation...
+[2019-09-06 15:17:26] Performing checksum verification of executable files
+[2019-09-06 15:17:26] Verification complete
+
+
+[2019-09-06 15:18:05] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-06 15:18:05] Checking for update on startup
+[2019-09-06 15:18:05] Checking for available updates...
+[2019-09-06 15:18:05] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-06 15:18:05] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-06 15:18:05] Nothing to do
+[2019-09-06 15:18:05] Verifying installation...
+[2019-09-06 15:18:05] Performing checksum verification of executable files
+[2019-09-06 15:18:06] Verification complete
+[2019-09-06 15:18:36] Shutdown
+
+
+[2019-09-06 17:11:35] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-06 17:11:35] Checking for update on startup
+[2019-09-06 17:11:35] Checking for available updates...
+[2019-09-06 17:11:35] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-06 17:11:35] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-06 17:11:35] Nothing to do
+[2019-09-06 17:11:35] Verifying installation...
+[2019-09-06 17:11:35] Performing checksum verification of executable files
+[2019-09-06 17:11:35] Verification complete
+[2019-09-06 17:11:36] Shutdown
+
+
+[2019-09-06 17:12:28] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-06 17:12:28] Checking for update on startup
+[2019-09-06 17:12:28] Checking for available updates...
+[2019-09-06 17:12:28] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-06 17:12:29] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-06 17:12:29] Nothing to do
+[2019-09-06 17:12:29] Verifying installation...
+[2019-09-06 17:12:29] Performing checksum verification of executable files
+[2019-09-06 17:12:29] Verification complete
+[2019-09-06 17:12:29] Shutdown
+
+
+[2019-09-06 17:12:38] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-06 17:12:38] Checking for update on startup
+[2019-09-06 17:12:38] Checking for available updates...
+[2019-09-06 17:12:38] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-06 17:12:38] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-06 17:12:38] Nothing to do
+[2019-09-06 17:12:38] Verifying installation...
+[2019-09-06 17:12:38] Performing checksum verification of executable files
+[2019-09-06 17:12:38] Verification complete
+[2019-09-06 17:12:38] Shutdown
+
+
+[2019-09-06 17:13:17] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-06 17:13:17] Checking for update on startup
+[2019-09-06 17:13:17] Checking for available updates...
+[2019-09-06 17:13:17] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-06 17:13:18] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-06 17:13:18] Nothing to do
+[2019-09-06 17:13:18] Verifying installation...
+[2019-09-06 17:13:18] Performing checksum verification of executable files
+[2019-09-06 17:13:18] Verification complete
+[2019-09-06 17:13:18] Shutdown
+
+
+[2019-09-06 17:13:37] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-06 17:13:37] Checking for update on startup
+[2019-09-06 17:13:37] Checking for available updates...
+[2019-09-06 17:13:37] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-06 17:13:38] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-06 17:13:38] Nothing to do
+[2019-09-06 17:13:38] Verifying installation...
+[2019-09-06 17:13:38] Performing checksum verification of executable files
+[2019-09-06 17:13:38] Verification complete
+[2019-09-06 17:15:08] Shutdown
+
+
+[2019-09-06 17:15:43] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-06 17:15:43] Checking for update on startup
+[2019-09-06 17:15:43] Checking for available updates...
+[2019-09-06 17:15:43] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-06 17:15:43] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-06 17:15:43] Nothing to do
+[2019-09-06 17:15:43] Verifying installation...
+[2019-09-06 17:15:43] Performing checksum verification of executable files
+[2019-09-06 17:15:44] Verification complete
+[2019-09-06 17:15:44] Shutdown
+
+
+[2019-09-06 17:16:22] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-06 17:16:23] Checking for update on startup
+[2019-09-06 17:16:23] Checking for available updates...
+[2019-09-06 17:16:23] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-06 17:16:23] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-06 17:16:23] Nothing to do
+[2019-09-06 17:16:23] Verifying installation...
+[2019-09-06 17:16:23] Performing checksum verification of executable files
+[2019-09-06 17:16:23] Verification complete
+[2019-09-06 17:16:24] Shutdown
+
+
+[2019-09-06 17:16:58] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-06 17:16:58] Checking for update on startup
+[2019-09-06 17:16:58] Checking for available updates...
+[2019-09-06 17:16:58] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-06 17:16:58] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-06 17:16:58] Nothing to do
+[2019-09-06 17:16:58] Verifying installation...
+[2019-09-06 17:16:58] Performing checksum verification of executable files
+[2019-09-06 17:16:58] Verification complete
+[2019-09-06 17:16:58] Shutdown
+
+
+[2019-09-06 17:17:07] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-06 17:17:07] Checking for update on startup
+[2019-09-06 17:17:07] Checking for available updates...
+[2019-09-06 17:17:07] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-06 17:17:08] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-06 17:17:08] Nothing to do
+[2019-09-06 17:17:08] Verifying installation...
+[2019-09-06 17:17:08] Performing checksum verification of executable files
+[2019-09-06 17:17:08] Verification complete
+[2019-09-06 17:17:08] Shutdown
+
+
+[2019-09-06 17:17:18] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-06 17:17:18] Checking for update on startup
+[2019-09-06 17:17:18] Checking for available updates...
+[2019-09-06 17:17:18] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-06 17:17:19] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-06 17:17:19] Nothing to do
+[2019-09-06 17:17:19] Verifying installation...
+[2019-09-06 17:17:19] Performing checksum verification of executable files
+[2019-09-06 17:17:19] Verification complete
+[2019-09-06 17:17:19] Shutdown
+
+
+[2019-09-06 17:17:29] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-06 17:17:30] Checking for update on startup
+[2019-09-06 17:17:30] Checking for available updates...
+[2019-09-06 17:17:30] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-06 17:17:30] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-06 17:17:30] Nothing to do
+[2019-09-06 17:17:30] Verifying installation...
+[2019-09-06 17:17:30] Performing checksum verification of executable files
+[2019-09-06 17:17:30] Verification complete
+[2019-09-06 17:17:30] Shutdown
+
+
+[2019-09-06 17:17:38] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-06 17:17:38] Checking for update on startup
+[2019-09-06 17:17:38] Checking for available updates...
+[2019-09-06 17:17:38] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-06 17:17:38] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-06 17:17:38] Nothing to do
+[2019-09-06 17:17:38] Verifying installation...
+[2019-09-06 17:17:38] Performing checksum verification of executable files
+[2019-09-06 17:17:39] Verification complete
+[2019-09-06 17:17:39] Shutdown
+
+
+[2019-09-06 17:17:49] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-06 17:17:49] Checking for update on startup
+[2019-09-06 17:17:49] Checking for available updates...
+[2019-09-06 17:17:49] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-06 17:17:49] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-06 17:17:49] Nothing to do
+[2019-09-06 17:17:49] Verifying installation...
+[2019-09-06 17:17:49] Performing checksum verification of executable files
+[2019-09-06 17:17:49] Verification complete
+[2019-09-06 17:17:50] Shutdown
+
+
+[2019-09-06 17:18:27] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-06 17:18:27] Checking for update on startup
+[2019-09-06 17:18:27] Checking for available updates...
+[2019-09-06 17:18:27] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-06 17:18:28] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-06 17:18:28] Nothing to do
+[2019-09-06 17:18:28] Verifying installation...
+[2019-09-06 17:18:28] Performing checksum verification of executable files
+[2019-09-06 17:18:28] Verification complete
+[2019-09-06 17:18:28] Shutdown
+
+
+[2019-09-06 17:21:10] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-06 17:21:10] Checking for update on startup
+[2019-09-06 17:21:10] Checking for available updates...
+[2019-09-06 17:21:10] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-06 17:21:11] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-06 17:21:11] Nothing to do
+[2019-09-06 17:21:11] Verifying installation...
+[2019-09-06 17:21:11] Performing checksum verification of executable files
+[2019-09-06 17:21:11] Verification complete
+[2019-09-06 17:21:11] Shutdown
+
+
+[2019-09-06 17:21:23] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-06 17:21:23] Checking for update on startup
+[2019-09-06 17:21:23] Checking for available updates...
+[2019-09-06 17:21:23] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-06 17:21:23] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-06 17:21:23] Nothing to do
+[2019-09-06 17:21:23] Verifying installation...
+[2019-09-06 17:21:23] Performing checksum verification of executable files
+[2019-09-06 17:21:24] Verification complete
+[2019-09-06 17:22:29] Shutdown
+
+
+[2019-09-06 17:22:33] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-06 17:22:33] Checking for update on startup
+[2019-09-06 17:22:33] Checking for available updates...
+[2019-09-06 17:22:33] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-06 17:22:33] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-06 17:22:33] Nothing to do
+[2019-09-06 17:22:33] Verifying installation...
+[2019-09-06 17:22:33] Performing checksum verification of executable files
+[2019-09-06 17:22:33] Verification complete
+[2019-09-06 17:23:48] Shutdown
+
+
+[2019-09-07 16:02:38] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-07 16:02:38] Checking for update on startup
+[2019-09-07 16:02:38] Checking for available updates...
+[2019-09-07 16:02:38] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-07 16:02:39] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-07 16:02:39] Nothing to do
+[2019-09-07 16:02:39] Verifying installation...
+[2019-09-07 16:02:39] Performing checksum verification of executable files
+[2019-09-07 16:02:39] Verification complete
+[2019-09-07 16:10:52] Shutdown
+
+
+[2019-09-08 11:52:37] Startup - updater built Aug 23 2019 10:41:20
+[2019-09-08 11:52:37] Checking for update on startup
+[2019-09-08 11:52:37] Checking for available updates...
+[2019-09-08 11:52:37] Downloading manifest: client-download.steampowered.com/client/steam_cmd_win32
+[2019-09-08 11:52:38] Download skipped: /client/steam_cmd_win32 version 1566863126, installed version 1566863126
+[2019-09-08 11:52:38] Nothing to do
+[2019-09-08 11:52:38] Verifying installation...
+[2019-09-08 11:52:38] Performing checksum verification of executable files
+[2019-09-08 11:52:38] Verification complete
+[2019-09-08 12:13:44] Shutdown

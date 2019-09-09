@@ -49,3 +49,33 @@
 
 
 [2019-08-28 15:29:59] Loading workshop items for 2 installed apps for user [a:1:1093170358]:
+
+
+[2019-09-02 11:23:10] Loading workshop items for 2 installed apps for user [a:1:1836811343]:
+
+
+[2019-09-04 11:28:12] Loading workshop items for 2 installed apps for user [a:1:153470095]:
+
+
+[2019-09-04 17:12:53] Loading workshop items for 0 installed apps for user [a:1:2893493250]:
+[2019-09-04 17:12:54] [AppID 403240] Loaded workshop items in "c:\github\squadservermanagerv2\resources\steamcmd\bbbb\steamapps\workshop" (0 installed, 0 needed)
+
+
+[2019-09-04 18:57:08] Loading workshop items for 2 installed apps for user [a:1:2746535027]:
+
+
+[2019-09-04 19:08:59] Loading workshop items for 2 installed apps for user [a:1:1968518172]:
+
+
+[2019-09-04 19:22:36] Loading workshop items for 2 installed apps for user [a:1:438175936]:
+
+
+[2019-09-05 19:01:42] Loading workshop items for 2 installed apps for user [a:1:3040729271]:
+
+
+[2019-09-07 16:02:41] Loading workshop items for 0 installed apps for user [a:1:1418099742]:
+[2019-09-07 16:02:43] [AppID 403240] Loaded workshop items in "e:\abcdef\steamapps\workshop" (0 installed, 0 needed)
+
+
+[2019-09-08 11:52:44] Loading workshop items for 0 installed apps for user [a:1:3716611153]:
+[2019-09-08 11:52:46] [AppID 403240] Loaded workshop items in "e:\abcdef\steamapps\workshop" (0 installed, 0 needed)

@@ -17,25 +17,131 @@
 		<div class="row mt-3">
 			<% if (gameservers) { %>
 			<% for (var i = 0; i < gameservers.length; i++) { %>
-			<div class="col-4 mb-3">
-				<div class="card bg-dark border-info h-100">
-					<a class="text-decoration-none text-white" href="/gameservers/<%=i%>">
-						<div class="card-header border-info bg-info" style="overflow: hidden; white-space:nowrap; text-overflow: ellipsis"><%=gameservers[i].serverName%></div>
-						<div class="card-body">
-							<h6 class="card-title"><%=gameservers[i].serverName%></h6>
-							<p class="card-text"><%=gameservers[i].installationRoute%></p>
+			<div class="col-12 col-md-4 col-xl-3 mb-3">
+				<div class="card bg-dark border-info h-100 pb-5">
+					<a class="text-decoration-none text-white" href="/gameservers/<%=gameservers[i].Id%>">
+						<div class="card-header border-info bg-info overflow-hidden text-nowrap text-truncate"><%=gameservers[i].ServerName%></div>
+						<div class="card-body px-5">
+							<p class="d-inline-block font-weight-bold mb-1">Status: </p>
+							<span id="service-status-<%=gameservers[i].Id%>" class="badge badge-pill badge-secondary">...</span>
+							<br>
+							<p class="d-inline-block mb-1 font-weight-bold">Port:</p>
+							<p class="d-inline"><%=gameservers[i].Port%></p>
+							<br>
+							<p class="d-inline-block mb-1 font-weight-bold">QueryPort:</p>
+							<p class="d-inline"><%=gameservers[i].QueryPort%></p>
+							<br>
+							<p class="d-inline-block font-weight-bold">Route:</p>
+							<p class="d-inline"><%=gameservers[i].InstallationRoute%></p>
 						</div>
 					</a>
-					<div class="card-footer border-info p-2 text-center">
-						<a class="btn btn-info" href="/gameservers/<%=i%>/start"><i class="material-icons align-middle">play_arrow</i></a>
-						<a class="btn btn-info" href="/gameservers/<%=i%>/stop"><i class="material-icons align-middle">stop</i></a>
-						<a class="btn btn-info" href="/gameservers/<%=i%>/restart"><i class="material-icons align-middle">replay</i></a>
+					<div class="card-footer border-info py-2 px-0 text-center position-absolute fixed-bottom">
+						<button id="button-start-<%=gameservers[i].Id%>" class="btn btn-light"><i class="material-icons align-middle" disabled>play_arrow</i></button>
+						<button id="button-stop-<%=gameservers[i].Id%>" class="btn btn-light"><i class="material-icons align-middle" disabled>stop</i></button>
+						<button id="button-restart-<%=gameservers[i].Id%>" class="btn btn-light"><i class="material-icons align-middle" disabled>replay</i></button>
+						<a id="button-config-<%=gameservers[i].Id%>" href="/gameservers/<%=gameservers[i].Id%>/config" class="btn btn-light disabled"><i class="material-icons align-middle">tune</i></a>
 					</div>
 				</div>
 			</div>
+			<script>
+				(function status_check()
+				{
+					$.ajax({
+						url: '/gameservers/<%=gameservers[i].Id%>/getStatus',
+						type: 'GET',
+						success: function (data)
+						{
+							console.log(data);
+							switch (data.service_status)
+							{
+								case 'SERVICE_START_PENDING':
+									$("#service-status-<%=gameservers[i].Id%>").removeClass().addClass("badge badge-pill badge-warning").html("Starting...");
+									$("#button-start-<%=gameservers[i].Id%>").prop("disabled", true);
+									$("#button-stop-<%=gameservers[i].Id%>").prop("disabled", true);
+									$("#button-restart-<%=gameservers[i].Id%>").prop("disabled", true);
+									$("#button-config-<%=gameservers[i].Id%>").addClass("disabled");
+									break;
+								case 'SERVICE_STOP_PENDING':
+									$("#service-status-<%=gameservers[i].Id%>").removeClass().addClass("badge badge-pill badge-warning").html("Stopping...");
+									$("#button-start-<%=gameservers[i].Id%>").prop("disabled", true);
+									$("#button-stop-<%=gameservers[i].Id%>").prop("disabled", true);
+									$("#button-restart-<%=gameservers[i].Id%>").prop("disabled", true);
+									$("#button-config-<%=gameservers[i].Id%>").addClass("disabled");
+									break;
+								case 'SERVICE_RUNNING':
+									$("#service-status-<%=gameservers[i].Id%>").removeClass().addClass("badge badge-pill badge-success").html("Running");
+									$("#button-start-<%=gameservers[i].Id%>").prop("disabled", true);
+									$("#button-stop-<%=gameservers[i].Id%>").prop("disabled", false);
+									$("#button-restart-<%=gameservers[i].Id%>").prop("disabled", false);
+									$("#button-config-<%=gameservers[i].Id%>").addClass("disabled");
+									break;
+								case 'SERVICE_STOPPED':
+									$("#service-status-<%=gameservers[i].Id%>").removeClass().addClass("badge badge-pill badge-danger").html("Stopped");
+									$("#button-start-<%=gameservers[i].Id%>").prop("disabled", false);
+									$("#button-stop-<%=gameservers[i].Id%>").prop("disabled", true);
+									$("#button-restart-<%=gameservers[i].Id%>").prop("disabled", true);
+									$("#button-config-<%=gameservers[i].Id%>").removeClass("disabled");
+									break;
+								default:
+									$("#service-status-<%=gameservers[i].Id%>").removeClass().addClass("badge badge-pill badge-primary").html("ERROR");
+									break;
+							}
+						},
+						complete: function ()
+						{
+							setTimeout(status_check, 300);
+						}
+					});
+				})();
+				$("#button-start-<%=gameservers[i].Id%>").click(function ()
+				{
+					$.ajax({
+						url: "/gameservers/<%=gameservers[i].Id%>/start",
+						type: 'GET',
+						success: function (data)
+						{
+							console.log('START ACK');
+						},
+						error: function (req, status, error)
+						{
+							console.log(status + error);
+						}
+					});
+				});
+				$("#button-stop-<%=gameservers[i].Id%>").click(function ()
+				{
+					$.ajax({
+						url: "/gameservers/<%=gameservers[i].Id%>/stop",
+						type: 'GET',
+						success: function ()
+						{
+							console.log('STOP ACK');
+						},
+						error: function (req, status, error)
+						{
+							console.log(status + error);
+						}
+					});
+				});
+				$("#button-restart-<%=gameservers[i].Id%>").click(function ()
+				{
+					$.ajax({
+						url: "/gameservers/<%=gameservers[i].Id%>/restart",
+						type: 'GET',
+						success: function (data)
+						{
+							console.log('RESTART ACK');
+						},
+						error: function (req, status, error)
+						{
+							console.log(status + error);
+						}
+					});
+				});
+			</script>
 			<% } %>
 			<% } %>
-			<div class="col-4 mb-3">
+			<div class="col-12 col-md-4 col-xl-3 mb-3">
 				<div id="new-server-card" class="card bg-dark border-info h-100 text-center">
 					<a class="text-decoration-none text-white h-100 w-100" href="/gameservers/add">
 						<div class="card-body " style="line-height: 100%">

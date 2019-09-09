@@ -37,9 +37,7 @@
 
 		<div id="finished-msg" class="m-0 mt-3 p-0 row d-none">
 			<h1 class="text-center mt-4 col-12">Your server is ready</h1>
-			<a class="btn btn-info col-3 ml-auto" href="/">Homepage</a>
-			<span class="col-1"></span>
-			<a class="btn btn-info col-3 mr-auto" href="#">Server configuration</a>
+			<a class="btn btn-info col-3 mx-auto" href="/">Homepage</a>
 		</div>
 	</div>
 
@@ -49,31 +47,32 @@
 		(function worker()
 		{
 			$.ajax({
-				url: '/gameservers/progress',
+				url: '/gameservers/<%=gameserver_id%>/progress',
 				success: function (data)
 				{
-					if (data.install_status == 'Validating...')
+					switch (data.install_status)
 					{
-						$('#validating-bar').width(data.progress_validating + "%").html(data.progress_validating + "%");
-					}
-					else if (data.install_status == 'Preallocating...')
-					{
-						$('#validating-bar').width("100%").html("100%");
-						$('#preallocating-bar').width(data.progress_preallocating + "%").html(data.progress_preallocating + "%");
-					}
-					else if (data.install_status == 'Downloading...')
-					{
-						$('#validating-bar').width("100%").html("100%");
-						$('#preallocating-bar').width("100%").html("100%");
-						$('#downloading-bar').width(data.progress_downloading + "%").html(data.progress_downloading + "%");
-					}
-					else if (data.install_status == 'Finished')
-					{
-						$('#preallocating-bar').width("100%").html("100%");
-						$('#validating-bar').width("100%").html("100%");
-						$('#downloading-bar').width("100%").html("100%");
-						$('#finished-msg').removeClass('d-none');
-						finished = true;
+						case 'Validating...':
+							$('#validating-bar').width(data.progress_validating + "%").html(data.progress_validating + "%");
+							break;
+						case 'Preallocating...':
+							$('#validating-bar').width("100%").html("100%");
+							$('#preallocating-bar').width(data.progress_preallocating + "%").html(data.progress_preallocating + "%");
+							break;
+						case 'Downloading...':
+							$('#validating-bar').width("100%").html("100%");
+							$('#preallocating-bar').width("100%").html("100%");
+							$('#downloading-bar').width(data.progress_downloading + "%").html(data.progress_downloading + "%");
+							break;
+						case 'Finished':
+							$('#preallocating-bar').width("100%").html("100%");
+							$('#validating-bar').width("100%").html("100%");
+							$('#downloading-bar').width("100%").html("100%");
+							$('#finished-msg').removeClass('d-none');
+							finished = true;
+							break;
+						default:
+							break;
 					}
 				},
 				complete: function ()

@@ -14,60 +14,63 @@
 
 	<% if (user) { %>
 
-	<h3 class="mx-5 my-3">You are editing server instance <%= gameserver.id %></h3>
-	<h5 class="mx-5 mb-3">Installed at <%= gameserver.installationRoute %></h5>
+	<h3 class="mx-5 my-3">You are editing server instance <%= gameserver.Id %></h3>
+	<h5 class="mx-5 mb-3">Installed at <%= gameserver.InstallationRoute %></h5>
 	<div class="row">
-		<form id="configForm" action="/gameservers/<%= gameserver.id %>/config" method="POST" class="col-10 col-md-6 mx-auto needs-validaton" novalidate>
+		<form id="configForm" action="/gameservers/<%= gameserver.Id %>/config" method="POST" class="col-10 col-md-6 mx-auto needs-validaton" novalidate>
 			<div class="form-group">
-				<label for="serverNameInput">Server name *</label>
-				<input type="text" class="form-control" id="serverNameInput" name="serverName" value="<%= gameserver.serverName %>" required>
+				<label for="ServerNameInput" data-toggle="tooltip" data-placement="right" title="This name is only for you, it is not the name shown on the server browser">Server name *</label>
+				<input type="text" class="form-control" id="ServerNameInput" name="ServerName" value="<%= gameserver.ServerName %>" required>
 			</div>
 			<div class="col-12 row p-0 m-0">
 				<div class="form-group col-6 pl-0">
-					<label for="portInput">Port *</label>
-					<input type="number" class="form-control" id="portInput" name="port" value="<%= gameserver.port %>" required>
+					<label for="PortInput" data-toggle="tooltip" data-placement="right" title="The game port">Port *</label>
+					<input type="number" class="form-control" id="PortInput" name="Port" value="<%= gameserver.Port %>" required>
 				</div>
 				<div class="form-group col-6 pr-0">
-					<label for="queryPortInput">Query port *</label>
-					<input type="number" class="form-control" id="queryPortInput" name="queryPort" value="<%= gameserver.queryPort %>" required>
+					<label for="QueryPortInput" data-toggle="tooltip" data-placement="right" title="The Steam query port">Query port *</label>
+					<input type="number" class="form-control" id="QueryPortInput" name="QueryPort" value="<%= gameserver.QueryPort %>" required>
 				</div>
 			</div>
 			<div class="col-12 row p-0 m-0">
 				<div class="form-group col-6 pl-0">
-					<label for="fixedMaxPlayersInput">Fixed max players *</label>
-					<input type="number" class="form-control" id="fixedMaxPlayersInput" name="fixedMaxPlayers" value="<%= gameserver.fixedMaxPlayers %>" required>
+					<label for="FixedMaxPlayersInput" data-toggle="tooltip" data-placement="right" title="Player count cannot go higher than this">Fixed max players</label>
+					<input type="number" class="form-control" id="FixedMaxPlayersInput" name="FixedMaxPlayers" value="<%= gameserver.FixedMaxPlayers ? gameserver.FixedMaxPlayers : "" %>">
 				</div>
 				<div class="form-group col-6 pr-0">
-					<label for="fixedMaxTickRateInput">Fixed max tickrate</label>
-					<input type="number" class="form-control" id="fixedMaxTickRateInput" name="fixedMaxTickRate" value="<%= gameserver.fixedMaxTickRate == 0 ? "" : gameserver.fixedMaxTickRate %>">
+					<label for="FixedMaxTickRateInput" data-toggle="tooltip" data-placement="right" title="Maximum server tickrate">Fixed max tickrate</label>
+					<input type="number" class="form-control" id="FixedMaxTickRateInput" name="FixedMaxTickRate" value="<%= gameserver.FixedMaxTickRate ? gameserver.FixedMaxTickRate : "" %>">
 				</div>
 			</div>
 			<div class="col-12 row p-0 m-0">
 				<div class="form-group col-6 pl-0">
-					<label for="randomInput">Random</label>
-					<select class="custom-select" id="randomInput" name="random">
-						<option value="" <%= gameserver.random == "" ? "selected" : "" %>></option>
-						<option value="ALWAYS" <%= gameserver.random == "ALWAYS" ? "selected" : "" %>>Always</option>
-						<option value="FIRST" <%= gameserver.random == "FIRST" ? "selected" : "" %>>First</option>
-						<option value="NONE" <%= gameserver.random == "NONE" ? "selected" : "" %>>None</option>
+					<label for="RandomInput" data-toggle="tooltip" data-placement="right" data-html="true" title="Randomize maprotation.cfg<br><b>ALWAYS:</b> maps will be scrambled always<br><b>FIRST:</b> scamble first map, then follow rotation<br><b>NONE:</b> use the exact order on maprotation.cfg">Random *</label>
+					<select class="custom-select" id="RandomInput" name="Random" required>
+						<option value="ALWAYS" <%= gameserver.Random == "ALWAYS" ? "selected" : "" %>>Always</option>
+						<option value="FIRST" <%= gameserver.Random == "FIRST" ? "selected" : "" %>>First</option>
+						<option value="NONE" <%= gameserver.Random == "NONE" ? "selected" : "" %>>None</option>
 					</select>
 				</div>
 				<div class="form-group col-6 pr-0">
-					<label for="preferPreprocessorInput">Prefer preprocessor</label>
-					<input type="text" class="form-control" id="preferPreprocessorInput" name="preferPreprocessor" value="<%= gameserver.preferPreprocessor == "" ? "" : gameserver.preferPreprocessor %>">
+					<label for="PreferPreprocessorInput" data-toggle="tooltip" data-placement="right" title="CPU Affinity in hexadecimal">Prefer preprocessor</label>
+					<input type="text" class="form-control" id="PreferPreprocessorInput" name="PreferPreprocessor" value="<%= gameserver.PreferPreprocessor ? gameserver.PreferPreprocessor : "" %>">
 				</div>
 			</div>
 			<div class="form-check col-12 my-1">
-				<input type="checkbox" class="form-check-input" id="logInput" name="log" <%= gameserver.log ? "checked" : "" %>>
-				<label for="logInput" class="form-check-label">Log</label>
+				<input type="checkbox" class="form-check-input" id="LogInput" name="Log" <%= gameserver.Log ? "checked" : "" %>>
+				<label for="LogInput" class="form-check-label" data-toggle="tooltip" data-placement="right" title="">Log</label>
 			</div>
 			<div class="form-check col-12 my-1">
-				<input type="checkbox" class="form-check-input" id="fullCrashDumpInput" name="fullCrashDump" <%= gameserver.fullCrashDump ? "checked" : "" %>>
-				<label for="fullCrashDumpInput" class="form-check-label">Full crash dump</label>
+				<input type="checkbox" class="form-check-input" id="FullCrashDumpInput" name="FullCrashDump" <%= gameserver.FullCrashDump ? "checked" : "" %>>
+				<label for="FullCrashDumpInput" class="form-check-label" data-toggle="tooltip" data-placement="right" title="">Full crash dump</label>
 			</div>
 			<button type="submit" class="btn btn-primary mx-auto col-12 mt-1">Submit</button>
 		</form>
 		<script>
+			$(function ()
+			{
+				$('[data-toggle="tooltip"]').tooltip()
+			});
 			(function ()
 			{
 				window.addEventListener('load', function ()

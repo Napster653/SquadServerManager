@@ -1,7 +1,7 @@
 [
 	{
 		"id": 0,
-		"serverName": "My First Server",
+		"serverName": "MyServer",
 		"installationRoute": "E:\\abcdef",
 		"port": "7770",
 		"queryPort": "8880",

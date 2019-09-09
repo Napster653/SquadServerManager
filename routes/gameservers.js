@@ -5,148 +5,123 @@ const os = require('os');
 const path = require('path');
 const pty = require('node-pty');
 const Nssm = require('nssm');
-const execFile = require('child_process').execFile;
 const router = express.Router();
-
-var urlEncodedParser = bodyparser.urlencoded({ extended: false })
-
+const sqlite3 = require('sqlite3');
+const shell = os.platform() === 'win32' ? 'powershell.exe' : 'bash';
 const regexProgress = /progress: ([0-9]+.[0-9]+)/
 const regexFinished = /Success/
+const sql_insert_into_gameserver = 'INSERT OR REPLACE INTO GameServer VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+const sql_get_gameserver_by_Id = 'SELECT * FROM GameServer WHERE Id = ?';
+const sql_get_gameserver_by_InstallationRoute = 'SELECT * FROM GameServer WHERE InstallationRoute = ? COLLATE NOCASE';
+const sql_update_gameserver_by_Id = 'UPDATE Gameserver SET ServerName = $ServerName, Port = $Port, QueryPort = $QueryPort, FixedMaxPlayers = $FixedMaxPlayers, FixedMaxTickrate = $FixedMaxTickrate, Random = $Random, PreferPreprocessor = $PreferPreprocessor, Log = $Log, FullCrashDump = $FullCrashDump WHERE Id = $Id';
+const sql_delete_by_Id = 'DELETE FROM GameServer WHERE Id = ?'
+const defaultAppParameters = 'Port=7770 QueryPort=8880 FIXEDMAXPLAYERS=80 RANDOM=NONE FIXEDMAXTICKRATE=35';
 
-var progress_preallocating = 0;
-var progress_downloading = 0;
-var progress_validating = 0;
-var install_status = 'none';
+var db = new sqlite3.Database('./db/users.db');
+var urlEncodedParser = bodyparser.urlencoded({ extended: false })
+var progress = {};
+
+function install_service (id, route)
+{
+	var svc = Nssm('SquadServerManager_' + id, { nssmExe: 'resources/nssm/nssm.exe' });
+
+	svc.status(function (err)
+	{
+		if (err) // Service does not exist, it will be installed
+		{
+			svc.install(path.join(route, 'SquadGameServer.exe'))
+				.then(function () { return svc.set('AppParameters', defaultAppParameters); })
+				.catch(function (err) { console.error(err); })
+		}
+		else // Service already exists, it will be removed and then installed again
+		{
+			svc.remove(path.join(route, 'SquadGameServer.exe'))
+				.then(function () { return svc.install(path.join(route, 'SquadGameServer.exe')); })
+				.then(function () { return svc.set('AppParameters', defaultAppParameters); })
+				.catch(function (err) { console.error(err); })
+		}
+	});
+}
 
 router.get('/gameservers/add', (req, res) =>
 {
-	if (req.user) res.render('gameservers/add');
-	else res.render('login');
+	if (req.user) { res.render('gameservers/add'); }
+	else { res.render('login'); }
 });
 
 router.post('/gameservers/add', urlEncodedParser, (req, res) =>
 {
 	if (req.user)
 	{
-		progress = 0;
-		var shell = os.platform() === 'win32' ? 'powershell.exe' : 'bash';
 		var ptyProcess = pty.spawn(shell, [], { handleFlowControl: true });
-		install_status = 'none';
-		ptyProcess.on('data', (data) =>
+
+		db.get(sql_get_gameserver_by_InstallationRoute, req.body.installationRoute, function (err, row)
 		{
-			var matchOrNull = data.match(regexProgress);
+			if (err) throw err;
 
-			if (data.includes('preallocating') && matchOrNull != null) { install_status = 'Preallocating...'; progress_preallocating = parseFloat(matchOrNull[1]).toFixed(0); }
-			else if (data.includes('validating') && matchOrNull != null) { install_status = 'Validating...'; progress_validating = parseFloat(matchOrNull[1]).toFixed(0); }
-			else if (data.includes('downloading') && matchOrNull != null) { install_status = 'Downloading...'; progress_downloading = parseFloat(matchOrNull[1]).toFixed(0); }
-
-			matchOrNull = data.match(regexFinished);
-			if (matchOrNull != null)
+			if (typeof row !== 'undefined') // GameServer already exists
 			{
-				install_status = 'Finished';
-				var alreadyInstalled = false;
-
-				var json = JSON.parse(fs.readFileSync('config/gameservers.json'));
-				json.forEach(gameserver =>
+				var id = row.Id;
+				progress[id] = { install_status: 'none', progress_validating: 0, progress_preallocating: 0, progress_downloading: 0 };
+				ptyProcess.on('data', function (data)
 				{
-					if (gameserver.installationRoute == req.body.installationRoute)
-					{
-						alreadyInstalled = true;
-					}
+					var matchOrNull = null;
+					matchOrNull = data.match(regexProgress);
+					if (data.includes('preallocating') && matchOrNull != null) { progress[id].install_status = 'Preallocating...'; progress[id].progress_preallocating = parseFloat(matchOrNull[1]).toFixed(0); }
+					else if (data.includes('validating') && matchOrNull != null) { progress[id].install_status = 'Validating...'; progress[id].progress_validating = parseFloat(matchOrNull[1]).toFixed(0); }
+					else if (data.includes('downloading') && matchOrNull != null) { progress[id].install_status = 'Downloading...'; progress[id].progress_downloading = parseFloat(matchOrNull[1]).toFixed(0); }
+					matchOrNull = data.match(regexFinished);
+					if (matchOrNull != null) { progress[id].install_status = 'Finished'; } // When finished, that's it
 				});
-				if (!alreadyInstalled)
+				res.render('gameservers/progress', {
+					gameserver_id: id,
+				});
+			}
+			else // GameServer doesn't exist yet
+			{
+				db.run(sql_insert_into_gameserver, [null, req.body.serverName, req.body.installationRoute, 7770, 8880, 80, 35, 'NONE', null, false, false], function (err)
 				{
-					var id = json.length;
-					json.push({
-						id: id,
-						serverName: req.body.serverName,
-						installationRoute: req.body.installationRoute,
-						port: '7770',
-						queryPort: '8880',
-						fixedMaxPlayers: '80',
-						fixedMaxTickRate: '35',
-						random: '',
-						preferPreprocessor: '',
-						log: true,
-						fullCrashDump: true
-					});
-					fs.writeFileSync('config/gameservers.json', JSON.stringify(json, null, '\t'));
-
-					var svc = Nssm('SquadServerManager_' + id, { nssmExe: 'resources/nssm/nssm.exe' });
-					svc.install(path.join(req.body.installationRoute, 'SquadGameServer.exe'), function (err, stdout)
+					if (err) throw err;
+					var id = this.lastID;
+					progress[id] = { install_status: 'none', progress_validating: 0, progress_preallocating: 0, progress_downloading: 0 };
+					ptyProcess.on('data', function (data)
 					{
-						if (err) console.log('Service already exists: ' + err);
-						else
-						{
-							var appParameters = '';
-							appParameters += 'Port=' + json[id].port + ' ';
-							appParameters += 'QueryPort=' + json[id].queryPort + ' ';
-							appParameters += 'FIXEDMAXPLAYERS=' + json[id].fixedMaxPlayers + ' ';
-							if (json[id].fixedMaxTickRate != '0')
-							{
-								appParameters += 'FIXEDMAXTICKRATE=' + json[id].fixedMaxTickRate + ' ';
-							}
-							if (json[id].random != '')
-							{
-								appParameters += 'RANDOM=' + json[id].random + ' ';
-							}
-							if (json[id].preferPreprocessor != '')
-							{
-								appParameters += 'PREFERPREPROCESSOR=' + json[id].preferPreprocessor + ' ';
-							}
-							if (json[id].log)
-							{
-								appParameters += '-log ';
-							}
-							if (json[id].fullCrashDump)
-							{
-								appParameters += '-fullcrashdump ';
-							}
-
-							console.log('appParameters: ' + appParameters);
-
-							svc.set('Start', 'manual')
-								.then(function ()
-								{
-									return svc.set('Description', req.body.serverName);
-								})
-								.then(function ()
-								{
-									return svc.set('AppParameters', appParameters)
-								})
-								.catch(function (err)
-								{
-									console.log('Error: ' + err);
-								});
-						}
+						var matchOrNull = null;
+						matchOrNull = data.match(regexProgress);
+						if (data.includes('preallocating') && matchOrNull != null) { progress[id].install_status = 'Preallocating...'; progress[id].progress_preallocating = parseFloat(matchOrNull[1]).toFixed(0); }
+						else if (data.includes('validating') && matchOrNull != null) { progress[id].install_status = 'Validating...'; progress[id].progress_validating = parseFloat(matchOrNull[1]).toFixed(0); }
+						else if (data.includes('downloading') && matchOrNull != null) { progress[id].install_status = 'Downloading...'; progress[id].progress_downloading = parseFloat(matchOrNull[1]).toFixed(0); }
+						matchOrNull = data.match(regexFinished);
+						if (matchOrNull != null) { progress[id].install_status = 'Finished'; install_service(id, req.body.installationRoute) } // When finished, service is installed
 					});
-				}
+					res.render('gameservers/progress', {
+						gameserver_id: id,
+					});
+				});
 			}
 		});
-		ptyProcess.write(path.join(__dirname, '../resources/steamcmd/steamcmd.exe') + ' +login anonymous +force_install_dir \"' + req.body.installationRoute + '\" +app_update 403240 validate +quit\r');
 
-		res.render('gameservers/progress');
+		ptyProcess.write(path.join(__dirname, '../resources/steamcmd/steamcmd.exe') + ' +login anonymous +force_install_dir \"' + req.body.installationRoute + '\" +app_update 403240 validate +quit\r');
 	}
 	else res.render('login');
 });
 
-router.get('/gameservers/progress', (req, res) =>
+router.get('/gameservers/:id/progress', (req, res) =>
 {
-	res.send({
-		install_status: install_status,
-		progress_validating: progress_validating.toString(),
-		progress_preallocating: progress_preallocating.toString(),
-		progress_downloading: progress_downloading.toString(),
-	});
+	res.send(progress[req.params.id]);
 });
 
 router.get('/gameservers/:id', (req, res) =>
 {
 	if (req.user)
 	{
-		res.render('gameservers/view', {
-			user: req.user,
-			gameserver: JSON.parse(fs.readFileSync('config/gameservers.json'))[req.params.id],
+		db.get(sql_get_gameserver_by_Id, req.params.id, function (err, row)
+		{
+			if (err) throw err;
+			console.log(row);
+			res.render('gameservers/view', {
+				gameserver: row,
+			});
 		});
 	}
 	else res.render('login');
@@ -177,6 +152,7 @@ router.get('/gameservers/:id/start', (req, res) =>
 						}
 					});
 				}
+				else res.sendStatus(500);
 			})
 			.catch(function (error)
 			{
@@ -212,6 +188,7 @@ router.get('/gameservers/:id/stop', (req, res) =>
 						}
 					});
 				}
+				else res.sendStatus(500);
 			})
 			.catch(function (error)
 			{
@@ -247,6 +224,7 @@ router.get('/gameservers/:id/restart', (req, res) =>
 						}
 					});
 				}
+				else res.sendStatus(500);
 			})
 			.catch(function (error)
 			{
@@ -278,8 +256,13 @@ router.get('/gameservers/:id/config', (req, res) =>
 {
 	if (req.user)
 	{
-		res.render('gameservers/config', {
-			gameserver: JSON.parse(fs.readFileSync('config/gameservers.json'))[req.params.id],
+		db.get(sql_get_gameserver_by_Id, req.params.id, function (err, row)
+		{
+			if (err) throw err;
+			console.log(row);
+			res.render('gameservers/config', {
+				gameserver: row,
+			});
 		});
 	}
 	else res.render('login');
@@ -289,25 +272,172 @@ router.post('/gameservers/:id/config', (req, res) =>
 {
 	if (req.user)
 	{
+		var params = {
+			$ServerName: req.body.ServerName,
+			$Port: req.body.Port,
+			$QueryPort: req.body.QueryPort,
+			$FixedMaxPlayers: req.body.FixedMaxPlayers,
+			$FixedMaxTickrate: req.body.FixedMaxTickrate,
+			$Random: req.body.Random,
+			$PreferPreprocessor: req.body.PreferPreprocessor,
+			$Log: req.body.Log || 0,
+			$FullCrashDump: req.body.FullCrashDump || 0,
+			$Id: req.params.id
+		}
+		db.run(sql_update_gameserver_by_Id, params, function (err)
+		{
+			if (err) throw err;
+			db.get(sql_get_gameserver_by_Id, req.params.id, function (err, row)
+			{
+				if (err) throw err;
+				var svc = Nssm('SquadServerManager_' + req.params.id, { nssmExe: 'resources/nssm/nssm.exe' });
+				var appParameters = '';
+				appParameters += 'Port=' + row.Port + ' ';
+				appParameters += 'QueryPort=' + row.QueryPort + ' ';
+				appParameters += 'RANDOM=' + row.Random + ' ';
+				if (row.FixedMaxPlayers) { appParameters += 'FIXEDMAXPLAYERS=' + row.FixedMaxPlayers + ' '; }
+				if (row.FixedMaxTickrate) { appParameters += 'FIXEDMAXTICKRATE=' + row.FixedMaxTickrate + ' '; }
+				if (row.PreferPreprocessor) { appParameters += 'PREFERPREPROCESSOR=' + row.PreferPreprocessor + ' '; }
+				if (row.Log) { appParameters += '-log ' }
+				if (row.FullCrashDump) { appParameters += '-fullcrashdump' }
+
+				console.log(appParameters)
+
+				svc.status()
+					.then(function (stdout)
+					{
+						if (stdout == 'SERVICE_STOPPED')
+						{
+							return;
+						}
+						else
+						{
+							return svc.stop();
+						}
+					})
+					.then(function (stdout)
+					{
+						return svc.set('AppParameters', appParameters)
+					})
+					.catch(function (err)
+					{
+						console.log('Error: ' + err);
+					});
+				console.log(row);
+				res.render('gameservers/view', {
+					gameserver: row,
+				});
+			});
+		});
+	}
+	else res.render('login');
+});
+
+router.get('/gameservers/:id/uninstall', (req, res) =>
+{
+	if (req.user)
+	{
+		var svc = Nssm('SquadServerManager_' + req.params.id, { nssmExe: 'resources/nssm/nssm.exe' });
+		svc.stop(function () { svc.remove('confirm', function () { }); });
+
+		db.get(sql_get_gameserver_by_Id, req.params.id, function (err, row)
+		{
+			if (err) { throw err; }
+			if (typeof row !== 'undefined')
+			{
+				var deleteFolderRecursive = function (path)
+				{
+					if (fs.existsSync(path))
+					{
+						fs.readdirSync(path).forEach(function (file, index)
+						{
+							var curPath = path + "/" + file;
+							if (fs.lstatSync(curPath).isDirectory()) { deleteFolderRecursive(curPath); }
+							else { fs.unlinkSync(curPath); }
+						});
+						fs.rmdirSync(path);
+					}
+				};
+				deleteFolderRecursive(row.InstallationRoute);
+				db.run(sql_delete_by_Id, req.params.id, function (err)
+				{
+					if (err) { throw err; }
+					res.render('home');
+				});
+			}
+			else res.render('home');
+		});
+	}
+	else res.render('login');
+});
+
+router.get('/gameservers/:id/config/server', (req, res) =>
+{
+	if (req.user)
+	{
+		db.get(sql_get_gameserver_by_Id, req.params.id, function (err, row)
+		{
+			if (err) { throw err; }
+			if (typeof row !== 'undefined')
+			{
+				var fileContents = fs.readFileSync(path.join(row.InstallationRoute, '/SquadGame/ServerConfig/Server.cfg'), "utf8");
+				var GameServerConfig_Server = {}
+
+				var regexLines = /(?<key>[^\/\s].*)\s*=+\s*(?<value>.*)/gm
+				while ((lines = regexLines.exec(fileContents)) !== null)
+				{
+					GameServerConfig_Server[lines.groups.key] = { value: lines.groups.value, ignored: false };
+				}
+
+				var regexCommentedLines = /\/{2,}\s*(?<key>[^\/\s].*)\s*\=+\s*(?<value>.*)/gm
+				while ((lines = regexCommentedLines.exec(fileContents)) !== null)
+				{
+					GameServerConfig_Server[lines.groups.key] = { value: lines.groups.value, ignored: true };
+				}
+
+				if ('ServerName' in GameServerConfig_Server) { GameServerConfig_Server['ServerName'].value = GameServerConfig_Server['ServerName'].value.replace(/\"*/g, ''); }
+
+				console.log(GameServerConfig_Server);
+
+				res.render('gameservers/config/server', {
+					gameserver: row,
+					gameserverconfig_server: GameServerConfig_Server
+				});
+			}
+		});
+	}
+	else res.render('login');
+});
+
+router.post('/gameservers/:id/config/server', (req, res) =>
+{
+	if (req.user)
+	{
+		// Don't forget to add "" to ServerName!
+		var gameserverconfig_server = {};
+		Object.keys(req.body).forEach(key =>
+		{
+			if (key.includes('Toggle'))
+			{
+				if (req.body[key] == 'on')
+				{
+					gameserverconfig_server[key.replace('Toggle', '')] = {
+						value: req.body[key.replace('Toggle', '')],
+						ignored: false
+					};
+				}
+				else
+				{
+					gameserverconfig_server[key.replace('Toggle', '')] = {
+						value: req.body[key.replace('Toggle', '')],
+						ignored: true
+					};
+				}
+			}
+		});
+		console.log(gameserverconfig_server);
 		console.log(req.body);
 
-		var json = JSON.parse(fs.readFileSync('config/gameservers.json'));
-
-		json[req.params.id].serverName = req.body.serverName;
-		json[req.params.id].port = req.body.port;
-		json[req.params.id].queryPort = req.body.queryPort;
-		json[req.params.id].fixedMaxPlayers = req.body.fixedMaxPlayers;
-		json[req.params.id].fixedMaxTickRate = req.body.fixedMaxTickRate;
-		json[req.params.id].random = req.body.random;
-		json[req.params.id].preferPreprocessor = req.body.preferPreprocessor;
-		json[req.params.id].log = req.body.log == 'on' ? 'true' : 'false';
-		json[req.params.id].fullCrashDump = req.body.fullCrashDump == 'on' ? 'true' : 'false';
-
-		fs.writeFileSync('config/gameservers.json', JSON.stringify(json, null, '\t'));
-
-		res.render('gameservers/view', {
-			gameserver: JSON.parse(fs.readFileSync('config/gameservers.json'))[req.params.id],
-		});
 	}
 	else res.render('login');
 });

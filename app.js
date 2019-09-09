@@ -1,20 +1,18 @@
 const express = require('express');
 const flash = require('connect-flash');
-const fs = require('fs');
 const passport = require('passport');
 const steamcmd = require('steamcmd');
+const sqlite3 = require('sqlite3');
+var db = new sqlite3.Database('./db/users.db');
+var sql_get_gameservers = 'SELECT * FROM GameServer';
 
 const databaseSetup = require('./config/database-setup');
 const passportSetup = require('./config/passport-setup');
 const child_process = require('child_process');
 
 // const Nssm = require('nssm');
-// var svc = Nssm('SquadServerManager_0', { nssmExe: 'resources/nssm/nssm.exe' });
-// svc.restart(function (err, stdout)
-// {
-// 	if (err) console.log(err);
-// 	else console.log(stdout);
-// });
+// var svc = Nssm('SquadServerManager_2', { nssmExe: 'resources/nssm/nssm.exe' });
+// svc.stop(function () { svc.remove('confirm', function () { }); });
 
 steamcmd.download({ binDir: 'resources/steamcmd' });
 
@@ -32,15 +30,28 @@ app.use(flash());
 app.use(function (req, res, next)
 {
 	res.locals.user = req.user;
-	res.locals.gameservers = JSON.parse(fs.readFileSync('config/gameservers.json'));
 	res.locals.message = req.flash('error');
-
-	console.log('\nA request was received: ' + req.method + req.url +
-		'\n\tUser: ' + res.locals.user +
-		'\n\tGameservers: ' + res.locals.gameservers +
-		'\n\tres.locals.message: ' + res.locals.message);
-
-	next();
+	db.all(sql_get_gameservers, function (err, rows)
+	{
+		if (err) throw err;
+		if (req.user)
+		{
+			res.locals.gameservers = rows;
+			console.log('\nA request was received: ' + req.method + req.url +
+				'\n\tUser: ' + res.locals.user +
+				'\n\tGameservers: ' + res.locals.gameservers +
+				'\n\tres.locals.message: ' + res.locals.message);
+			next();
+		}
+		else
+		{
+			console.log('\nA request was received: ' + req.method + req.url +
+				'\n\tUser: ' + res.locals.user +
+				'\n\tGameservers: ' + res.locals.gameservers +
+				'\n\tres.locals.message: ' + res.locals.message);
+			next();
+		}
+	});
 });
 
 app.use(require('./routes/index.js'));

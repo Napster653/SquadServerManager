@@ -126,3 +126,240 @@
 [2019-08-28 15:29:57] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
 [2019-08-28 15:29:58] Failed to read store 'userlocal' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\userdata\anonymous\config\localconfig.vdf.tmp'
 [2019-08-28 15:29:59] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+
+
+[2019-09-02 11:23:04] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-02 11:23:04] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-02 11:23:04] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-02 11:23:10] Failed to read store 'userlocal' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\userdata\anonymous\config\localconfig.vdf.tmp'
+[2019-09-02 11:23:11] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-02 11:24:44] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-02 11:25:14] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-02 11:25:44] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-02 11:26:14] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-02 11:26:44] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-02 11:27:14] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-02 11:27:44] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-02 11:28:14] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-02 11:28:44] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+
+
+[2019-09-04 11:28:11] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-04 11:28:11] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-04 11:28:11] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-04 11:28:12] Failed to read store 'userlocal' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\userdata\anonymous\config\localconfig.vdf.tmp'
+[2019-09-04 11:28:12] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 11:29:14] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+
+
+[2019-09-04 17:12:52] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-04 17:12:52] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-04 17:12:52] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-04 17:12:53] Failed to read store 'userlocal' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\userdata\anonymous\config\localconfig.vdf.tmp'
+[2019-09-04 17:12:54] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 17:13:51] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 17:14:21] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 17:14:51] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 17:15:21] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 17:15:51] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 17:16:21] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 17:16:51] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 17:17:21] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 17:17:51] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+
+
+[2019-09-04 18:57:02] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-04 18:57:02] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-04 18:57:02] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-04 18:57:08] Failed to read store 'userlocal' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\userdata\anonymous\config\localconfig.vdf.tmp'
+[2019-09-04 18:57:08] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+
+
+[2019-09-04 19:08:52] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-04 19:08:52] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-04 19:08:53] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-04 19:08:59] Failed to read store 'userlocal' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\userdata\anonymous\config\localconfig.vdf.tmp'
+[2019-09-04 19:08:59] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+
+
+[2019-09-04 19:11:12] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 19:11:42] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 19:12:12] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 19:12:42] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 19:13:12] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 19:13:42] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 19:14:12] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 19:14:42] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 19:15:12] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 19:15:42] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 19:16:12] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 19:16:42] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 19:17:12] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 19:17:42] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 19:18:12] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 19:18:42] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 19:19:12] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 19:19:42] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-04 19:20:12] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+
+
+[2019-09-04 19:22:34] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-04 19:22:34] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-04 19:22:35] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-04 19:22:36] Failed to read store 'userlocal' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\userdata\anonymous\config\localconfig.vdf.tmp'
+[2019-09-04 19:22:37] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+
+
+[2019-09-05 19:01:40] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-05 19:01:41] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-05 19:01:41] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-05 19:01:42] Failed to read store 'userlocal' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\userdata\anonymous\config\localconfig.vdf.tmp'
+[2019-09-05 19:01:43] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+
+
+[2019-09-06 15:17:27] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-06 15:17:27] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+
+
+[2019-09-06 15:18:06] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-06 15:18:06] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-06 15:18:36] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+
+
+[2019-09-06 17:11:35] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-06 17:11:35] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+
+
+[2019-09-06 17:12:29] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-06 17:12:29] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+
+
+[2019-09-06 17:12:38] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-06 17:12:38] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+
+
+[2019-09-06 17:13:18] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-06 17:13:18] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+
+
+[2019-09-06 17:13:38] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-06 17:13:38] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-06 17:15:08] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+
+
+[2019-09-06 17:15:44] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-06 17:15:44] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+
+
+[2019-09-06 17:16:23] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-06 17:16:23] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+
+
+[2019-09-06 17:16:58] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-06 17:16:58] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+
+
+[2019-09-06 17:17:08] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-06 17:17:08] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+
+
+[2019-09-06 17:17:19] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-06 17:17:19] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+
+
+[2019-09-06 17:17:30] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-06 17:17:30] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+
+
+[2019-09-06 17:17:39] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-06 17:17:39] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+
+
+[2019-09-06 17:17:49] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-06 17:17:49] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+
+
+[2019-09-06 17:18:28] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-06 17:18:28] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+
+
+[2019-09-06 17:21:11] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-06 17:21:11] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+
+
+[2019-09-06 17:21:24] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-06 17:21:24] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-06 17:22:29] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+
+
+[2019-09-06 17:22:33] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-06 17:22:33] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-06 17:23:48] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+
+
+[2019-09-07 16:02:39] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-07 16:02:39] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-07 16:02:40] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-07 16:02:41] Failed to read store 'userlocal' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\userdata\anonymous\config\localconfig.vdf.tmp'
+[2019-09-07 16:02:41] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-07 16:04:14] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-07 16:04:44] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-07 16:05:14] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-07 16:05:44] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-07 16:06:14] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-07 16:06:44] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-07 16:07:14] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-07 16:07:44] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-07 16:08:14] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-07 16:08:44] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-07 16:09:14] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-07 16:09:44] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-07 16:10:14] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-07 16:10:45] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+
+
+[2019-09-08 11:52:38] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-08 11:52:38] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-08 11:52:38] Loaded store 'install' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf' successfully
+[2019-09-08 11:52:44] Failed to read store 'userlocal' from 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\userdata\anonymous\config\localconfig.vdf.tmp'
+[2019-09-08 11:52:45] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 11:53:58] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 11:54:28] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 11:54:58] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 11:55:28] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 11:55:58] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 11:56:28] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 11:56:58] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 11:57:28] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 11:57:58] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 11:58:28] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 11:58:58] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 11:59:28] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 11:59:58] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:00:28] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:00:58] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:01:28] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:01:58] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:02:28] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:02:58] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:03:28] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:03:59] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:04:29] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:04:59] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:05:29] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:05:59] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:06:29] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:06:59] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:07:29] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:07:59] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:08:29] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:08:59] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:09:29] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:09:59] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:10:29] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:10:59] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:11:29] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:11:59] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:12:29] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:12:59] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'
+[2019-09-08 12:13:29] Flushed store 'install' to 'C:\GitHub\SquadServerManagerV2\resources\steamcmd\config\config.vdf'

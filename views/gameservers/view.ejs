@@ -14,42 +14,53 @@
 
 	<% if (user) { %>
 	<div class="mx-5 mt-3">
-		<h2><%=gameserver.serverName%>
+		<h2><%=gameserver.ServerName%>
 			<span id="service-status-badge" class="badge badge-secondary">...</span>
 		</h2>
-		<h5><%=gameserver.installationRoute%></h5>
+		<h5><%=gameserver.InstallationRoute%></h5>
 		<div class="row mt-3">
 			<div class="col-12 col-md-6 row">
 				<p class="col-6 text-right font-weight-bold m-0 pb-1">Port: </p>
-				<p class="col-6 m-0 p-0"><%= gameserver.port %></p>
-				<p class="col-6 text-right font-weight-bold m-0 pb-1">Query port: </p>
-				<p class="col-6 m-0 p-0"><%= gameserver.queryPort %></p>
-				<p class="col-6 text-right font-weight-bold m-0 pb-1">Fixed max players: </p>
-				<p class="col-6 m-0 p-0"><%= gameserver.fixedMaxPlayers %></p>
-				<p class="col-6 text-right font-weight-bold m-0 pb-1">Fixed max tickrate: </p>
-				<% if (gameserver.fixedMaxTickRate != "0") { %>
-				<p class="col-6 m-0 p-0"><%= gameserver.fixedMaxTickRate %></p>
+				<p class="col-6 m-0 p-0"><%= gameserver.Port %></p>
+
+				<p class="col-6 text-right font-weight-bold m-0 pb-1">Random: </p>
+				<p class="col-6 m-0 p-0"><%= gameserver.Random %></p>
+
+				<p class="col-6 text-right font-weight-bold m-0">Log: </p>
+				<% if (gameserver.Log) { %>
+				<p class="col-6 m-0 p-0"><span class="material-icons">check</span></p>
 				<% } else { %>
 				<p class="col-6 m-0 p-0"><span class="material-icons">close</span></p>
-				<!-- <p class="col-6 m-0 p-0">Disabled</p> -->
+				<% } %>
+
+				<p class="col-6 text-right font-weight-bold m-0">Full crash dump: </p>
+				<% if (gameserver.FullCrashDump) { %>
+				<p class="col-6 m-0 p-0"><span class="material-icons">check</span></p>
+				<% } else { %>
+				<p class="col-6 m-0 p-0"><span class="material-icons">close</span></p>
 				<% } %>
 			</div>
 			<div class="col-12 col-md-6 row">
+				<p class="col-6 text-right font-weight-bold m-0 pb-1">Query port: </p>
+				<p class="col-6 m-0 p-0"><%= gameserver.QueryPort %></p>
+
+				<p class="col-6 text-right font-weight-bold m-0 pb-1">Fixed max players: </p>
+				<% if (gameserver.FixedMaxPlayers) { %>
+				<p class="col-6 m-0 p-0"><%= gameserver.FixedMaxPlayers %></p>
+				<% } else { %>
+				<p class="col-6 m-0 p-0"><span class="material-icons">close</span></p>
+				<% } %>
+
+				<p class="col-6 text-right font-weight-bold m-0 pb-1">Fixed max tickrate: </p>
+				<% if (gameserver.fixedMaxTickRate) { %>
+				<p class="col-6 m-0 p-0"><%= gameserver.FixedMaxTickrate %></p>
+				<% } else { %>
+				<p class="col-6 m-0 p-0"><span class="material-icons">close</span></p>
+				<% } %>
+
 				<p class="col-6 text-right font-weight-bold m-0">Prefer preprocessor: </p>
-				<% if (gameserver.preferPreprocessor != "") { %>
-				<p class="col-6 m-0 p-0"><%= gameserver.preferPreprocessor %></p>
-				<% } else { %>
-				<p class="col-6 m-0 p-0"><span class="material-icons">close</span></p>
-				<% } %>
-				<p class="col-6 text-right font-weight-bold m-0">Log: </p>
-				<% if (gameserver.log) { %>
-				<p class="col-6 m-0 p-0"><span class="material-icons">check</span></p>
-				<% } else { %>
-				<p class="col-6 m-0 p-0"><span class="material-icons">close</span></p>
-				<% } %>
-				<p class="col-6 text-right font-weight-bold m-0">Full crash dump: </p>
-				<% if (gameserver.fullCrashDump) { %>
-				<p class="col-6 m-0 p-0"><span class="material-icons">check</span></p>
+				<% if (gameserver.PreferPreprocessor) { %>
+				<p class="col-6 m-0 p-0"><%= gameserver.PreferPreprocessor %></p>
 				<% } else { %>
 				<p class="col-6 m-0 p-0"><span class="material-icons">close</span></p>
 				<% } %>
@@ -82,7 +93,7 @@
 					Restart
 				</div>
 			</button>
-			<a id="button-config" class="btn btn-light col-2 col-xl-1 mx-auto d-flex disabled" href="/gameservers/<%=gameserver.id%>/config">
+			<a id="button-config" class="btn btn-light col-2 col-xl-1 mx-auto d-flex disabled" href="/gameservers/<%=gameserver.Id%>/config">
 				<div class="w-25 p-0">
 					<span class="material-icons align-top">tune</span>
 				</div>
@@ -94,7 +105,7 @@
 				(function status_check()
 				{
 					$.ajax({
-						url: '/gameservers/<%=gameserver.id%>/getStatus',
+						url: '/gameservers/<%=gameserver.Id%>/getStatus',
 						type: 'GET',
 						success: function (data)
 						{
@@ -175,7 +186,7 @@
 					{
 						console.log("START");
 						$.ajax({
-							url: "/gameservers/<%=gameserver.id%>/start",
+							url: "/gameservers/<%=gameserver.Id%>/start",
 							type: 'GET',
 							success: function (data)
 							{
@@ -191,7 +202,7 @@
 					{
 						console.log("STOP");
 						$.ajax({
-							url: "/gameservers/<%=gameserver.id%>/stop",
+							url: "/gameservers/<%=gameserver.Id%>/stop",
 							type: 'GET',
 							success: function ()
 							{
@@ -207,7 +218,7 @@
 					{
 						console.log("RESTART");
 						$.ajax({
-							url: "/gameservers/<%=gameserver.id%>/restart",
+							url: "/gameservers/<%=gameserver.Id%>/restart",
 							type: 'GET',
 							success: function (data)
 							{
@@ -227,7 +238,7 @@
 	<div class="row mx-5 mt-3 pt-2 border-top border-info">
 		<div class="col-12 mb-4">
 			<h1>Server configuration:</h1>
-			<a class="btn btn-info" href="#">Server.cfg</a>
+			<a class="btn btn-info" href="/gameservers/<%=gameserver.Id%>/config/server">Server.cfg</a>
 			<a class="btn btn-info" href="#">ServerMessages.cfg</a>
 			<a class="btn btn-info" href="#">MapRotation.cfg</a>
 			<a class="btn btn-info" href="#">MOTD.cfg</a>
@@ -246,7 +257,7 @@
 		</div>
 		<div class="col-12 mb-4">
 			<h1>Danger Zone</h1>
-			<a class="btn btn-danger" href="#">Uninstall Server</a>
+			<a class="btn btn-danger" href="/gameservers/<%=gameserver.Id%>/uninstall">Uninstall Server</a>
 		</div>
 	</div>
 
