@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<%- include ../../partials/common.ejs %>
+	<title>Squad Server Manager</title>
+</head>
+
+<body class="bg-dark text-white">
+	<%- include ../../partials/navbar.ejs %>
+
+	<% if (user) { %>
+	<div class="w-75 mx-auto mt-4">
+		<h4 class="mb-4">ServerMessages.cfg</h4>
+		<p>
+			Each line should contain a message.<br>
+			<small>No quotation marks ("") required.</small>
+		</p>
+		<form action="/gameservers/<%= gameserver.Id %>/config/servermessages" method="POST">
+			<textarea class="form-control" name="ServerMessages" id="" rows="10" style="font-family:monospace;" wrap="soft"><%= gameserverconfig_servermessages %></textarea>
+			<button type="submit" class="btn btn-primary w-100 mt-4">Submit</button>
+		</form>
+	</div>
+	<script>
+		$(function ()
+		{
+			$('[data-toggle="tooltip"]').tooltip()
+		});
+	</script>
+	<% } else { %>
+	<!-- !user -->
+	<%- include ../../partials/login.ejs %>
+	<% } %>
+</body>
+
+</html>

@@ -52,7 +52,7 @@
 				<% } %>
 
 				<p class="col-6 text-right font-weight-bold m-0 pb-1">Fixed max tickrate: </p>
-				<% if (gameserver.fixedMaxTickRate) { %>
+				<% if (gameserver.FixedMaxTickrate) { %>
 				<p class="col-6 m-0 p-0"><%= gameserver.FixedMaxTickrate %></p>
 				<% } else { %>
 				<p class="col-6 m-0 p-0"><span class="material-icons">close</span></p>
@@ -239,21 +239,21 @@
 		<div class="col-12 mb-4">
 			<h1>Server configuration:</h1>
 			<a class="btn btn-info" href="/gameservers/<%=gameserver.Id%>/config/server">Server.cfg</a>
-			<a class="btn btn-info" href="#">ServerMessages.cfg</a>
-			<a class="btn btn-info" href="#">MapRotation.cfg</a>
-			<a class="btn btn-info" href="#">MOTD.cfg</a>
-			<a class="btn btn-info" href="#">License.cfg</a>
-			<a class="btn btn-info" href="#">Rcon.cfg</a>
+			<a class="btn btn-info" href="/gameservers/<%=gameserver.Id%>/config/servermessages">ServerMessages.cfg</a>
+			<a class="btn btn-info" href="/gameservers/<%=gameserver.Id%>/config/maprotation">MapRotation.cfg</a>
+			<a class="btn btn-info" href="/gameservers/<%=gameserver.Id%>/config/motd">MOTD.cfg</a>
+			<a class="btn btn-info" href="/gameservers/<%=gameserver.Id%>/config/license">License.cfg</a>
+			<a class="btn btn-info" href="/gameservers/<%=gameserver.Id%>/config/rcon">Rcon.cfg</a>
 		</div>
 		<div class="col-12 mb-4">
 			<h1>Server Admins</h1>
-			<a class="btn btn-info" href="#">Admins.cfg</a>
-			<a class="btn btn-info" href="#">RemoteAdminListHosts.cfg</a>
+			<a class="btn btn-info" href="/gameservers/<%=gameserver.Id%>/config/admins">Admins.cfg</a>
+			<a class="btn btn-info" href="/gameservers/<%=gameserver.Id%>/config/remoteadminlisthosts">RemoteAdminListHosts.cfg</a>
 		</div>
 		<div class="col-12 mb-4">
 			<h1>Server Bans</h1>
-			<a class="btn btn-info" href="#">Bans.cfg</a>
-			<a class="btn btn-info" href="#">RemoteBanListHosts.cfg</a>
+			<a class="btn btn-info" href="/gameservers/<%=gameserver.Id%>/config/bans">Bans.cfg</a>
+			<a class="btn btn-info" href="/gameservers/<%=gameserver.Id%>/config/remotebanlisthosts">RemoteBanListHosts.cfg</a>
 		</div>
 		<div class="col-12 mb-4">
 			<h1>Danger Zone</h1>

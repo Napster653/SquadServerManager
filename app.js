@@ -57,6 +57,16 @@ app.use(function (req, res, next)
 app.use(require('./routes/index.js'));
 app.use(require('./routes/account.js'));
 app.use(require('./routes/gameservers.js'));
+app.use(require('./routes/config-server.js'));
+app.use(require('./routes/config-servermessages.js'));
+app.use(require('./routes/config-maprotation.js'));
+app.use(require('./routes/config-motd.js'));
+app.use(require('./routes/config-license.js'));
+app.use(require('./routes/config-rcon.js'));
+app.use(require('./routes/config-admins.js'));
+app.use(require('./routes/config-remoteadminlisthosts.js'));
+app.use(require('./routes/config-bans.js'));
+app.use(require('./routes/config-remotebanlisthosts.js'));
 
 app.get('/favicon.ico', (req, res) =>
 {

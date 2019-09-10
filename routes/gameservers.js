@@ -1,4 +1,4 @@
-const bodyparser = require('body-parser');
+// const bodyparser = require('body-parser');
 const express = require('express');
 const fs = require('fs');
 const os = require('os');
@@ -18,7 +18,7 @@ const sql_delete_by_Id = 'DELETE FROM GameServer WHERE Id = ?'
 const defaultAppParameters = 'Port=7770 QueryPort=8880 FIXEDMAXPLAYERS=80 RANDOM=NONE FIXEDMAXTICKRATE=35';
 
 var db = new sqlite3.Database('./db/users.db');
-var urlEncodedParser = bodyparser.urlencoded({ extended: false })
+// var urlEncodedParser = bodyparser.urlencoded({ extended: false })
 var progress = {};
 
 function install_service (id, route)
@@ -49,7 +49,7 @@ router.get('/gameservers/add', (req, res) =>
 	else { res.render('login'); }
 });
 
-router.post('/gameservers/add', urlEncodedParser, (req, res) =>
+router.post('/gameservers/add',/* urlEncodedParser,*/ (req, res) =>
 {
 	if (req.user)
 	{
@@ -79,7 +79,7 @@ router.post('/gameservers/add', urlEncodedParser, (req, res) =>
 			}
 			else // GameServer doesn't exist yet
 			{
-				db.run(sql_insert_into_gameserver, [null, req.body.serverName, req.body.installationRoute, 7770, 8880, 80, 35, 'NONE', null, false, false], function (err)
+				db.run(sql_insert_into_gameserver, [null, req.body.serverName, req.body.installationRoute, 7770, 8880,'NONE', 80, 35, null, false, false], function (err)
 				{
 					if (err) throw err;
 					var id = this.lastID;
@@ -297,7 +297,7 @@ router.post('/gameservers/:id/config', (req, res) =>
 				appParameters += 'RANDOM=' + row.Random + ' ';
 				if (row.FixedMaxPlayers) { appParameters += 'FIXEDMAXPLAYERS=' + row.FixedMaxPlayers + ' '; }
 				if (row.FixedMaxTickrate) { appParameters += 'FIXEDMAXTICKRATE=' + row.FixedMaxTickrate + ' '; }
-				if (row.PreferPreprocessor) { appParameters += 'PREFERPREPROCESSOR=' + row.PreferPreprocessor + ' '; }
+				if (row.PreferPreprocessor && row.PreferPreprocessor != '') { appParameters += 'PREFERPREPROCESSOR=' + row.PreferPreprocessor + ' '; }
 				if (row.Log) { appParameters += '-log ' }
 				if (row.FullCrashDump) { appParameters += '-fullcrashdump' }
 
@@ -367,77 +367,6 @@ router.get('/gameservers/:id/uninstall', (req, res) =>
 			}
 			else res.render('home');
 		});
-	}
-	else res.render('login');
-});
-
-router.get('/gameservers/:id/config/server', (req, res) =>
-{
-	if (req.user)
-	{
-		db.get(sql_get_gameserver_by_Id, req.params.id, function (err, row)
-		{
-			if (err) { throw err; }
-			if (typeof row !== 'undefined')
-			{
-				var fileContents = fs.readFileSync(path.join(row.InstallationRoute, '/SquadGame/ServerConfig/Server.cfg'), "utf8");
-				var GameServerConfig_Server = {}
-
-				var regexLines = /(?<key>[^\/\s].*)\s*=+\s*(?<value>.*)/gm
-				while ((lines = regexLines.exec(fileContents)) !== null)
-				{
-					GameServerConfig_Server[lines.groups.key] = { value: lines.groups.value, ignored: false };
-				}
-
-				var regexCommentedLines = /\/{2,}\s*(?<key>[^\/\s].*)\s*\=+\s*(?<value>.*)/gm
-				while ((lines = regexCommentedLines.exec(fileContents)) !== null)
-				{
-					GameServerConfig_Server[lines.groups.key] = { value: lines.groups.value, ignored: true };
-				}
-
-				if ('ServerName' in GameServerConfig_Server) { GameServerConfig_Server['ServerName'].value = GameServerConfig_Server['ServerName'].value.replace(/\"*/g, ''); }
-
-				console.log(GameServerConfig_Server);
-
-				res.render('gameservers/config/server', {
-					gameserver: row,
-					gameserverconfig_server: GameServerConfig_Server
-				});
-			}
-		});
-	}
-	else res.render('login');
-});
-
-router.post('/gameservers/:id/config/server', (req, res) =>
-{
-	if (req.user)
-	{
-		// Don't forget to add "" to ServerName!
-		var gameserverconfig_server = {};
-		Object.keys(req.body).forEach(key =>
-		{
-			if (key.includes('Toggle'))
-			{
-				if (req.body[key] == 'on')
-				{
-					gameserverconfig_server[key.replace('Toggle', '')] = {
-						value: req.body[key.replace('Toggle', '')],
-						ignored: false
-					};
-				}
-				else
-				{
-					gameserverconfig_server[key.replace('Toggle', '')] = {
-						value: req.body[key.replace('Toggle', '')],
-						ignored: true
-					};
-				}
-			}
-		});
-		console.log(gameserverconfig_server);
-		console.log(req.body);
-
 	}
 	else res.render('login');
 });

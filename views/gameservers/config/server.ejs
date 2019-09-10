@@ -14,6 +14,7 @@
 
 	<% if (user) { %>
 	<% if (gameserverconfig_server) { %>
+	<h4 class="m-4">Server.cfg</h4>
 	<form action="/gameservers/<%= gameserver.Id %>/config/server" method="POST">
 		<table class="table table-dark">
 			<thead>
@@ -317,7 +318,6 @@
 				</tr>
 				<tr>
 					<td colspan="4">
-						<input type="hidden" name="InstallationRoute" value="<%= gameserver.InstallationRoute %>">
 						<button type="submit" class="btn btn-primary w-100">Submit</button>
 					</td>
 				</tr>
