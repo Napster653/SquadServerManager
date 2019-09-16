@@ -13,8 +13,11 @@
 	<%- include ../../partials/navbar.ejs %>
 
 	<% if (user) { %>
+	<div>
+		<a class="d-inline-block py-4 px-4 h-100" href="/gameservers/<%=gameserver.Id%>">&lt; Back</a>
+		<h4 class="d-inline-block">ServerMessages.cfg</h4>
+	</div>
 	<div class="w-75 mx-auto mt-4">
-		<h4 class="mb-4">ServerMessages.cfg</h4>
 		<p>
 			Each line should contain a message.<br>
 			<small>No quotation marks ("") required.</small>

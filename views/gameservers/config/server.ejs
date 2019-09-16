@@ -14,7 +14,10 @@
 
 	<% if (user) { %>
 	<% if (gameserverconfig_server) { %>
-	<h4 class="m-4">Server.cfg</h4>
+	<div>
+		<a class="d-inline-block py-4 px-4 h-100" href="/gameservers/<%=gameserver.Id%>">&lt; Back</a>
+		<h4 class="d-inline-block">Server.cfg</h4>
+	</div>
 	<form action="/gameservers/<%= gameserver.Id %>/config/server" method="POST">
 		<table class="table table-dark">
 			<thead>

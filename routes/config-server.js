@@ -4,9 +4,9 @@ const sqlite3 = require('sqlite3');
 const express = require('express');
 const router = express.Router();
 
-const sql_get_gameserver_by_Id = 'SELECT * FROM GameServer WHERE Id = ?';
 const regexLines = /(?<key>[^\/\s].*)\s*=+\s*(?<value>.*)/gm
 const regexCommentedLines = /\/{2,}\s*(?<key>[^\/\s].*)\s*\=+\s*(?<value>.*)/gm
+const sql_get_gameserver_by_Id = 'SELECT * FROM GameServer WHERE Id = ?';
 
 var db = new sqlite3.Database('./db/users.db');
 
@@ -84,6 +84,8 @@ router.post('/gameservers/:id/config/server', (req, res) =>
 				if (GameServerConfig_Server[key].ignored) { WriteStream.write('// ' + key + "=" + GameServerConfig_Server[key].value + "\n"); }
 				else { WriteStream.write(key + "=" + GameServerConfig_Server[key].value + "\n"); }
 			});
+
+			WriteStream.end();
 
 			res.render('gameservers/view', {
 				gameserver: row,

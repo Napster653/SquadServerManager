@@ -46,4 +46,5 @@ router.post('/gameservers/:id/config/motd', (req, res) =>
 	}
 	else res.render('login');
 });
+
 module.exports = router;

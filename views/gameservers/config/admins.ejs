@@ -7,14 +7,257 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<%- include ../../partials/common.ejs %>
 	<title>Squad Server Manager</title>
+	<style>
+		.custom-control-label::before,
+		::after {
+			top: 0 !important;
+			left: -.75rem !important;
+			width: 2rem !important;
+			height: 2rem !important;
+		}
+
+		.vertical {
+			line-height: 10px;
+			writing-mode: vertical-rl;
+			transform: rotate(180deg);
+		}
+	</style>
+	<script>
+		function removeGroup(event, ButtonClicked)
+		{
+			event.preventDefault();
+			ButtonClicked.parentElement.parentElement.remove();
+		}
+
+		function updateGroupRowIds(InputEdited)
+		{
+			var NewGroupName = $(InputEdited).val();
+			$(InputEdited).parent().parent().children().children(".custom-control-input").each(function ()
+			{
+				var old_id = $(this).attr('id');
+				var new_id = old_id.replace(/.*\-/g, NewGroupName + '-');
+
+				$('label[for="' + $(this).attr('id') + '"]').attr('for', new_id);
+				$(this).attr('id', new_id);
+				$(this).attr('name', new_id);
+			});
+		}
+
+		function addGroup()
+		{
+			$("#table-body-groups").append(
+				"<tr>" +
+				"<td class=\"text-center align-middle\"><a href=\"#\" onclick=\"removeGroup(event, this);\" class=\"py-0\"><span class=\"material-icons align-top\">remove_circle_outline</span></a></td>" +
+				"<td><input class=\"form-control form-control-sm\" type=\"text\" value=\"\" onkeyup=\"updateGroupRowIds(this);\" required></td>" +
+				"<td class=\"custom-checkbox\"><input class=\"custom-control-input\" type=\"checkbox\" id=\"-balance\" name=\"-balance\"><label class=\"custom-control-label\" for=\"-balance\"></label></td>" +
+				"<td class=\"custom-checkbox\"><input class=\"custom-control-input\" type=\"checkbox\" id=\"-ban\" name=\"-ban\"><label class=\"custom-control-label\" for=\"-ban\"></label></td>" +
+				"<td class=\"custom-checkbox\"><input class=\"custom-control-input\" type=\"checkbox\" id=\"-cameraman\" name=\"-cameraman\"><label class=\"custom-control-label\" for=\"-cameraman\"></label></td>" +
+				"<td class=\"custom-checkbox\"><input class=\"custom-control-input\" type=\"checkbox\" id=\"-canseeadminchat\" name=\"-canseeadminchat\"><label class=\"custom-control-label\" for=\"-canseeadminchat\"></label></td>" +
+				"<td class=\"custom-checkbox\"><input class=\"custom-control-input\" type=\"checkbox\" id=\"-config\" name=\"-config\"><label class=\"custom-control-label\" for=\"-config\"></label></td>" +
+				"<td class=\"custom-checkbox\"><input class=\"custom-control-input\" type=\"checkbox\" id=\"-changemap\" name=\"-changemap\"><label class=\"custom-control-label\" for=\"-changemap\"></label></td>" +
+				"<td class=\"custom-checkbox\"><input class=\"custom-control-input\" type=\"checkbox\" id=\"-chat\" name=\"-chat\"><label class=\"custom-control-label\" for=\"-chat\"></label></td>" +
+				"<td class=\"custom-checkbox\"><input class=\"custom-control-input\" type=\"checkbox\" id=\"-cheat\" name=\"-cheat\"><label class=\"custom-control-label\" for=\"-cheat\"></label></td>" +
+				"<td class=\"custom-checkbox\"><input class=\"custom-control-input\" type=\"checkbox\" id=\"-debug\" name=\"-debug\"><label class=\"custom-control-label\" for=\"-debug\"></label></td>" +
+				"<td class=\"custom-checkbox\"><input class=\"custom-control-input\" type=\"checkbox\" id=\"-demos\" name=\"-demos\"><label class=\"custom-control-label\" for=\"-demos\"></label></td>" +
+				"<td class=\"custom-checkbox\"><input class=\"custom-control-input\" type=\"checkbox\" id=\"-featuretest\" name=\"-featuretest\"><label class=\"custom-control-label\" for=\"-featuretest\"></label></td>" +
+				"<td class=\"custom-checkbox\"><input class=\"custom-control-input\" type=\"checkbox\" id=\"-forceteamchange\" name=\"-forceteamchange\"><label class=\"custom-control-label\" for=\"-forceteamchange\"></label></td>" +
+				"<td class=\"custom-checkbox\"><input class=\"custom-control-input\" type=\"checkbox\" id=\"-immunity\" name=\"-immunity\"><label class=\"custom-control-label\" for=\"-immunity\"></label></td>" +
+				"<td class=\"custom-checkbox\"><input class=\"custom-control-input\" type=\"checkbox\" id=\"-kick\" name=\"-kick\"><label class=\"custom-control-label\" for=\"-kick\"></label></td>" +
+				"<td class=\"custom-checkbox\"><input class=\"custom-control-input\" type=\"checkbox\" id=\"-manageserver\" name=\"-manageserver\"><label class=\"custom-control-label\" for=\"-manageserver\"></label></td>" +
+				"<td class=\"custom-checkbox\"><input class=\"custom-control-input\" type=\"checkbox\" id=\"-pause\" name=\"-pause\"><label class=\"custom-control-label\" for=\"-pause\"></label></td>" +
+				"<td class=\"custom-checkbox\"><input class=\"custom-control-input\" type=\"checkbox\" id=\"-private\" name=\"-private\"><label class=\"custom-control-label\" for=\"-private\"></label></td>" +
+				"<td class=\"custom-checkbox\"><input class=\"custom-control-input\" type=\"checkbox\" id=\"-reserve\" name=\"-reserve\"><label class=\"custom-control-label\" for=\"-reserve\"></label></td>" +
+				"<td class=\"custom-checkbox\"><input class=\"custom-control-input\" type=\"checkbox\" id=\"-startvote\" name=\"-startvote\"><label class=\"custom-control-label\" for=\"-startvote\"></label></td>" +
+				"<td class=\"custom-checkbox\"><input class=\"custom-control-input\" type=\"checkbox\" id=\"-teamchange\" name=\"-teamchange\"><label class=\"custom-control-label\" for=\"-teamchange\"></label></td>" +
+				"</tr>"
+			)
+		}
+
+		function removeAdmin(event, ButtonClicked)
+		{
+			event.preventDefault();
+			ButtonClicked.parentElement.parentElement.remove();
+		}
+
+		function addAdmin()
+		{
+			if ($("#table-body-admins").children().length == 0)
+			{
+				$("#table-body-admins").append(
+					"<tr>" +
+					"<td class=\"text-center align-middle\"><a href=\"#\" onclick=\"removeAdmin(event, this);\" class=\"py-0\"><span class=\"material-icons align-top\">remove_circle_outline</span></a></td>" +
+					"<td><input class=\"form-control form-control-sm\" type=\"text\" name=\"0-ID64\" value=\"\" onkeyup=\"updateAdminRowIds(this);\" required></td>" +
+					"<td><input class=\"form-control form-control-sm\" type=\"text\" name=\"0-GroupName\" value=\"\" required></td>" +
+					"<td><input class=\"form-control form-control-sm\" type=\"text\" name=\"0-Comment\" value=\"\"></td>" +
+					"</tr>"
+				)
+			}
+			else
+			{
+				var new_id = parseInt($('#table-body-admins tr:last td:last input').attr("name").replace(/\-Comment/, "")) + 1;
+				$("#table-body-admins").append(
+					"<tr>" +
+					"<td class=\"text-center align-middle\"><a href=\"#\" onclick=\"removeAdmin(event, this);\" class=\"py-0\"><span class=\"material-icons align-top\">remove_circle_outline</span></a></td>" +
+					"<td><input class=\"form-control form-control-sm\" type=\"text\" name=\"" + new_id + "-ID64\" value=\"\" onkeyup=\"updateAdminRowIds(this);\" required></td>" +
+					"<td><input class=\"form-control form-control-sm\" type=\"text\" name=\"" + new_id + "-GroupName\" value=\"\" required></td>" +
+					"<td><input class=\"form-control form-control-sm\" type=\"text\" name=\"" + new_id + "-Comment\" value=\"\"></td>" +
+					"</tr>"
+				)
+			}
+		}
+	</script>
 </head>
 
 <body class="bg-dark text-white">
 	<%- include ../../partials/navbar.ejs %>
 
 	<% if (user) { %>
-	<form action="/gameservers/<%= gameserver.Id %>/config/server" method="POST">
-
+	<div>
+		<a class="d-inline-block py-4 px-4 h-100" href="/gameservers/<%=gameserver.Id%>">&lt; Back</a>
+		<h4 class="d-inline-block">MapRotation.cfg</h4>
+	</div>
+	<form class="row m-0 p-2" action="/gameservers/<%= gameserver.Id %>/config/admins" method="POST">
+		<h4 class="m-3">Groups</h4>
+		<table class="table table-dark">
+			<thead>
+				<tr>
+					<th></th>
+					<th scope="col">
+						<div>Group name</div>
+					</th>
+					<th scope="col">
+						<div class="vertical">balance</div>
+					</th>
+					<th scope="col">
+						<div class="vertical">ban</div>
+					</th>
+					<th scope="col">
+						<div class="vertical">cameraman</div>
+					</th>
+					<th scope="col">
+						<div class="vertical">canseeadminchat</div>
+					</th>
+					<th scope="col">
+						<div class="vertical">config</div>
+					</th>
+					<th scope="col">
+						<div class="vertical">changemap</div>
+					</th>
+					<th scope="col">
+						<div class="vertical">chat</div>
+					</th>
+					<th scope="col">
+						<div class="vertical">cheat</div>
+					</th>
+					<th scope="col">
+						<div class="vertical">debug</div>
+					</th>
+					<th scope="col">
+						<div class="vertical">demos</div>
+					</th>
+					<th scope="col">
+						<div class="vertical">featuretest</div>
+					</th>
+					<th scope="col">
+						<div class="vertical">forceteamchange</div>
+					</th>
+					<th scope="col">
+						<div class="vertical">immunity</div>
+					</th>
+					<th scope="col">
+						<div class="vertical">kick</div>
+					</th>
+					<th scope="col">
+						<div class="vertical">manageserver</div>
+					</th>
+					<th scope="col">
+						<div class="vertical">pause</div>
+					</th>
+					<th scope="col">
+						<div class="vertical">private</div>
+					</th>
+					<th scope="col">
+						<div class="vertical">reserve</div>
+					</th>
+					<th scope="col">
+						<div class="vertical">startvote</div>
+					</th>
+					<th scope="col">
+						<div class="vertical">teamchange</div>
+					</th>
+				</tr>
+			</thead>
+			<tbody id="table-body-groups">
+				<% if (gameserverconfig_admins.Groups) { %>
+				<% for (var GroupName in gameserverconfig_admins.Groups) { %>
+				<% if (gameserverconfig_admins.Groups.hasOwnProperty(GroupName)) { %>
+				<tr>
+					<td class="text-center align-middle"><a href="#" onclick="removeGroup(event, this);" class="py-0"><span class="material-icons align-top">remove_circle_outline</span></a></td>
+					<td><input class="form-control form-control-sm" type="text" value="<%= GroupName %>" onkeyup="updateGroupRowIds(this);" required></td>
+					<td class="custom-checkbox"><input class="custom-control-input" type="checkbox" id="<%= GroupName %>-balance" name="<%= GroupName %>-balance" <%= gameserverconfig_admins.Groups[GroupName].includes("balance") ? "checked" : "" %>><label class="custom-control-label" for="<%= GroupName %>-balance"></label></td>
+					<td class="custom-checkbox"><input class="custom-control-input" type="checkbox" id="<%= GroupName %>-ban" name="<%= GroupName %>-ban" <%= gameserverconfig_admins.Groups[GroupName].includes("ban") ? "checked" : "" %>><label class="custom-control-label" for="<%= GroupName %>-ban"></label></td>
+					<td class="custom-checkbox"><input class="custom-control-input" type="checkbox" id="<%= GroupName %>-cameraman" name="<%= GroupName %>-cameraman" <%= gameserverconfig_admins.Groups[GroupName].includes("cameraman") ? "checked" : "" %>><label class="custom-control-label" for="<%= GroupName %>-cameraman"></label></td>
+					<td class="custom-checkbox"><input class="custom-control-input" type="checkbox" id="<%= GroupName %>-canseeadminchat" name="<%= GroupName %>-canseeadminchat" <%= gameserverconfig_admins.Groups[GroupName].includes("canseeadminchat") ? "checked" : "" %>><label class="custom-control-label" for="<%= GroupName %>-canseeadminchat"></label></td>
+					<td class="custom-checkbox"><input class="custom-control-input" type="checkbox" id="<%= GroupName %>-config" name="<%= GroupName %>-config" <%= gameserverconfig_admins.Groups[GroupName].includes("config") ? "checked" : "" %>><label class="custom-control-label" for="<%= GroupName %>-config"></label></td>
+					<td class="custom-checkbox"><input class="custom-control-input" type="checkbox" id="<%= GroupName %>-changemap" name="<%= GroupName %>-changemap" <%= gameserverconfig_admins.Groups[GroupName].includes("changemap") ? "checked" : "" %>><label class="custom-control-label" for="<%= GroupName %>-changemap"></label></td>
+					<td class="custom-checkbox"><input class="custom-control-input" type="checkbox" id="<%= GroupName %>-chat" name="<%= GroupName %>-chat" <%= gameserverconfig_admins.Groups[GroupName].includes("chat") ? "checked" : "" %>><label class="custom-control-label" for="<%= GroupName %>-chat"></label></td>
+					<td class="custom-checkbox"><input class="custom-control-input" type="checkbox" id="<%= GroupName %>-cheat" name="<%= GroupName %>-cheat" <%= gameserverconfig_admins.Groups[GroupName].includes("cheat") ? "checked" : "" %>><label class="custom-control-label" for="<%= GroupName %>-cheat"></label></td>
+					<td class="custom-checkbox"><input class="custom-control-input" type="checkbox" id="<%= GroupName %>-debug" name="<%= GroupName %>-debug" <%= gameserverconfig_admins.Groups[GroupName].includes("debug") ? "checked" : "" %>><label class="custom-control-label" for="<%= GroupName %>-debug"></label></td>
+					<td class="custom-checkbox"><input class="custom-control-input" type="checkbox" id="<%= GroupName %>-demos" name="<%= GroupName %>-demos" <%= gameserverconfig_admins.Groups[GroupName].includes("demos") ? "checked" : "" %>><label class="custom-control-label" for="<%= GroupName %>-demos"></label></td>
+					<td class="custom-checkbox"><input class="custom-control-input" type="checkbox" id="<%= GroupName %>-featuretest" name="<%= GroupName %>-featuretest" <%= gameserverconfig_admins.Groups[GroupName].includes("featuretest") ? "checked" : "" %>><label class="custom-control-label" for="<%= GroupName %>-featuretest"></label></td>
+					<td class="custom-checkbox"><input class="custom-control-input" type="checkbox" id="<%= GroupName %>-forceteamchange" name="<%= GroupName %>-forceteamchange" <%= gameserverconfig_admins.Groups[GroupName].includes("forceteamchange") ? "checked" : "" %>><label class="custom-control-label" for="<%= GroupName %>-forceteamchange"></label></td>
+					<td class="custom-checkbox"><input class="custom-control-input" type="checkbox" id="<%= GroupName %>-immunity" name="<%= GroupName %>-immunity" <%= gameserverconfig_admins.Groups[GroupName].includes("immunity") ? "checked" : "" %>><label class="custom-control-label" for="<%= GroupName %>-immunity"></label></td>
+					<td class="custom-checkbox"><input class="custom-control-input" type="checkbox" id="<%= GroupName %>-kick" name="<%= GroupName %>-kick" <%= gameserverconfig_admins.Groups[GroupName].includes("kick") ? "checked" : "" %>><label class="custom-control-label" for="<%= GroupName %>-kick"></label></td>
+					<td class="custom-checkbox"><input class="custom-control-input" type="checkbox" id="<%= GroupName %>-manageserver" name="<%= GroupName %>-manageserver" <%= gameserverconfig_admins.Groups[GroupName].includes("manageserver") ? "checked" : "" %>><label class="custom-control-label" for="<%= GroupName %>-manageserver"></label></td>
+					<td class="custom-checkbox"><input class="custom-control-input" type="checkbox" id="<%= GroupName %>-pause" name="<%= GroupName %>-pause" <%= gameserverconfig_admins.Groups[GroupName].includes("pause") ? "checked" : "" %>><label class="custom-control-label" for="<%= GroupName %>-pause"></label></td>
+					<td class="custom-checkbox"><input class="custom-control-input" type="checkbox" id="<%= GroupName %>-private" name="<%= GroupName %>-private" <%= gameserverconfig_admins.Groups[GroupName].includes("private") ? "checked" : "" %>><label class="custom-control-label" for="<%= GroupName %>-private"></label></td>
+					<td class="custom-checkbox"><input class="custom-control-input" type="checkbox" id="<%= GroupName %>-reserve" name="<%= GroupName %>-reserve" <%= gameserverconfig_admins.Groups[GroupName].includes("reserve") ? "checked" : "" %>><label class="custom-control-label" for="<%= GroupName %>-reserve"></label></td>
+					<td class="custom-checkbox"><input class="custom-control-input" type="checkbox" id="<%= GroupName %>-startvote" name="<%= GroupName %>-startvote" <%= gameserverconfig_admins.Groups[GroupName].includes("startvote") ? "checked" : "" %>><label class="custom-control-label" for="<%= GroupName %>-startvote"></label></td>
+					<td class="custom-checkbox"><input class="custom-control-input" type="checkbox" id="<%= GroupName %>-teamchange" name="<%= GroupName %>-teamchange" <%= gameserverconfig_admins.Groups[GroupName].includes("teamchange") ? "checked" : "" %>><label class="custom-control-label" for="<%= GroupName %>-teamchange"></label></td>
+				</tr>
+				<% } %>
+				<% } %>
+				<% } %>
+			<tfoot>
+				<tr>
+					<td class="py-2" colspan="100%"><button type="button" class="btn btn-primary btn-sm w-100" onclick="addGroup()"><span class="material-icons align-top">add</span></button></td>
+				</tr>
+			</tfoot>
+			</tbody>
+		</table>
+		<h4 class="m-3">Admins</h4>
+		<table class="table table-dark table-sm">
+			<thead>
+				<th></th>
+				<th scope="col">
+					<div>ID64</div>
+				</th>
+				<th scope="col">
+					<div>Group Name</div>
+				</th>
+				<th scope="col">
+					<div>Comments</div>
+				</th>
+			</thead>
+			<tbody id="table-body-admins">
+				<% if (gameserverconfig_admins.Admins) { %>
+				<% for (var i = 0; i < gameserverconfig_admins.Admins.length; i++) { %>
+				<tr>
+					<td class="text-center align-middle"><a href="#" onclick="removeAdmin(event, this);" class="py-0"><span class="material-icons align-top">remove_circle_outline</span></a></td>
+					<td><input class="form-control form-control-sm" type="text" name="<%= i %>-ID64" value="<%= gameserverconfig_admins.Admins[i].ID64 %>" onkeyup="updateAdminRowIds(this);" required></td>
+					<td><input class="form-control form-control-sm" type="text" name="<%= i %>-GroupName" value="<%= gameserverconfig_admins.Admins[i].GroupName %>" required></td>
+					<td><input class="form-control form-control-sm" type="text" name="<%= i %>-Comment" value="<%= gameserverconfig_admins.Admins[i].Comment %>"></td>
+				</tr>
+				<% } %>
+				<% } %>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="py-2" colspan="100%"><button type="button" class="btn btn-primary btn-sm w-100" onclick="addAdmin()"><span class="material-icons align-top">add</span></button></td>
+				</tr>
+			</tfoot>
+		</table>
+		<button type="submit" class="btn btn-primary w-100 mt-4">Submit</button>
 	</form>
 	<script>
 		$(function ()

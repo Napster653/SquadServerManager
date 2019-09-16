@@ -20,9 +20,28 @@ router.get('/gameservers/:id/config/maprotation', (req, res) =>
 			{
 				var fileContents = fs.readFileSync(path.join(row.InstallationRoute, '/SquadGame/ServerConfig/MapRotation.cfg'), "utf8");
 				res.render('gameservers/config/maprotation', {
-					gameserver: row
+					gameserver: row,
+					gameserverconfig_maprotation: fileContents
 				});
 			}
+		});
+	}
+	else res.render('login');
+});
+
+router.post('/gameservers/:id/config/maprotation', (req, res) =>
+{
+	if (req.user)
+	{
+		db.get(sql_get_gameserver_by_Id, req.params.id, function (err, row)
+		{
+			if (err) throw err;
+
+			fs.writeFileSync(path.join(row.InstallationRoute, '/SquadGame/ServerConfig/MapRotation.cfg'), req.body.MapRotation, "utf8");
+
+			res.render('gameservers/view', {
+				gameserver: row,
+			});
 		});
 	}
 	else res.render('login');

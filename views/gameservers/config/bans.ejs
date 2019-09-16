@@ -7,14 +7,101 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<%- include ../../partials/common.ejs %>
 	<title>Squad Server Manager</title>
+	<script>
+		function removeBan(event, ButtonClicked)
+		{
+			event.preventDefault();
+			ButtonClicked.parentElement.parentElement.remove();
+		}
+
+		function addBan()
+		{
+			if ($("#table-body-bans").children().length == 0)
+			{
+				$("#table-body-bans").append(
+					"<tr>" +
+					"<td class=\"text-center align-middle\"><a href=\"#\" onclick=\"removeBan(event, this);\" class=\"py-0 px-3\"><span class=\"material-icons align-top\">remove_circle_outline</span></a></td>" +
+					"<td style=\"width: 10em;\"><input class=\"form-control form-control-sm\" type=\"text\" name=\"0-ID64\" required></td>" +
+					"<td class=\"input-group\">" +
+					"<input class=\"form-control form-control-sm\" type=\"date\" name=\"0-Date\" value=\"\">" +
+					"<input class=\"form-control form-control-sm\" type=\"time\" name=\"0-Time\" value=\"\">" +
+					"</td>" +
+					"<td><input class=\"form-control form-control-sm\" type=\"text\" name=\"0-Comment\"></td>" +
+					"</tr>"
+				)
+			}
+			else
+			{
+				var new_id = parseInt($('#table-body-bans tr:last td:last input').attr("name").replace(/\-Comment/, "")) + 1;
+				$("#table-body-bans").append(
+					"<tr>" +
+					"<td class=\"text-center align-middle\"><a href=\"#\" onclick=\"removeBan(event, this);\" class=\"py-0 px-3\"><span class=\"material-icons align-top\">remove_circle_outline</span></a></td>" +
+					"<td style=\"width: 10em;\"><input class=\"form-control form-control-sm\" type=\"text\" name=\"" + new_id + "-ID64\" required></td>" +
+					"<td class=\"input-group\">" +
+					"<input class=\"form-control form-control-sm\" type=\"date\" name=\"" + new_id + "-Date\" value=\"\">" +
+					"<input class=\"form-control form-control-sm\" type=\"time\" name=\"" + new_id + "-Time\" value=\"\">" +
+					"</td>" +
+					"<td><input class=\"form-control form-control-sm\" type=\"text\" name=\"" + new_id + "-Comment\"></td>" +
+					"</tr>"
+				)
+			}
+		}
+	</script>
 </head>
 
 <body class="bg-dark text-white">
 	<%- include ../../partials/navbar.ejs %>
 
 	<% if (user) { %>
-	<form action="/gameservers/<%= gameserver.Id %>/config/server" method="POST">
-
+	<div>
+		<a class="d-inline-block py-4 px-4 h-100" href="/gameservers/<%=gameserver.Id%>">&lt; Back</a>
+		<h4 class="d-inline-block">Bans.cfg</h4>
+	</div>
+	<form class="row m-0 p-2" action="/gameservers/<%= gameserver.Id %>/config/bans" method="POST">
+		<table class="col-10 mx-auto">
+			<thead>
+				<tr>
+					<th></th>
+					<th scope="col">
+						<div>ID64</div>
+					</th>
+					<th scope="col">
+						<div>Banned until</div>
+					</th>
+					<th scope="col">
+						<div>Comment</div>
+					</th>
+				</tr>
+			</thead>
+			<tbody id="table-body-bans">
+				<% if (gameserverconfig_bans) { %>
+				<% function addZero(i)
+					{
+						if (i < 10) { i = "0" + i; }
+						return i;
+					} %>
+				<% for (var i = 0; i < gameserverconfig_bans.length; i++) { %>
+				<% var datetime = new Date(gameserverconfig_bans[i].Timestamp*1000); %>
+				<script>console.log("<%= datetime.valueOf() %>")</script>
+				<tr>
+					<td class="text-center align-middle"><a href="#" onclick="removeBan(event, this);" class="py-0 px-3"><span class="material-icons align-top">remove_circle_outline</span></a></td>
+					<td style="width: 10em;"><input class="form-control form-control-sm" type="text" name="<%= i %>-ID64" value="<%= gameserverconfig_bans[i].ID64 %>" required></td>
+					<td class="input-group">
+						<input class="form-control form-control-sm" type="date" name="<%= i %>-Date" value="<%= datetime.valueOf() != 0 ? datetime.getUTCFullYear() + "-" + addZero(parseInt(datetime.getUTCMonth()) + 1) + "-" + addZero(datetime.getUTCDate()) : "" %>">
+						<input class="form-control form-control-sm" type="time" name="<%= i %>-Time" value="<%= datetime.valueOf() != 0 ? addZero(datetime.getUTCHours()) + ":" + addZero(datetime.getUTCMinutes()) : "" %>">
+					</td>
+					<td><input class="form-control form-control-sm" type="text" name="<%= i %>-Comment" value="<%= gameserverconfig_bans[i].Comment %>"></td>
+				</tr>
+				<% } %>
+				<% } %>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="py-2" colspan="100%"><button type="button" class="btn btn-primary btn-sm w-100" onclick="addBan()"><span class="material-icons align-top">add</span></button></td>
+				</tr>
+			</tfoot>
+		</table>
+		<button type="submit" class="btn btn-primary w-100 mt-4">Submit</button>
 	</form>
 	<script>
 		$(function ()

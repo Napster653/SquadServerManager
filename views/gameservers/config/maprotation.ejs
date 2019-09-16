@@ -6,17 +6,253 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<%- include ../../partials/common.ejs %>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 	<title>Squad Server Manager</title>
+	<style>
+		.ui-autocomplete {
+			position: absolute;
+			z-index: 1000;
+			cursor: default;
+			padding: 0;
+			margin-top: 2px;
+			list-style: none;
+			background-color: #ffffff;
+			color: black;
+			border: 1px solid #ccc;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+			-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+			box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+		}
+
+		.ui-autocomplete>li {
+			padding: 0;
+		}
+
+		.ui-state-active {
+			background-color: rgb(114, 114, 114);
+		}
+
+		.ui-menu-item-wrapper {
+			padding: 3px 20px;
+		}
+
+		.ui-helper-hidden-accessible {
+			display: none;
+		}
+	</style>
+	<script>
+		$(function ()
+		{
+			var AvailableMaps = [
+				"Al Basrah Insurgency v1",
+				"Al Basrah Invasion v1",
+				"Al Basrah Invasion v2",
+				"Al Basrah RAAS v1",
+				"Al Basrah Skirmish v1",
+				"Al Basrah Skirmish v2",
+				"Al Basrah TC v1",
+				"Al Basrah TC v2",
+				"Belaya AAS v1",
+				"Belaya Invasion v1",
+				"Belaya Invasion v2",
+				"Belaya Invasion v3",
+				"Belaya RAAS v1",
+				"Belaya RAAS v2",
+				"Belaya RAAS v3",
+				"Belaya Skirmish v1",
+				"Belaya TC v1",
+				"Chora AAS v1",
+				"Chora AAS v2",
+				"Chora Insurgency v1",
+				"Chora Invasion v1",
+				"Chora Invasion v1 Night",
+				"Chora RAAS v1",
+				"Chora RAAS v2",
+				"Chora Skirmish v1",
+				"Chora TC v1",
+				"Fool's Road AAS v1",
+				"Fool's Road AAS v3",
+				"Fool's Road RAAS v1",
+				"Fool's Road RAAS v2",
+				"Fool's Road RAAS v3",
+				"Fool's Road Destruction v1",
+				"Fool's Road Skirmish v1",
+				"Fool's Road Skirmish v2",
+				"Fool's Road TC v1",
+				"Gorodok AAS v1",
+				"Gorodok AAS v2",
+				"Gorodok Destruction v1",
+				"Gorodok Insurgency v1",
+				"Gorodok Invasion v1",
+				"Gorodok Invasion v2",
+				"Gorodok RAAS v1",
+				"Gorodok RAAS v2",
+				"Gorodok RAAS v3",
+				"Gorodok RAAS v4",
+				"Gorodok RAAS v5",
+				"Gorodok Skirmish v1",
+				"Gorodok TC v1",
+				"Jensen's Range v1",
+				"Jensen's Range v2",
+				"Jensen's Range v3",
+				"Jensen's Range Skirmish v1",
+				"Kamdesh AAS v1",
+				"Kamdesh Insurgency v1",
+				"Kamdesh Insurgency v2",
+				"Kamdesh Invasion v1",
+				"Kamdesh Invasion v2",
+				"Kamdesh Invasion v3",
+				"Kamdesh RAAS v1",
+				"Kamdesh RAAS v2",
+				"Kamdesh RAAS v3",
+				"Kamdesh RAAS v4",
+				"Kamdesh Skirmish v1",
+				"Kamdesh TC v1",
+				"Kohat AAS v1",
+				"Kohat Insurgency v1",
+				"Kohat Invasion v1",
+				"Kohat Invasion v2",
+				"Kohat RAAS v1",
+				"Kohat RAAS v2",
+				"Kohat RAAS v3",
+				"Kohat RAAS v4",
+				"Kohat Skirmish v1",
+				"Kohat TC v1",
+				"Kokan Valley AAS v1",
+				"Kokan Insurgency v1",
+				"Kokan Invasion v1",
+				"Kokan RAAS v1",
+				"Kokan RAAS v2",
+				"Kokan Skirmish v1",
+				"Kokan TC v1",
+				"Logar Valley AAS v1",
+				"Logar Valley RAAS v1",
+				"Logar Valley Insurgency v1",
+				"Logar Valley Skirmish v1",
+				"Mestia AAS v1",
+				"Mestia Invasion v1",
+				"Mestia Invasion v2",
+				"Mestia RAAS v1",
+				"Mestia Skirmish v1",
+				"Mestia TC v1",
+				"Narva AAS v1",
+				"Narva AAS v3",
+				"Narva Destruction v1",
+				"Narva Invasion v1",
+				"Narva Invasion v2",
+				"Narva RAAS v1",
+				"Narva Skirmish v1",
+				"Narva TC v1",
+				"Narva TC v2",
+				"Skorpo AAS v1",
+				"Skorpo RAAS v1",
+				"Skorpo RAAS v2",
+				"Skorpo Invasion v1",
+				"Skorpo Invasion v2",
+				"Skorpo Skirmish v1",
+				"Skorpo TC v1",
+				"Skorpo TC v2",
+				"Skorpo TC v3",
+				"Sumari AAS v1",
+				"Sumari Insurgency v1",
+				"Sumari RAAS v1",
+				"Sumari RAAS v2",
+				"Sumari Skirmish v1",
+				"Sumari TC v1",
+				"Tallil Outskirts AAS v1",
+				"Tallil Outskirts Invasion v1",
+				"Tallil Outskirts Invasion v2",
+				"Tallil Outskirts RAAS v1",
+				"Tallil Outskirts RAAS v2",
+				"Tallil Outskirts RAAS v3",
+				"Tallil Outskirts RAAS v4",
+				"Tallil Outskirts Skirmish v1",
+				"Tallil Outskirts Skirmish v2",
+				"Tallil Outskirts Skirmish v3",
+				"Tallil Outskirts Tanks v1 Experimental",
+				"Tallil Outskirts Tanks v2 Experimental",
+				"Tallil Outskirts TC v1",
+				"Yehorivka AAS v3",
+				"Yehorivka AAS v4",
+				"Yehorivka AAS v5",
+				"Yehorivka Destruction v1",
+				"Yehorivka Invasion v1",
+				"Yehorivka Invasion v2",
+				"Yehorivka RAAS v1",
+				"Yehorivka RAAS v2",
+				"Yehorivka RAAS v3",
+				"Yehorivka RAAS v4",
+				"Yehorivka RAAS v5",
+				"Yehorivka Skirmish v1",
+				"Yehorivka Skirmish v2",
+				"Yehorivka TC v1",
+				"Yehorivka TC v2"
+			];
+			$("#MapInput").autocomplete({
+				source: AvailableMaps
+			});
+		});
+	</script>
 </head>
 
 <body class="bg-dark text-white">
 	<%- include ../../partials/navbar.ejs %>
 
 	<% if (user) { %>
-	<form action="/gameservers/<%= gameserver.Id %>/config/server" method="POST">
+	<div>
+		<a class="d-inline-block py-4 px-4 h-100" href="/gameservers/<%=gameserver.Id%>">&lt; Back</a>
+		<h4 class="d-inline-block">MapRotation.cfg</h4>
+	</div>
+	<div class="row m-0">
+		<form class="mx-auto col-6" action="/gameservers/<%= gameserver.Id %>/config/maprotation" method="POST">
+			<p>Select the maps one by one and click on the + button to add them to the rotation.</p>
 
-	</form>
+			<div class="form-group">
+				<div class="input-group ui-widget">
+					<input class="form-control" id="MapInput" type="text" placeholder="Start typing here">
+					<div class="input-group-append">
+						<button id="AddMapButton" type="button" class="btn btn-info "><span class="material-icons align-top">add</span></button>
+					</div>
+				</div>
+			</div>
+
+			<p>You can also paste your own map rotation.</p>
+
+			<div class="form-group">
+				<textarea class="form-control" name="MapRotation" id="MapRotation" cols="30" rows="10"><%= gameserverconfig_maprotation %></textarea>
+			</div>
+
+			<button type="submit" class="btn btn-primary w-100 mt-2 mb-4">Submit</button>
+		</form>
+	</div>
 	<script>
+		$(function ()
+		{
+			$("#AddMapButton").click(function ()
+			{
+				if (/\n$/.test())
+				{
+					$("#MapRotation").val($("#MapRotation").val() + $("#MapInput").val());
+					$("#MapInput").val("");
+				}
+				else
+				{
+					if ($("#MapRotation").val() != "")
+					{
+						$("#MapRotation").val($("#MapRotation").val() + "\n" + $("#MapInput").val());
+						$("#MapInput").val("");
+					}
+					else
+					{
+						$("#MapRotation").val($("#MapRotation").val() + $("#MapInput").val());
+						$("#MapInput").val("");
+					}
+				}
+			});
+		});
 		$(function ()
 		{
 			$('[data-toggle="tooltip"]').tooltip()
