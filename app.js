@@ -8,18 +8,12 @@ var sql_get_gameservers = 'SELECT * FROM GameServer';
 
 const databaseSetup = require('./config/database-setup');
 const passportSetup = require('./config/passport-setup');
-const child_process = require('child_process');
-
-// const Nssm = require('nssm');
-// var svc = Nssm('SquadServerManager_2', { nssmExe: 'resources/nssm/nssm.exe' });
-// svc.stop(function () { svc.remove('confirm', function () { }); });
 
 steamcmd.download({ binDir: 'resources/steamcmd' });
 
 var app = express();
 
 app.set('view engine', 'ejs');
-
 app.use(require('cookie-parser')());
 app.use(require('body-parser').urlencoded({ extended: true }));
 app.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
@@ -37,18 +31,12 @@ app.use(function (req, res, next)
 		if (req.user)
 		{
 			res.locals.gameservers = rows;
-			console.log('\nA request was received: ' + req.method + req.url +
-				'\n\tUser: ' + res.locals.user +
-				'\n\tGameservers: ' + res.locals.gameservers +
-				'\n\tres.locals.message: ' + res.locals.message);
+			console.log('A request was received: ' + req.method + req.url);
 			next();
 		}
 		else
 		{
-			console.log('\nA request was received: ' + req.method + req.url +
-				'\n\tUser: ' + res.locals.user +
-				'\n\tGameservers: ' + res.locals.gameservers +
-				'\n\tres.locals.message: ' + res.locals.message);
+			console.log('A request was received: ' + req.method + req.url);
 			next();
 		}
 	});
@@ -73,9 +61,12 @@ app.get('/favicon.ico', (req, res) =>
 	res.sendFile(__dirname + "/favicon.ico");
 });
 
-
 var server = app.listen(6530, () =>
 {
 	var port = server.address().port;
-	console.log("Server running on port " + port);
+	console.log("\n============================\n" +
+		"Squad Server Manager started\n\n" +
+		"Server running on port " + port +
+		"\n============================\n"
+	);
 });

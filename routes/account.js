@@ -19,9 +19,4 @@ router.get('/logout', (req, res) =>
 	res.redirect('/');
 });
 
-router.get('/profile', require('connect-ensure-login').ensureLoggedIn(), (req, res) =>
-{
-	res.render('profile');
-});
-
 module.exports = router;

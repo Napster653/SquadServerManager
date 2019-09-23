@@ -788,3 +788,54 @@
 [2019-09-08 12:13:43] [3,2] LogOff()
 [2019-09-08 12:13:43] [2,2] AsyncDisconnect()
 [2019-09-08 12:13:43] [2,2] Log session ended
+
+
+[2019-09-19 23:10:06] Log session started
+[2019-09-19 23:10:06] [0,0] SetSteamID( [U:1:0] )
+[2019-09-19 23:10:06] CCMInterface::OnNetworkDeviceStateChange -- Saw device up, connecting to Steam
+[2019-09-19 23:10:06] CCMInterface::OnNetworkDeviceStateChange -- Saw device up, connecting to Steam
+[2019-09-19 23:10:06] CCMInterface::OnNetworkDeviceStateChange -- Saw device up, connecting to Steam
+[2019-09-19 23:10:06] [0,0] SetSteamID( [a:1:0] )
+[2019-09-19 23:10:06] [0,0] SetSteamID( [a:1:0] )
+[2019-09-19 23:10:06] [0,0] Server says 50% of connections should be websockets, we rolled 56 - using UDP as default.
+[2019-09-19 23:10:06] [1,2] Connect() starting connection (eNetQOSLevelHigh, 155.133.246.68:27018, UDP)
+[2019-09-19 23:10:07] [1,2] ConnectionCompleted() (155.133.246.69:27018, UDP)
+[2019-09-19 23:10:07] [1,2] RecvMsgClientLogOnResponse() : [a:1:2093341810] 'OK'
+[2019-09-19 23:15:47] [3,2] ResetVoiceRecording() (was recording: 0) (last get voice time: 1568927747 seconds ago)
+[2019-09-19 23:15:47] [3,2] LogOff()
+[2019-09-19 23:15:47] [2,2] AsyncDisconnect()
+[2019-09-19 23:15:47] [2,2] Log session ended
+
+
+[2019-09-21 12:08:20] Log session started
+[2019-09-21 12:08:20] [0,0] SetSteamID( [U:1:0] )
+[2019-09-21 12:08:21] CCMInterface::OnNetworkDeviceStateChange -- Saw device up, connecting to Steam
+[2019-09-21 12:08:21] CCMInterface::OnNetworkDeviceStateChange -- Saw device up, connecting to Steam
+[2019-09-21 12:08:21] CCMInterface::OnNetworkDeviceStateChange -- Saw device up, connecting to Steam
+[2019-09-21 12:08:21] [0,0] SetSteamID( [a:1:0] )
+[2019-09-21 12:08:21] [0,0] SetSteamID( [a:1:0] )
+[2019-09-21 12:08:21] [0,0] Server says 50% of connections should be websockets, we rolled 21 - using WebSockets as default.
+[2019-09-21 12:08:21] [0,0] PingWebSocketCM() (cm1-mad1.cm.steampowered.com:443) starting...
+[2019-09-21 12:08:21] [0,0] PingWebSocketCM() (cm2-mad1.cm.steampowered.com:443) starting...
+[2019-09-21 12:08:21] [0,0] PingWebSocketCM() (cm1-mad1.cm.steampowered.com:27020) starting...
+[2019-09-21 12:08:21] [0,0] PingWebSocketCM() (CM01-LON.cm.steampowered.com:443) starting...
+[2019-09-21 12:08:21] [0,0] PingWebSocketCM() (cm2-mad1.cm.steampowered.com:443) results: 49.0380ms + load 58.0000
+[2019-09-21 12:08:21] [0,0] PingWebSocketCM() (cm1-mad1.cm.steampowered.com:27020) results: 49.0967ms + load 55.0000
+[2019-09-21 12:08:21] [0,0] PingWebSocketCM() (cm1-mad1.cm.steampowered.com:443) results: 48.9735ms + load 55.0000
+[2019-09-21 12:08:21] [0,0] PingWebSocketCM() (cm3-sto1.cm.steampowered.com:27021) starting...
+[2019-09-21 12:08:21] [0,0] PingWebSocketCM() (CM01-LON.cm.steampowered.com:27020) starting...
+[2019-09-21 12:08:21] [0,0] PingWebSocketCM() (cm-04-ams1.cm.steampowered.com:27020) starting...
+[2019-09-21 12:08:21] [0,0] PingWebSocketCM() (CM01-LON.cm.steampowered.com:443) results: 102.3407ms + load 67.0000
+[2019-09-21 12:08:21] [0,0] PingWebSocketCM() (CM03-FRA.cm.steampowered.com:27020) starting...
+[2019-09-21 12:08:21] [0,0] PingWebSocketCM() (CM01-LON.cm.steampowered.com:27020) results: 101.6564ms + load 69.0000
+[2019-09-21 12:08:21] [0,0] PingWebSocketCM() stopping after 400.00ms timeout and using good enough host (cm1-mad1.cm.steampowered.com:443)
+[2019-09-21 12:08:21] [0,0] PingWebSocketCM() (cm-04-ams1.cm.steampowered.com:27020) results: 101.5366ms + load 68.0000
+[2019-09-21 12:08:21] [0,0] PingWebSocketCM() (cm3-sto1.cm.steampowered.com:27021) results: 101.6715ms + load 77.0000
+[2019-09-21 12:08:21] [0,0] PingWebSocketCM() (CM03-FRA.cm.steampowered.com:27020) results: 49.0179ms + load 68.0000
+[2019-09-21 12:08:21] [1,3] Connect() starting connection (eNetQOSLevelHigh, cm1-mad1.cm.steampowered.com:443, WebSocket)
+[2019-09-21 12:08:22] [1,3] ConnectionCompleted() (155.133.246.68:443, WebSocket)
+[2019-09-21 12:08:22] [1,3] RecvMsgClientLogOnResponse() : [a:1:2900156468] 'OK'
+[2019-09-21 12:15:38] [3,3] ResetVoiceRecording() (was recording: 0) (last get voice time: 1569060938 seconds ago)
+[2019-09-21 12:15:38] [3,3] LogOff()
+[2019-09-21 12:15:38] [2,3] AsyncDisconnect()
+[2019-09-21 12:15:38] [2,3] Log session ended

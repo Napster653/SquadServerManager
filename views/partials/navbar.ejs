@@ -4,7 +4,6 @@
 		<% if (!locals.user) { %>
 		<li class="nav-item"><a class="nav-link text-white" href="/login">Login</a></li>
 		<% } else { %>
-		<span class="navbar-text text-muted mr-0 pr-0">Logged in as <a class="nav-link text-info d-inline ml-0 pl-0" href="/profile"><%= user.Username %></a></span>
 		<li class="nav-item"><a class="nav-link text-white" href="/logout">Logout</a></li>
 		<% } %>
 	</ul>

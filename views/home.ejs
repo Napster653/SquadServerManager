@@ -19,7 +19,7 @@
 			<% for (var i = 0; i < gameservers.length; i++) { %>
 			<div class="col-12 col-md-4 col-xl-3 mb-3">
 				<div class="card bg-dark border-info h-100 pb-5">
-					<a class="text-decoration-none text-white" href="/gameservers/<%=gameservers[i].Id%>">
+					<a class="text-decoration-none text-white" href="/gameservers/<%=gameservers[i].Id%>/view">
 						<div class="card-header border-info bg-info overflow-hidden text-nowrap text-truncate"><%=gameservers[i].ServerName%></div>
 						<div class="card-body px-5">
 							<p class="d-inline-block font-weight-bold mb-1">Status: </p>
@@ -51,7 +51,6 @@
 						type: 'GET',
 						success: function (data)
 						{
-							console.log(data);
 							switch (data.service_status)
 							{
 								case 'SERVICE_START_PENDING':
@@ -90,7 +89,8 @@
 						complete: function ()
 						{
 							setTimeout(status_check, 300);
-						}
+						},
+						error: function () { location.reload(); }
 					});
 				})();
 				$("#button-start-<%=gameservers[i].Id%>").click(function ()

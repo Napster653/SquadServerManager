@@ -114,7 +114,8 @@
 						complete: function ()
 						{
 							setTimeout(status_check, 100);
-						}
+						},
+						error: function () { location.reload(); }
 					});
 				})();
 				function handleServiceStatus(service_status)
