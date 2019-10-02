@@ -11,7 +11,7 @@ const regex_form_admins = /\d+\-ID64/gm;
 const regex_form_groups = /(?<GroupName>.*)-(?<Permission>.*)/gm;
 const sql_get_gameserver_by_Id = 'SELECT * FROM GameServer WHERE Id = ?';
 
-var db = new sqlite3.Database('./db/users.db');
+var db = new sqlite3.Database('./db/ssm.db');
 
 
 router.get('/gameservers/:id/config/admins', (req, res) =>

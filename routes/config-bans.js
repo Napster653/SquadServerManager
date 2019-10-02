@@ -9,7 +9,7 @@ const regex_bans = /^(?<ID64>\d*)\:(?<Timestamp>\d*)(?:[ ]*(?:\/\/)+[ ]*(?<Comme
 const regex_form_bans = /\d+\-ID64/gm;
 const sql_get_gameserver_by_Id = 'SELECT * FROM GameServer WHERE Id = ?';
 
-var db = new sqlite3.Database('./db/users.db');
+var db = new sqlite3.Database('./db/ssm.db');
 
 
 router.get('/gameservers/:id/config/bans', (req, res) =>

@@ -17,7 +17,7 @@ const sql_update_gameserver_by_Id = 'UPDATE Gameserver SET ServerName = $ServerN
 const sql_delete_by_Id = 'DELETE FROM GameServer WHERE Id = ?'
 const defaultAppParameters = 'Port=7770 QueryPort=8880 FIXEDMAXPLAYERS=80 RANDOM=NONE FIXEDMAXTICKRATE=35';
 
-var db = new sqlite3.Database('./db/users.db');
+var db = new sqlite3.Database('./db/ssm.db');
 var progress = {};
 
 function install_service (id, route)

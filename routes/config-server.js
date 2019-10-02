@@ -8,7 +8,7 @@ const regexLines = /(?<key>[^\/\s].*)\s*=+\s*(?<value>.*)/gm
 const regexCommentedLines = /\/{2,}\s*(?<key>[^\/\s].*)\s*\=+\s*(?<value>.*)/gm
 const sql_get_gameserver_by_Id = 'SELECT * FROM GameServer WHERE Id = ?';
 
-var db = new sqlite3.Database('./db/users.db');
+var db = new sqlite3.Database('./db/ssm.db');
 
 
 router.get('/gameservers/:id/config/server', (req, res) =>

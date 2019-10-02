@@ -3,7 +3,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
 const sqlite3 = require('sqlite3');
 const sql_select_all = 'SELECT * FROM User WHERE Username = ?';
-var db = new sqlite3.Database('./db/users.db');
+var db = new sqlite3.Database('./db/ssm.db');
 
 passport.use(new LocalStrategy({ passReqToCallback: true }, function (req, Username, Password, callback)
 {

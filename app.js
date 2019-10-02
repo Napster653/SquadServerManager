@@ -3,7 +3,7 @@ const flash = require('connect-flash');
 const passport = require('passport');
 const steamcmd = require('steamcmd');
 const sqlite3 = require('sqlite3');
-var db = new sqlite3.Database('./db/users.db');
+var db = new sqlite3.Database('./db/ssm.db');
 var sql_get_gameservers = 'SELECT * FROM GameServer';
 
 const databaseSetup = require('./config/database-setup');

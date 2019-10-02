@@ -25,7 +25,7 @@ const sql_create_gameservers = 'CREATE TABLE IF NOT EXISTS `GameServer` (' +
 
 if (!fs.existsSync('./db')) { fs.mkdirSync('./db'); }
 
-var db = new sqlite3.Database('./db/users.db');
+var db = new sqlite3.Database('./db/ssm.db');
 db.exec(sql_create_users);
 db.exec(sql_create_gameservers);
 

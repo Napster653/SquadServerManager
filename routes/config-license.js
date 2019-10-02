@@ -6,7 +6,7 @@ const router = express.Router();
 
 const sql_get_gameserver_by_Id = 'SELECT * FROM GameServer WHERE Id = ?';
 
-var db = new sqlite3.Database('./db/users.db');
+var db = new sqlite3.Database('./db/ssm.db');
 
 
 router.get('/gameservers/:id/config/license', (req, res) =>
