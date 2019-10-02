@@ -367,3 +367,12 @@
 [2019-09-21 12:08:21] Creating shader cache directory: C:\GitHub\SquadServerManagerV2\resources\steamcmd\shader_cache_temp_dir_gl_32
 [2019-09-21 12:08:21] Unknown shader cache type, ignoring.
 [2019-09-21 12:08:22] Found 0 current buckets:
+
+
+[2019-10-02 21:21:01] Attempting to find current bucket; temporary dir: C:\GitHub\SquadServerManager\resources\steamcmd\shader_cache_temp_dir_gl_64
+[2019-10-02 21:21:01] Creating shader cache directory: C:\GitHub\SquadServerManager\resources\steamcmd\shader_cache_temp_dir_gl_64
+[2019-10-02 21:21:01] Unknown shader cache type, ignoring.
+[2019-10-02 21:21:01] Attempting to find current bucket; temporary dir: C:\GitHub\SquadServerManager\resources\steamcmd\shader_cache_temp_dir_gl_32
+[2019-10-02 21:21:01] Creating shader cache directory: C:\GitHub\SquadServerManager\resources\steamcmd\shader_cache_temp_dir_gl_32
+[2019-10-02 21:21:01] Unknown shader cache type, ignoring.
+[2019-10-02 21:21:02] Found 0 current buckets:

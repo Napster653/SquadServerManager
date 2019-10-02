@@ -311,3 +311,18 @@
 [2019-09-21 12:08:23] Requesting 55 apps, 0 packages (full data, 1024 prev attempts)
 [2019-09-21 12:08:23] UpdatesJob: finished OK, nAppsUpdated 73 (755 KB), nPackagesUpdated 0 (0 KB)
 [2019-09-21 12:08:38] Starting async write C:\GitHub\SquadServerManagerV2\resources\steamcmd/appcache/appinfo.vdf (1795705 bytes)
+
+
+[2019-10-02 21:21:03] RequestAppInfoUpdate: nNumAppIDs 1
+[2019-10-02 21:21:03] RequestAppInfoUpdate: nNumAppIDs 1
+[2019-10-02 21:21:03] Change number 0->6968219, apps: 0/0, packages: 0/0
+[2019-10-02 21:21:03] Requesting 981 apps, 1 packages (meta data, 1024 prev attempts)
+[2019-10-02 21:21:04] Requested 484 access tokens, 0 received, 484 denied
+[2019-10-02 21:21:04] Downloaded 30 apps via HTTP, 716 KB (165 KB compressed)
+[2019-10-02 21:21:04] Requesting 118 apps, 1 packages (full data, 1024 prev attempts)
+[2019-10-02 21:21:05] UpdatesJob: finished OK, nAppsUpdated 148 (1158 KB), nPackagesUpdated 1 (58 KB)
+[2019-10-02 21:21:06] Requesting 491 apps, 0 packages (meta data, 1024 prev attempts)
+[2019-10-02 21:21:06] Requested 489 access tokens, 0 received, 489 denied
+[2019-10-02 21:21:06] Requesting 7 apps, 0 packages (full data, 1024 prev attempts)
+[2019-10-02 21:21:06] UpdatesJob: finished OK, nAppsUpdated 7 (10 KB), nPackagesUpdated 0 (0 KB)
+[2019-10-02 21:21:22] Starting async write C:\GitHub\SquadServerManager\resources\steamcmd/appcache/appinfo.vdf (1815994 bytes)

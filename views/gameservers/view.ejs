@@ -9,231 +9,213 @@
 	<title>Squad Server Manager</title>
 </head>
 
-<body class="bg-dark text-white">
+<body class="bg-dark text-white w-100">
 	<%- include ../partials/navbar.ejs %>
 
 	<% if (user) { %>
 	<div class="mx-5 mt-3">
-		<h2><%=gameserver.ServerName%>
+		<h2>
+			<%=gameserver.ServerName%>
 			<span id="service-status-badge" class="badge badge-secondary">...</span>
 		</h2>
-		<h5><%=gameserver.InstallationRoute%></h5>
+		<h5>
+			<%=gameserver.InstallationRoute%>
+		</h5>
 		<div class="row mt-3">
-			<div class="col-12 col-md-6 row">
-				<p class="col-6 text-right font-weight-bold m-0 pb-1">Port: </p>
-				<p class="col-6 m-0 p-0"><%= gameserver.Port %></p>
+			<div class="col-12 col-xl-8 row mx-auto">
+				<div class="col-12 col-md-6 row mx-auto">
+					<p class="col-6 text-right font-weight-bold m-0 pb-1">Port: </p>
+					<p class="col-6 m-0 p-0"><%= gameserver.Port %></p>
 
-				<p class="col-6 text-right font-weight-bold m-0 pb-1">Random: </p>
-				<p class="col-6 m-0 p-0"><%= gameserver.Random %></p>
+					<p class="col-6 text-right font-weight-bold m-0 pb-1">Random: </p>
+					<p class="col-6 m-0 p-0"><%= gameserver.Random %></p>
 
-				<p class="col-6 text-right font-weight-bold m-0">Log: </p>
-				<% if (gameserver.Log) { %>
-				<p class="col-6 m-0 p-0"><span class="material-icons">check</span></p>
-				<% } else { %>
-				<p class="col-6 m-0 p-0"><span class="material-icons">close</span></p>
-				<% } %>
+					<p class="col-6 text-right font-weight-bold m-0">Log: </p>
+					<% if (gameserver.Log) { %>
+					<p class="col-6 m-0 p-0"><span class="material-icons">check</span></p>
+					<% } else { %>
+					<p class="col-6 m-0 p-0"><span class="material-icons">close</span></p>
+					<% } %>
 
-				<p class="col-6 text-right font-weight-bold m-0">Full crash dump: </p>
-				<% if (gameserver.FullCrashDump) { %>
-				<p class="col-6 m-0 p-0"><span class="material-icons">check</span></p>
-				<% } else { %>
-				<p class="col-6 m-0 p-0"><span class="material-icons">close</span></p>
-				<% } %>
-			</div>
-			<div class="col-12 col-md-6 row">
-				<p class="col-6 text-right font-weight-bold m-0 pb-1">Query port: </p>
-				<p class="col-6 m-0 p-0"><%= gameserver.QueryPort %></p>
+					<p class="col-6 text-right font-weight-bold m-0">Full crash dump: </p>
+					<% if (gameserver.FullCrashDump) { %>
+					<p class="col-6 m-0 p-0"><span class="material-icons">check</span></p>
+					<% } else { %>
+					<p class="col-6 m-0 p-0"><span class="material-icons">close</span></p>
+					<% } %>
+				</div>
+				<div class="col-12 col-md-6 row mx-auto">
+					<p class="col-6 text-right font-weight-bold m-0 pl-0 pb-1">Query port: </p>
+					<p class="col-6 m-0 p-0"><%= gameserver.QueryPort %></p>
 
-				<p class="col-6 text-right font-weight-bold m-0 pb-1">Fixed max players: </p>
-				<% if (gameserver.FixedMaxPlayers) { %>
-				<p class="col-6 m-0 p-0"><%= gameserver.FixedMaxPlayers %></p>
-				<% } else { %>
-				<p class="col-6 m-0 p-0"><span class="material-icons">close</span></p>
-				<% } %>
+					<p class="col-6 text-right font-weight-bold m-0 pl-0 pb-1">Fixed max players: </p>
+					<% if (gameserver.FixedMaxPlayers) { %>
+					<p class="col-6 m-0 p-0"><%= gameserver.FixedMaxPlayers %></p>
+					<% } else { %>
+					<p class="col-6 m-0 p-0"><span class="material-icons">close</span></p>
+					<% } %>
 
-				<p class="col-6 text-right font-weight-bold m-0 pb-1">Fixed max tickrate: </p>
-				<% if (gameserver.FixedMaxTickrate) { %>
-				<p class="col-6 m-0 p-0"><%= gameserver.FixedMaxTickrate %></p>
-				<% } else { %>
-				<p class="col-6 m-0 p-0"><span class="material-icons">close</span></p>
-				<% } %>
+					<p class="col-6 text-right font-weight-bold m-0 pl-0 pb-1">Fixed max tickrate: </p>
+					<% if (gameserver.FixedMaxTickrate) { %>
+					<p class="col-6 m-0 p-0"><%= gameserver.FixedMaxTickrate %></p>
+					<% } else { %>
+					<p class="col-6 m-0 p-0"><span class="material-icons">close</span></p>
+					<% } %>
 
-				<p class="col-6 text-right font-weight-bold m-0">Prefer preprocessor: </p>
-				<% if (gameserver.PreferPreprocessor) { %>
-				<p class="col-6 m-0 p-0"><%= gameserver.PreferPreprocessor %></p>
-				<% } else { %>
-				<p class="col-6 m-0 p-0"><span class="material-icons">close</span></p>
-				<% } %>
+					<p class="col-6 text-right font-weight-bold pl-0 m-0">Preprocessor: </p>
+					<% if (gameserver.PreferPreprocessor) { %>
+					<p class="col-6 m-0 p-0"><%= gameserver.PreferPreprocessor %></p>
+					<% } else { %>
+					<p class="col-6 m-0 p-0"><span class="material-icons">close</span></p>
+					<% } %>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="row mx-5 mt-3">
-		<div class="col-12 text-center align-self-center row">
-			<button id="button-start" class="btn btn-light col-2 col-xl-1 mx-auto d-flex" disabled>
-				<div id="button-start-icon" class="w-25 p-0">
-					<span class="material-icons align-top">play_arrow</span>
-				</div>
-				<div id="button-start-label" class="w-75">
-					Start
-				</div>
-			</button>
-			<button id="button-stop" class="btn btn-light col-2 col-xl-1 mx-auto d-flex" disabled>
-				<div id="button-stop-icon" class="w-25 p-0">
-					<span class="material-icons align-top">stop</span>
-				</div>
-				<div id="button-stop-label" class="w-75">
-					Stop
-				</div>
-			</button>
-			<button id="button-restart" class="btn btn-light col-2 col-xl-1 mx-auto d-flex" disabled>
-				<div id="button-restart-icon" class="w-25 p-0">
-					<span class="material-icons align-top">replay</span>
-				</div>
-				<div id="button-restart-label" class="w-75">
-					Restart
-				</div>
-			</button>
-			<a id="button-config" class="btn btn-light col-2 col-xl-1 mx-auto d-flex disabled" href="/gameservers/<%=gameserver.Id%>/config">
-				<div class="w-25 p-0">
-					<span class="material-icons align-top">tune</span>
-				</div>
-				<div class="w-75">
-					Settings
-				</div>
-			</a>
-			<script>
-				(function status_check()
+	<div class="row mt-3 mx-5">
+		<div class="col-12 col-md-6 row mx-auto">
+			<div class="col-3 px-1 mx-auto">
+				<button id="button-start" class="btn btn-light d-flex w-100" disabled>
+					<span class="material-icons mx-auto">play_arrow</span>
+				</button>
+			</div>
+			<div class="col-3 px-1 mx-auto">
+				<button id="button-stop" class="btn btn-light d-flex w-100" disabled>
+					<span class="material-icons mx-auto">stop</span>
+				</button>
+			</div>
+			<div class="col-3 px-1 mx-auto">
+				<button id="button-restart" class="btn btn-light d-flex w-100" disabled>
+					<!-- <span class="spinner-border spinner-border-sm mx-auto my-1"></span> -->
+					<span class="material-icons mx-auto">replay</span>
+				</button>
+			</div>
+			<div class="col-3 px-1 mx-auto">
+				<a id="button-config" class="btn btn-light d-flex w-100 disabled" href="/gameservers/<%=gameserver.Id%>/config">
+					<span class="material-icons mx-auto">tune</span>
+				</a>
+			</div>
+		</div>
+		<script>
+			(function status_check()
+			{
+				$.ajax({
+					url: '/gameservers/<%=gameserver.Id%>/getStatus',
+					type: 'GET',
+					success: function (data)
+					{
+						handleServiceStatus(data.service_status);
+					},
+					complete: function ()
+					{
+						setTimeout(status_check, 100);
+					},
+					error: function () { location.reload(); }
+				});
+			})();
+			function handleServiceStatus(service_status)
+			{
+				switch (service_status)
 				{
+					case 'SERVICE_START_PENDING':
+						$("#button-start").prop("disabled", true);
+						if (!$("#service-status-badge").hasClass("badge-warning"))
+							$("#button-start").html("<span class=\"spinner-border spinner-border-sm mx-auto my-1\"></span>");
+						$("#button-stop").prop("disabled", true);
+						$("#button-stop").html("<span class=\"material-icons mx-auto\">stop</span>");
+						$("#button-restart").prop("disabled", true);
+						$("#button-restart").html("<span class=\"material-icons mx-auto\">replay</span>");
+						$("#button-config").addClass("disabled");
+						$("#service-status-badge").removeClass().addClass("badge badge-warning").html("Starting...");
+						break;
+					case 'SERVICE_STOP_PENDING':
+						$("#button-start").prop("disabled", true);
+						$("#button-start").html("<span class=\"material-icons mx-auto\">play_arrow</span>");
+						$("#button-stop").prop("disabled", true);
+						if (!$("#service-status-badge").hasClass("badge-warning"))
+							$("#button-stop").html("<span class=\"spinner-border spinner-border-sm mx-auto my-1\"></span>");
+						$("#button-restart").prop("disabled", true);
+						$("#button-restart").html("<span class=\"material-icons mx-auto\">replay</span>");
+						$("#button-config").addClass("disabled");
+						$("#service-status-badge").removeClass().addClass("badge badge-warning").html("Stopping...");
+						break;
+					case 'SERVICE_RUNNING':
+						$("#button-start").prop("disabled", true);
+						$("#button-start").html("<span class=\"material-icons mx-auto\">play_arrow</span>");
+						$("#button-stop").prop("disabled", false);
+						$("#button-stop").html("<span class=\"material-icons mx-auto\">stop</span>");
+						$("#button-restart").prop("disabled", false);
+						$("#button-restart").html("<span class=\"material-icons mx-auto\">replay</span>");
+						$("#button-config").addClass("disabled");
+						$("#service-status-badge").removeClass().addClass("badge badge-success").html("Running");
+						break;
+					case 'SERVICE_STOPPED':
+						$("#button-start").prop("disabled", false);
+						$("#button-start").html("<span class=\"material-icons mx-auto\">play_arrow</span>");
+						$("#button-stop").prop("disabled", true);
+						$("#button-stop").html("<span class=\"material-icons mx-auto\">stop</span>");
+						$("#button-restart").prop("disabled", true);
+						$("#button-restart").html("<span class=\"material-icons mx-auto\">replay</span>");
+						$("#button-config").removeClass("disabled");
+						$("#service-status-badge").removeClass().addClass("badge badge-danger").html("Stopped");
+						break;
+					default:
+						$("#service-status-badge").removeClass().addClass("badge badge-primary").html("ERROR");
+						break;
+				}
+			}
+			$(document).ready(function ()
+			{
+				$("#button-start").click(function ()
+				{
+					console.log("START");
 					$.ajax({
-						url: '/gameservers/<%=gameserver.Id%>/getStatus',
+						url: "/gameservers/<%=gameserver.Id%>/start",
 						type: 'GET',
 						success: function (data)
 						{
-							handleServiceStatus(data.service_status);
+							console.log('START ACK');
 						},
-						complete: function ()
+						error: function (req, status, error)
 						{
-							setTimeout(status_check, 100);
-						},
-						error: function () { location.reload(); }
-					});
-				})();
-				function handleServiceStatus(service_status)
-				{
-					switch (service_status)
-					{
-						case 'SERVICE_START_PENDING':
-							$("#button-start").prop("disabled", true);
-							if (!$("#service-status-badge").hasClass("badge-warning"))
-								$("#button-start-icon").html("<span class=\"spinner-border spinner-border-sm position-absolute\" style=\"top: 30%\"></span>");
-							$("#button-start-label").html("Starting...");
-							$("#button-stop").prop("disabled", true);
-							$("#button-stop-icon").html("<span class=\"material-icons align-top\">stop</span>");
-							$("#button-stop-label").html("Stop");
-							$("#button-restart").prop("disabled", true);
-							$("#button-restart-icon").html("<span class=\"material-icons align-top\">replay</span>");
-							$("#button-restart-label").html("Restart");
-							$("#button-config").addClass("disabled");
-							$("#service-status-badge").removeClass().addClass("badge badge-warning").html("Starting...");
-							break;
-						case 'SERVICE_STOP_PENDING':
-							$("#button-start").prop("disabled", true);
-							$("#button-start-icon").html("<span class=\"material-icons align-top\">play_arrow</span>");
-							$("#button-start-label").html("Start");
-							$("#button-stop").prop("disabled", true);
-							if (!$("#service-status-badge").hasClass("badge-warning"))
-								$("#button-stop-icon").html("<span class=\"spinner-border spinner-border-sm position-absolute\" style=\"top: 30%\"></span>");
-							$("#button-stop-label").html("Stopping...");
-							$("#button-restart").prop("disabled", true);
-							$("#button-restart-icon").html("<span class=\"material-icons align-top\">replay</span>");
-							$("#button-restart-label").html("Restart");
-							$("#button-config").addClass("disabled");
-							$("#service-status-badge").removeClass().addClass("badge badge-warning").html("Stopping...");
-							break;
-						case 'SERVICE_RUNNING':
-							$("#button-start").prop("disabled", true);
-							$("#button-start-icon").html("<span class=\"material-icons align-top\">play_arrow</span>");
-							$("#button-start-label").html("Start");
-							$("#button-stop").prop("disabled", false);
-							$("#button-stop-icon").html("<span class=\"material-icons align-top\">stop</span>");
-							$("#button-stop-label").html("Stop");
-							$("#button-restart").prop("disabled", false);
-							$("#button-restart-icon").html("<span class=\"material-icons align-top\">replay</span>");
-							$("#button-restart-label").html("Restart");
-							$("#button-config").addClass("disabled");
-							$("#service-status-badge").removeClass().addClass("badge badge-success").html("Running");
-							break;
-						case 'SERVICE_STOPPED':
-							$("#button-start").prop("disabled", false);
-							$("#button-start-icon").html("<span class=\"material-icons align-top\">play_arrow</span>");
-							$("#button-start-label").html("Start");
-							$("#button-stop").prop("disabled", true);
-							$("#button-stop-icon").html("<span class=\"material-icons align-top\">stop</span>");
-							$("#button-stop-label").html("Stop");
-							$("#button-restart").prop("disabled", true);
-							$("#button-restart-icon").html("<span class=\"material-icons align-top\">replay</span>");
-							$("#button-restart-label").html("Restart");
-							$("#button-config").removeClass("disabled");
-							$("#service-status-badge").removeClass().addClass("badge badge-danger").html("Stopped");
-							break;
-						default:
-							$("#service-status-badge").removeClass().addClass("badge badge-primary").html("ERROR");
-							break;
-					}
-				}
-				$(document).ready(function ()
-				{
-					$("#button-start").click(function ()
-					{
-						console.log("START");
-						$.ajax({
-							url: "/gameservers/<%=gameserver.Id%>/start",
-							type: 'GET',
-							success: function (data)
-							{
-								console.log('START ACK');
-							},
-							error: function (req, status, error)
-							{
-								console.log(status + error);
-							}
-						});
-					});
-					$("#button-stop").click(function ()
-					{
-						console.log("STOP");
-						$.ajax({
-							url: "/gameservers/<%=gameserver.Id%>/stop",
-							type: 'GET',
-							success: function ()
-							{
-								console.log('STOP ACK');
-							},
-							error: function (req, status, error)
-							{
-								console.log(status + error);
-							}
-						});
-					});
-					$("#button-restart").click(function ()
-					{
-						console.log("RESTART");
-						$.ajax({
-							url: "/gameservers/<%=gameserver.Id%>/restart",
-							type: 'GET',
-							success: function (data)
-							{
-								console.log('RESTART ACK');
-							},
-							error: function (req, status, error)
-							{
-								console.log(status + error);
-							}
-						});
+							console.log(status + error);
+						}
 					});
 				});
-			</script>
-		</div>
+				$("#button-stop").click(function ()
+				{
+					console.log("STOP");
+					$.ajax({
+						url: "/gameservers/<%=gameserver.Id%>/stop",
+						type: 'GET',
+						success: function ()
+						{
+							console.log('STOP ACK');
+						},
+						error: function (req, status, error)
+						{
+							console.log(status + error);
+						}
+					});
+				});
+				$("#button-restart").click(function ()
+				{
+					console.log("RESTART");
+					$.ajax({
+						url: "/gameservers/<%=gameserver.Id%>/restart",
+						type: 'GET',
+						success: function (data)
+						{
+							console.log('RESTART ACK');
+						},
+						error: function (req, status, error)
+						{
+							console.log(status + error);
+						}
+					});
+				});
+			});
+		</script>
 	</div>
 
 	<div class="row mx-5 mt-3 pt-2 border-top border-info">
@@ -244,7 +226,7 @@
 			<a class="btn btn-info" href="/gameservers/<%=gameserver.Id%>/config/maprotation">MapRotation.cfg</a>
 			<a class="btn btn-info" href="/gameservers/<%=gameserver.Id%>/config/motd">MOTD.cfg</a>
 			<a class="btn btn-info" href="/gameservers/<%=gameserver.Id%>/config/license">License.cfg</a>
-			<a class="btn btn-info" href="/gameservers/<%=gameserver.Id%>/config/rcon">Rcon.cfg</a>
+			<a class="btn btn-info disabled" href="/gameservers/<%=gameserver.Id%>/config/rcon">Rcon.cfg</a>
 		</div>
 		<div class="col-12 mb-4">
 			<h1>Server Admins</h1>
