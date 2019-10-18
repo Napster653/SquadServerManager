@@ -91,3 +91,11 @@
 
 [2019-10-02 21:21:03] Loading workshop items for 0 installed apps for user [a:1:902154261]:
 [2019-10-02 21:21:05] [AppID 403240] Loaded workshop items in "e:\myserver\steamapps\workshop" (0 installed, 0 needed)
+
+
+[2019-10-18 19:39:10] Loading workshop items for 0 installed apps for user [a:1:67627065]:
+[2019-10-18 19:39:15] [AppID 403240] Loaded workshop items in "h:\myserver\steamapps\workshop" (0 installed, 0 needed)
+
+
+[2019-10-18 20:02:43] Loading workshop items for 0 installed apps for user [a:1:2106627212]:
+[2019-10-18 20:02:45] [AppID 403240] Loaded workshop items in "h:\myserver\steamapps\workshop" (0 installed, 0 needed)

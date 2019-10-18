@@ -271,8 +271,6 @@ router.get('/gameservers/:id/getStatus', (req, res) =>
 	else { res.sendStatus(401); }
 });
 
-
-
 router.get('/gameservers/:id/uninstall', (req, res) =>
 {
 	if (req.user)

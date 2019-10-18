@@ -326,3 +326,29 @@
 [2019-10-02 21:21:06] Requesting 7 apps, 0 packages (full data, 1024 prev attempts)
 [2019-10-02 21:21:06] UpdatesJob: finished OK, nAppsUpdated 7 (10 KB), nPackagesUpdated 0 (0 KB)
 [2019-10-02 21:21:22] Starting async write C:\GitHub\SquadServerManager\resources\steamcmd/appcache/appinfo.vdf (1815994 bytes)
+
+
+[2019-10-18 19:39:10] RequestAppInfoUpdate: nNumAppIDs 1
+[2019-10-18 19:39:10] RequestAppInfoUpdate: nNumAppIDs 1
+[2019-10-18 19:39:10] Change number 0->7054075, apps: 0/0, packages: 0/0
+[2019-10-18 19:39:10] Requesting 988 apps, 1 packages (meta data, 1024 prev attempts)
+[2019-10-18 19:39:11] Requested 488 access tokens, 0 received, 488 denied
+[2019-10-18 19:39:11] Downloaded 32 apps via HTTP, 889 KB (197 KB compressed)
+[2019-10-18 19:39:11] Requesting 161 apps, 1 packages (full data, 1024 prev attempts)
+[2019-10-18 19:39:15] UpdatesJob: finished OK, nAppsUpdated 193 (1477 KB), nPackagesUpdated 1 (58 KB)
+[2019-10-18 19:39:15] Requesting 500 apps, 0 packages (meta data, 1024 prev attempts)
+[2019-10-18 19:39:16] Requested 494 access tokens, 0 received, 494 denied
+[2019-10-18 19:39:16] Requesting 13 apps, 0 packages (full data, 1024 prev attempts)
+[2019-10-18 19:39:16] UpdatesJob: finished OK, nAppsUpdated 13 (25 KB), nPackagesUpdated 0 (0 KB)
+[2019-10-18 19:39:31] Starting async write C:\GitHub\SquadServerManager\resources\steamcmd/appcache/appinfo.vdf (1851826 bytes)
+
+
+[2019-10-18 20:02:43] RequestAppInfoUpdate: nNumAppIDs 1
+[2019-10-18 20:02:43] RequestAppInfoUpdate: nNumAppIDs 1
+[2019-10-18 20:02:43] Change number 0->7054168, apps: 0/0, packages: 0/0
+[2019-10-18 20:02:44] Requesting 1001 apps, 1 packages (meta data, 1024 prev attempts)
+[2019-10-18 20:02:44] Requested 495 access tokens, 0 received, 495 denied
+[2019-10-18 20:02:44] Downloaded 5 apps via HTTP, 55 KB (16 KB compressed)
+[2019-10-18 20:02:44] Requesting 5 apps, 0 packages (full data, 1024 prev attempts)
+[2019-10-18 20:02:45] UpdatesJob: finished OK, nAppsUpdated 10 (70 KB), nPackagesUpdated 0 (0 KB)
+[2019-10-18 20:03:00] Starting async write C:\GitHub\SquadServerManager\resources\steamcmd/appcache/appinfo.vdf (1852268 bytes)

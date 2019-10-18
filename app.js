@@ -28,17 +28,9 @@ app.use(function (req, res, next)
 	db.all(sql_get_gameservers, function (err, rows)
 	{
 		if (err) throw err;
-		if (req.user)
-		{
-			res.locals.gameservers = rows;
-			console.log('A request was received: ' + req.method + req.url);
-			next();
-		}
-		else
-		{
-			console.log('A request was received: ' + req.method + req.url);
-			next();
-		}
+		if (req.user) { res.locals.gameservers = rows; }
+		console.log('A request was received: ' + req.method + req.url);
+		next();
 	});
 });
 
