@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<%- include ../../partials/common.ejs %>
+	<%- include ../../../partials/common.ejs %>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 	<title>Squad Server Manager</title>
 	<style>
@@ -199,15 +199,15 @@
 </head>
 
 <body class="bg-dark text-white">
-	<%- include ../../partials/navbar.ejs %>
+	<%- include ../../../partials/navbar.ejs %>
 
 	<% if (user) { %>
 	<div>
-		<a class="d-inline-block py-4 px-4 h-100" href="/gameservers/<%=gameserver.Id%>/view">&lt; Back</a>
+		<a class="d-inline-block py-4 px-4 h-100" href="/gameservers/<%= GameServer.Id %>/view">&lt; Back</a>
 		<h4 class="d-inline-block">MapRotation.cfg</h4>
 	</div>
 	<div class="row m-0">
-		<form class="mx-auto col-6" action="/gameservers/<%= gameserver.Id %>/config/maprotation" method="POST">
+		<form class="mx-auto col-6" action="/gameservers/<%= GameServer.Id %>/config/maprotation" method="POST">
 			<p>Select the maps one by one and click on the + button to add them to the rotation.</p>
 
 			<div class="form-group">
@@ -222,7 +222,7 @@
 			<p>You can also paste your own map rotation.</p>
 
 			<div class="form-group">
-				<textarea class="form-control" name="MapRotation" id="MapRotation" cols="30" rows="10"><%= gameserverconfig_maprotation %></textarea>
+				<textarea class="form-control" name="MapRotation" id="MapRotation" cols="30" rows="10"><%= FileContents %></textarea>
 			</div>
 
 			<button type="submit" class="btn btn-primary w-100 mt-2 mb-4">Submit</button>
@@ -260,7 +260,7 @@
 	</script>
 	<% } else { %>
 	<!-- !user -->
-	<%- include ../../partials/login.ejs %>
+	<%- include ../../../partials/login.ejs %>
 	<% } %>
 </body>
 

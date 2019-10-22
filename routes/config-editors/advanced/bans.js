@@ -12,32 +12,32 @@ const sql_get_gameserver_by_Id = 'SELECT * FROM GameServer WHERE Id = ?';
 var db = new sqlite3.Database('./db/ssm.db');
 
 
-router.get('/gameservers/:id/config/bans', (req, res) =>
+router.get('/gameservers/:id/config/advanced/bans', (req, res) =>
 {
 	if (req.user)
 	{
-		db.get(sql_get_gameserver_by_Id, req.params.id, function (err, row)
+		db.get(sql_get_gameserver_by_Id, req.params.id, function (err, Row)
 		{
 			if (err) { throw err; }
-			if (typeof row !== 'undefined')
+			if (typeof Row !== 'undefined')
 			{
-				var gameserverconfig_bans = [];
-				var fileContents = fs.readFileSync(path.join(row.InstallationRoute, '/SquadGame/ServerConfig/Bans.cfg'), "utf8");
+				var FileContents = [];
+				var rawFileContents = fs.readFileSync(path.join(Row.InstallationRoute, '/SquadGame/ServerConfig/Bans.cfg'), "utf8");
 
-				fileContents = fileContents.replace(regex_remove_comments, "");
+				rawFileContents = rawFileContents.replace(regex_remove_comments, "");
 
-				while ((CapturedGroup = regex_bans.exec(fileContents)) !== null)
+				while ((CapturedGroup = regex_bans.exec(rawFileContents)) !== null)
 				{
-					gameserverconfig_bans.push({
+					FileContents.push({
 						ID64: CapturedGroup.groups.ID64,
 						Timestamp: CapturedGroup.groups.Timestamp,
 						Comment: CapturedGroup.groups.Comment
 					});
 				}
 
-				res.render('gameservers/config/bans', {
-					gameserver: row,
-					gameserverconfig_bans: gameserverconfig_bans
+				res.render('gameservers/config/advanced/bans', {
+					GameServer: Row,
+					FileContents: FileContents
 				});
 			}
 		});
@@ -45,7 +45,7 @@ router.get('/gameservers/:id/config/bans', (req, res) =>
 	else res.render('login');
 });
 
-router.post('/gameservers/:id/config/bans', (req, res) =>
+router.post('/gameservers/:id/config/advanced/bans', (req, res) =>
 {
 	if (req.user)
 	{

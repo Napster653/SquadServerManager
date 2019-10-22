@@ -5,26 +5,19 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<%- include ../../partials/common.ejs %>
+	<%- include ../../../partials/common.ejs %>
 	<title>Squad Server Manager</title>
 </head>
 
 <body class="bg-dark text-white">
-	<%- include ../../partials/navbar.ejs %>
-
+	<%- include ../../../partials/navbar.ejs %>
 	<% if (user) { %>
-	<form action="/gameservers/<%= gameserver.Id %>/config/server" method="POST">
 
-	</form>
-	<script>
-		$(function ()
-		{
-			$('[data-toggle="tooltip"]').tooltip()
-		});
-	</script>
+	
+
 	<% } else { %>
 	<!-- !user -->
-	<%- include ../../partials/login.ejs %>
+	<%- include ../../../partials/login.ejs %>
 	<% } %>
 </body>
 

@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<%- include ../../partials/common.ejs %>
+	<%- include ../../../partials/common.ejs %>
 	<title>Squad Server Manager</title>
 	<script>
 		function removeBan(event, ButtonClicked)
@@ -50,14 +50,14 @@
 </head>
 
 <body class="bg-dark text-white">
-	<%- include ../../partials/navbar.ejs %>
+	<%- include ../../../partials/navbar.ejs %>
 
 	<% if (user) { %>
 	<div>
-		<a class="d-inline-block py-4 px-4 h-100" href="/gameservers/<%=gameserver.Id%>/view">&lt; Back</a>
+		<a class="d-inline-block py-4 px-4 h-100" href="/gameservers/<%= GameServer.Id %>/view">&lt; Back</a>
 		<h4 class="d-inline-block">Bans.cfg</h4>
 	</div>
-	<form class="row m-0 p-2" action="/gameservers/<%= gameserver.Id %>/config/bans" method="POST">
+	<form class="row m-0 p-2" action="/gameservers/<%= GameServer.Id %>/config/bans" method="POST">
 		<table class="col-10 mx-auto">
 			<thead>
 				<tr>
@@ -74,23 +74,23 @@
 				</tr>
 			</thead>
 			<tbody id="table-body-bans">
-				<% if (gameserverconfig_bans) { %>
+				<% if (FileContents) { %>
 				<% function addZero(i)
 					{
 						if (i < 10) { i = "0" + i; }
 						return i;
 					} %>
-				<% for (var i = 0; i < gameserverconfig_bans.length; i++) { %>
-				<% var datetime = new Date(gameserverconfig_bans[i].Timestamp*1000); %>
+				<% for (var i = 0; i < FileContents.length; i++) { %>
+				<% var datetime = new Date(FileContents[i].Timestamp*1000); %>
 				<script>console.log("<%= datetime.valueOf() %>")</script>
 				<tr>
 					<td class="text-center align-middle"><a href="#" onclick="removeBan(event, this);" class="py-0 px-3"><span class="material-icons align-top">remove_circle_outline</span></a></td>
-					<td style="width: 10em;"><input class="form-control form-control-sm" type="text" name="<%= i %>-ID64" value="<%= gameserverconfig_bans[i].ID64 %>" required></td>
+					<td style="width: 10em;"><input class="form-control form-control-sm" type="text" name="<%= i %>-ID64" value="<%= FileContents[i].ID64 %>" required></td>
 					<td class="input-group">
 						<input class="form-control form-control-sm" type="date" name="<%= i %>-Date" value="<%= datetime.valueOf() != 0 ? datetime.getUTCFullYear() + "-" + addZero(parseInt(datetime.getUTCMonth()) + 1) + "-" + addZero(datetime.getUTCDate()) : "" %>">
 						<input class="form-control form-control-sm" type="time" name="<%= i %>-Time" value="<%= datetime.valueOf() != 0 ? addZero(datetime.getUTCHours()) + ":" + addZero(datetime.getUTCMinutes()) : "" %>">
 					</td>
-					<td><input class="form-control form-control-sm" type="text" name="<%= i %>-Comment" value="<%= gameserverconfig_bans[i].Comment %>"></td>
+					<td><input class="form-control form-control-sm" type="text" name="<%= i %>-Comment" value="<%= FileContents[i].Comment %>"></td>
 				</tr>
 				<% } %>
 				<% } %>
@@ -111,7 +111,7 @@
 	</script>
 	<% } else { %>
 	<!-- !user -->
-	<%- include ../../partials/login.ejs %>
+	<%- include ../../../partials/login.ejs %>
 	<% } %>
 </body>
 

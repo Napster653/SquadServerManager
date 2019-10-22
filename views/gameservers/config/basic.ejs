@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<%- include ../../partials/common.ejs %>
+	<title>Squad Server Manager</title>
+</head>
+
+<body class="bg-dark text-white">
+	<%- include ../../partials/navbar.ejs %>
+	<% if (user) { %>
+
+	<div>
+		<a class="d-inline-block py-4 px-4 h-100" href="/gameservers/<%=GameServer.Id%>/view">&lt; Back</a>
+		<h4 class="d-inline-block"><%= ConfigFileName %>.cfg</h4>
+	</div>
+
+	<div class="row m-0">
+		<div class="col-11 mx-auto text-center">
+			<form action="/gameservers/<%= GameServer.Id %>/config/basic/<%= ConfigFileName %>" method="POST">
+				<textarea class="form-control" name="textarea" rows="30" style="font-family:monospace;" wrap="soft"><%= FileContents %></textarea>
+				<button type="submit" class="btn btn-primary w-50 mt-4 mx-auto">Submit</button>
+			</form>
+		</div>
+	</div>
+
+	<% } else { %>
+	<!-- !user -->
+	<%- include ../../partials/login.ejs %>
+	<% } %>
+</body>
+
+</html>

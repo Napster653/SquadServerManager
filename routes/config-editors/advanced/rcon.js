@@ -11,7 +11,7 @@ const sql_get_gameserver_by_Id = 'SELECT * FROM GameServer WHERE Id = ?';
 var db = new sqlite3.Database('./db/ssm.db');
 
 
-router.get('/gameservers/:id/config/server', (req, res) =>
+router.get('/gameservers/:id/config/advanced/server', (req, res) =>
 {
 	if (req.user)
 	{
@@ -20,24 +20,24 @@ router.get('/gameservers/:id/config/server', (req, res) =>
 			if (err) { throw err; }
 			if (typeof row !== 'undefined')
 			{
-				var fileContents = fs.readFileSync(path.join(row.InstallationRoute, '/SquadGame/ServerConfig/Server.cfg'), "utf8");
-				var GameServerConfig_Server = {}
+				var rawFileContents = fs.readFileSync(path.join(row.InstallationRoute, '/SquadGame/ServerConfig/Server.cfg'), "utf8");
+				var fileContents = {}
 
-				while ((lines = regexLines.exec(fileContents)) !== null)
+				while ((lines = regexLines.exec(rawFileContents)) !== null)
 				{
-					GameServerConfig_Server[lines.groups.key] = { value: lines.groups.value, ignored: false };
+					fileContents[lines.groups.key] = { value: lines.groups.value, ignored: false };
 				}
-				while ((lines = regexCommentedLines.exec(fileContents)) !== null)
+				while ((lines = regexCommentedLines.exec(rawFileContents)) !== null)
 				{
-					GameServerConfig_Server[lines.groups.key] = { value: lines.groups.value, ignored: true };
+					fileContents[lines.groups.key] = { value: lines.groups.value, ignored: true };
 				}
-				if ('ServerName' in GameServerConfig_Server)
+				if ('ServerName' in fileContents)
 				{
-					GameServerConfig_Server['ServerName'].value = GameServerConfig_Server['ServerName'].value.replace(/\"*/g, '');
+					fileContents['ServerName'].value = fileContents['ServerName'].value.replace(/\"*/g, '');
 				}
-				res.render('gameservers/config/server', {
+				res.render('gameservers/config/advanced/server', {
 					gameserver: row,
-					gameserverconfig_server: GameServerConfig_Server
+					gameserverconfig_server: fileContents
 				});
 			}
 		});
@@ -45,7 +45,7 @@ router.get('/gameservers/:id/config/server', (req, res) =>
 	else res.render('login');
 });
 
-router.post('/gameservers/:id/config/server', (req, res) =>
+router.post('/gameservers/:id/config/advanced/server', (req, res) =>
 {
 	if (req.user)
 	{

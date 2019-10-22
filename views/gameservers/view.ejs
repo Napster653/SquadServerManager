@@ -220,55 +220,76 @@
 
 	<div class="row mx-5 mt-3">
 		<table class="table table-dark">
-			<tr>
-				<th scope="row">Server.cfg</th>
-				<td class="py-1"><a class="btn btn-info d-flex" href="/gameservers/<%=gameserver.Id%>/config/server"><span class="material-icons mx-auto">insert_drive_file</span></a></td>
-				<td class="py-1"><a class="btn btn-info d-flex" href="/gameservers/<%=gameserver.Id%>/config/server"><span class="material-icons mx-auto">edit</span></a></td>
-			</tr>
-			<tr>
-				<th scope="row">ServerMessages.cfg</th>
-				<td class="py-1"><a class="btn btn-info d-flex" href="/gameservers/<%=gameserver.Id%>/config/servermessages"><span class="material-icons mx-auto">insert_drive_file</span></a></td>
-				<td></td>
-			</tr>
-			<tr>
-				<th scope="row">MapRotation.cfg</th>
-				<td class="py-1"><a class="btn btn-info d-flex" href="/gameservers/<%=gameserver.Id%>/config/maprotation"><span class="material-icons mx-auto">insert_drive_file</span></a></td>
-				<td class="py-1"><a class="btn btn-info d-flex" href="/gameservers/<%=gameserver.Id%>/config/maprotation"><span class="material-icons mx-auto">edit</span></a></td>
-			</tr>
-			<tr>
-				<th scope="row">MOTD.cfg</th>
-				<td class="py-1"><a class="btn btn-info d-flex" href="/gameservers/<%=gameserver.Id%>/config/motd"><span class="material-icons mx-auto">insert_drive_file</span></a></td>
-				<td></td>
-			</tr>
-			<tr>
-				<th scope="row">License.cfg</th>
-				<td class="py-1"><a class="btn btn-info d-flex" href="/gameservers/<%=gameserver.Id%>/config/license"><span class="material-icons mx-auto">insert_drive_file</span></a></td>
-				<td></td>
-			</tr>
-			<tr>
-				<th scope="row">Rcon.cfg</th>
-				<td class="py-1"><a class="btn btn-info d-flex" href="/gameservers/<%=gameserver.Id%>/config/rcon"><span class="material-icons mx-auto">insert_drive_file</span></a></td>
-				<td class="py-1"><a class="btn btn-info d-flex" href="/gameservers/<%=gameserver.Id%>/config/rcon"><span class="material-icons mx-auto">edit</span></a></td>
-			</tr>
+			<style>
+				td a {
+					max-width: 50px;
+				}
+			</style>
 			<tr>
 				<th scope="row">Admins.cfg</th>
-				<td class="py-1"><a class="btn btn-info d-flex" href="/gameservers/<%=gameserver.Id%>/config/admins"><span class="material-icons mx-auto">insert_drive_file</span></a></td>
-				<td class="py-1"><a class="btn btn-info d-flex" href="/gameservers/<%=gameserver.Id%>/config/admins"><span class="material-icons mx-auto">edit</span></a></td>
-			</tr>
-			<tr>
-				<th scope="row">RemoteAdminListHosts.cfg</th>
-				<td class="py-1"><a class="btn btn-info d-flex" href="/gameservers/<%=gameserver.Id%>/config/remoteadminlisthosts"><span class="material-icons mx-auto">insert_drive_file</span></a></td>
-				<td></td>
+				<td class="py-1">
+					<a class="btn btn-info d-inline-flex" href="/gameservers/<%=gameserver.Id%>/config/basic/admins"><span class="material-icons mx-auto">insert_drive_file</span></a>
+					<a class="btn btn-info d-inline-flex" href="/gameservers/<%=gameserver.Id%>/config/advanced/admins"><span class="material-icons mx-auto">edit</span></a>
+				</td>
 			</tr>
 			<tr>
 				<th scope="row">Bans.cfg</th>
-				<td class="py-1"><a class="btn btn-info d-flex" href="/gameservers/<%=gameserver.Id%>/config/bans"><span class="material-icons mx-auto">insert_drive_file</span></a></td>
-				<td class="py-1"><a class="btn btn-info d-flex" href="/gameservers/<%=gameserver.Id%>/config/bans"><span class="material-icons mx-auto">edit</span></a></td>
+				<td class="py-1">
+					<a class="btn btn-info d-inline-flex" href="/gameservers/<%=gameserver.Id%>/config/basic/bans"><span class="material-icons mx-auto">insert_drive_file</span></a>
+					<a class="btn btn-info d-inline-flex" href="/gameservers/<%=gameserver.Id%>/config/advanced/bans"><span class="material-icons mx-auto">edit</span></a>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">License.cfg</th>
+				<td class="py-1">
+					<a class="btn btn-info d-inline-flex" href="/gameservers/<%=gameserver.Id%>/config/basic/license"><span class="material-icons mx-auto">insert_drive_file</span></a>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">MapRotation.cfg</th>
+				<td class="py-1">
+					<a class="btn btn-info d-inline-flex" href="/gameservers/<%=gameserver.Id%>/config/basic/maprotation"><span class="material-icons mx-auto">insert_drive_file</span></a>
+					<a class="btn btn-info d-inline-flex" href="/gameservers/<%=gameserver.Id%>/config/advanced/maprotation"><span class="material-icons mx-auto">edit</span></a>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">MOTD.cfg</th>
+				<td class="py-1">
+					<a class="btn btn-info d-inline-flex" href="/gameservers/<%=gameserver.Id%>/config/basic/motd"><span class="material-icons mx-auto">insert_drive_file</span></a>
+					<a class="btn btn-info d-inline-flex" href="/gameservers/<%=gameserver.Id%>/config/advanced/motd"><span class="material-icons mx-auto">edit</span></a>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">Rcon.cfg</th>
+				<td class="py-1">
+					<a class="btn btn-info d-inline-flex" href="/gameservers/<%=gameserver.Id%>/config/basic/rcon"><span class="material-icons mx-auto">insert_drive_file</span></a>
+					<a class="btn btn-info d-inline-flex" href="/gameservers/<%=gameserver.Id%>/config/advanced/rcon"><span class="material-icons mx-auto">edit</span></a>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">RemoteAdminListHosts.cfg</th>
+				<td class="py-1">
+					<a class="btn btn-info d-inline-flex" href="/gameservers/<%=gameserver.Id%>/config/basic/remoteadminlisthosts"><span class="material-icons mx-auto">insert_drive_file</span></a>
+				</td>
 			</tr>
 			<tr>
 				<th scope="row">RemoteBanListHosts.cfg</th>
-				<td class="py-1"><a class="btn btn-info d-flex" href="/gameservers/<%=gameserver.Id%>/config/remotebanlisthosts"><span class="material-icons mx-auto">insert_drive_file</span></a></td>
-				<td></td>
+				<td class="py-1">
+					<a class="btn btn-info d-inline-flex" href="/gameservers/<%=gameserver.Id%>/config/basic/remotebanlisthosts"><span class="material-icons mx-auto">insert_drive_file</span></a>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">Server.cfg</th>
+				<td class="py-1">
+					<a class="btn btn-info d-inline-flex" href="/gameservers/<%=gameserver.Id%>/config/basic/server"><span class="material-icons mx-auto">insert_drive_file</span></a>
+					<a class="btn btn-info d-inline-flex" href="/gameservers/<%=gameserver.Id%>/config/advanced/server"><span class="material-icons mx-auto">edit</span></a>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">ServerMessages.cfg</th>
+				<td class="py-1">
+					<a class="btn btn-info d-inline-flex" href="/gameservers/<%=gameserver.Id%>/config/basic/servermessages"><span class="material-icons mx-auto">insert_drive_file</span></a>
+				</td>
 			</tr>
 		</table>
 		<div class="col-12 mb-4">

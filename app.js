@@ -37,16 +37,13 @@ app.use(function (req, res, next)
 app.use(require('./routes/index.js'));
 app.use(require('./routes/account.js'));
 app.use(require('./routes/gameservers.js'));
-app.use(require('./routes/config-editors/basic/server.js'));
-app.use(require('./routes/config-editors/basic/servermessages.js'));
-app.use(require('./routes/config-editors/basic/maprotation.js'));
-app.use(require('./routes/config-editors/basic/motd.js'));
-app.use(require('./routes/config-editors/basic/license.js'));
-app.use(require('./routes/config-editors/basic/rcon.js'));
-app.use(require('./routes/config-editors/basic/admins.js'));
-app.use(require('./routes/config-editors/basic/remoteadminlisthosts.js'));
-app.use(require('./routes/config-editors/basic/bans.js'));
-app.use(require('./routes/config-editors/basic/remotebanlisthosts.js'));
+app.use(require('./routes/config-editors/basic.js'));
+app.use(require('./routes/config-editors/advanced/admins.js'));
+app.use(require('./routes/config-editors/advanced/bans.js'));
+app.use(require('./routes/config-editors/advanced/maprotation.js'));
+app.use(require('./routes/config-editors/advanced/motd.js'));
+app.use(require('./routes/config-editors/advanced/rcon.js'));
+app.use(require('./routes/config-editors/advanced/server.js'));
 
 app.get('/favicon.ico', (req, res) =>
 {

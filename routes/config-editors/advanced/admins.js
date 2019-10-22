@@ -14,42 +14,42 @@ const sql_get_gameserver_by_Id = 'SELECT * FROM GameServer WHERE Id = ?';
 var db = new sqlite3.Database('./db/ssm.db');
 
 
-router.get('/gameservers/:id/config/admins', (req, res) =>
+router.get('/gameservers/:id/config/advanced/admins', (req, res) =>
 {
 	if (req.user)
 	{
-		db.get(sql_get_gameserver_by_Id, req.params.id, function (err, row)
+		db.get(sql_get_gameserver_by_Id, req.params.id, function (err, Row)
 		{
 			if (err) { throw err; }
 			else
 			{
-				if (typeof row !== 'undefined')
+				if (typeof Row !== 'undefined')
 				{
-					var gameserverconfig_admins = {
+					var FileContents = {
 						Groups: {},
 						Admins: []
 					};
 
-					var fileContents = fs.readFileSync(path.join(row.InstallationRoute, '/SquadGame/ServerConfig/Admins.cfg'), "utf8");
+					var rawFileContents = fs.readFileSync(path.join(Row.InstallationRoute, '/SquadGame/ServerConfig/Admins.cfg'), "utf8");
 
-					fileContents = fileContents.replace(regex_remove_comments, "");
+					rawFileContents = rawFileContents.replace(regex_remove_comments, "");
 
-					while ((CapturedGroup = regex_groups.exec(fileContents)) !== null)
+					while ((CapturedGroup = regex_groups.exec(rawFileContents)) !== null)
 					{
-						gameserverconfig_admins.Groups[CapturedGroup.groups.GroupName] = CapturedGroup.groups.Permissions.split(',');
+						FileContents.Groups[CapturedGroup.groups.GroupName] = CapturedGroup.groups.Permissions.split(',');
 					}
-					while ((CapturedGroup = regex_admins.exec(fileContents)) !== null)
+					while ((CapturedGroup = regex_admins.exec(rawFileContents)) !== null)
 					{
-						gameserverconfig_admins.Admins.push({
+						FileContents.Admins.push({
 							ID64: CapturedGroup.groups.ID64,
 							GroupName: CapturedGroup.groups.GroupName,
 							Comment: CapturedGroup.groups.Comment
 						});
 					}
 
-					res.render('gameservers/config/admins', {
-						gameserver: row,
-						gameserverconfig_admins: gameserverconfig_admins
+					res.render('gameservers/config/advanced/admins', {
+						GameServer: Row,
+						FileContents: FileContents
 					});
 				}
 			}
@@ -58,7 +58,7 @@ router.get('/gameservers/:id/config/admins', (req, res) =>
 	else { res.render('login'); }
 });
 
-router.post('/gameservers/:id/config/admins', (req, res) =>
+router.post('/gameservers/:id/config/advanced/admins', (req, res) =>
 {
 	if (req.user)
 	{
